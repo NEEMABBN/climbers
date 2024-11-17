@@ -1,11 +1,19 @@
-import React from "react"
+import React from "react";
+import Navbar from "./Layouts/Navbar";
+import { Route, Routes } from "react-router-dom";
+import router from "./router";
 
 function App() {
   return (
-    <div className="">
-      
+    <div className="w-full flex flex-col items-center overflow-hidden">
+      <Navbar />
+      <Routes>
+        {router.map((item, index) => (
+          <Route key={index} path={item.path} element={item.element} />
+        ))}
+      </Routes>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
