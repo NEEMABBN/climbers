@@ -2,6 +2,7 @@ import React from "react";
 import TemplateV1 from "../../../Components/TemplateV1";
 import Images from "../../../Setting/Images";
 import EachPopularPlaceSlide from "../../../Components/EachPopularPlaceSlide";
+import EachPopularPlaceCategory from "../../../Components/EachPopularPlaceCategory";
 
 export default function PopularPlaces() {
   const categoryData = [
@@ -70,13 +71,11 @@ export default function PopularPlaces() {
           <div className="w-full flex flex-col items-center gap-8">
             <div className="w-full flex items-center gap-5">
               {categoryData.map((item, index) => (
-                <button
+                <EachPopularPlaceCategory
                   key={index}
-                  className="flex items-center gap-2 py-1.5 px-4 bg-white border-solid border-2 border-white rounded-2xl hover:border-Primary transition-all duration-300"
-                >
-                  <img src={item.icon} alt="" className="" />
-                  <span className="text-Secoundray">{item.name}</span>
-                </button>
+                  name={item.name}
+                  icon={item.icon}
+                />
               ))}
             </div>
             <div className="w-full flex items-center gap-4">
