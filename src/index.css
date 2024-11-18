@@ -8,6 +8,48 @@
       max-width: 1351px !important;
     }
   }
+
+  @font-face {
+    font-family: "DanaBold";
+    src: url(./assets/Fonts/Dana/Bold/DanaFaNum-Bold.ttf) format("truetype"),
+      url(./assets/Fonts/Dana/Bold/DanaFaNum-Bold.woff) format("woff"),
+      url(./assets/Fonts/Dana/Bold/DanaFaNum-Bold.woff2) format("woff2")
+  }
+
+  @font-face {
+    font-family: "YekanMedium";
+    src: url(./assets/Fonts/IRYekan/Medium/iranyekanwebmediumfanum.ttf) format("truetype"),
+      url(./assets/Fonts/IRYekan/Medium/iranyekanwebmediumfanum.woff) format("woff")
+  }
+
+  @font-face {
+    font-family: "YekanRegular";
+    src: url(./assets/Fonts/IRYekan/Regular/iranyekanwebregularfanum.ttf) format("truetype"),
+      url(./assets/Fonts/IRYekan/Regular/iranyekanwebregularfanum.woff) format("woff")
+  }
+
+  @font-face {
+    font-family: "YekanBold";
+    src: url(./assets/Fonts/IRYekan/ExtraBold/iranyekanwebextraboldfanum.ttf) format("truetype"),
+      url(./assets/Fonts/IRYekan/ExtraBold/iranyekanwebextraboldfanum.woff) format("woff")
+  }
+}
+
+* {
+  direction: rtl;
+  font-family: "YekanMedium";
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: "DanaBold" !important;
+}
+
+.YekanBold {
+  font-family: "YekanBold" !important;
 }
 
 ::-webkit-scrollbar {
@@ -15,11 +57,11 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #006eff;
+  background: #0E9A8A;
   border-radius: 15px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #1d49b8;
+  background: #0a6f63;
   cursor: grab;
 }
