@@ -2,6 +2,7 @@ import React from "react";
 import HomeHeader from "./_components/HomeHeader";
 import PopularPlaces from "./_components/PopularPlaces";
 import BestTours from "./_components/BestTours";
+import Reports from "./_components/Reports";
 
 export default function Home() {
   return (
@@ -9,6 +10,7 @@ export default function Home() {
       <HomeHeader />
       <PopularPlaces />
       <BestTours />
+      <Reports />
     </div>
   );
 }

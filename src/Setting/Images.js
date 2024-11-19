@@ -6,6 +6,7 @@ import WaterfallIcon from "/src/assets/Images/WaterfallIcon.svg"
 import MountainIcon from "/src/assets/Images/MountainIcon.svg"
 import IslandIcon from "/src/assets/Images/IslandIcon.svg"
 import ForestIcon from "/src/assets/Images/ForestIcon.svg"
+import ForestIconV2 from "/src/assets/Images/ForestIconV2.svg"
 import DesertIcon from "/src/assets/Images/DesertIcon.svg"
 import PopularPlaceSlide1 from "/src/assets/Images/PopularPlaceSlide1.png"
 import PopularPlaceSlide2 from "/src/assets/Images/PopularPlaceSlide2.png"
@@ -20,6 +21,12 @@ import MaharlooLakeCamping from "/src/assets/Images/MaharlooLakeCamping.png"
 import SeaIconV2 from "/src/assets/Images/SeaIconV2.svg"
 import CaveIcon from "/src/assets/Images/CaveIcon.svg"
 import AncientIcon from "/src/assets/Images/AncientIcon.svg"
+import BoatRide from "/src/assets/Images/boatRide.png"
+import HistoricalPlace from "/src/assets/Images/HistoricalPlaces.png"
+import JungleNavigation from "/src/assets/Images/JungleNavigation.png"
+import Fishing from "/src/assets/Images/Fishing.png"
+import FamilyNavigation from "/src/assets/Images/FamilyNavigation.png"
+
 
 const Images = {
     Logo: Logo,
@@ -31,6 +38,7 @@ const Images = {
     MountainIcon: MountainIcon,
     IslandIcon: IslandIcon,
     ForestIcon: ForestIcon,
+    ForestIconV2: ForestIconV2,
     DesertIcon: DesertIcon,
     CaveIcon: CaveIcon,
     AncientIcon: AncientIcon,
@@ -44,6 +52,11 @@ const Images = {
     ExcursionKandavanVillage: ExcursionKandavanVillage,
     VisitingKish: VisitingKish,
     MaharlooLakeCamping: MaharlooLakeCamping,
+    BoatRide: BoatRide,
+    HistoricalPlace: HistoricalPlace,
+    JungleNavigation: JungleNavigation,
+    Fishing: Fishing,
+    FamilyNavigation: FamilyNavigation,
 }
 
-export default Images
+export default Images;

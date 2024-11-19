@@ -83,8 +83,10 @@ export default function PopularPlaces() {
                 <EachPopularPlaceSlide
                   key={index}
                   image={item.image}
-                  city={item.city}
+                  location={item.city}
                   province={item.province}
+                  version1={true}
+                  version2={false}
                 />
               ))}
             </div>
