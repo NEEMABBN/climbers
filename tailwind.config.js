@@ -12,6 +12,7 @@ export default {
         Titles: "#2C3639",
         Borders: "#EEEEEE",
         Disable: "#B0AFA9",
+        CustomBlack: "#00000066",
       }
     },
   },
