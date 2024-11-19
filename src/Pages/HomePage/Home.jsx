@@ -4,6 +4,7 @@ import PopularPlaces from "./_components/PopularPlaces";
 import BestTours from "./_components/BestTours";
 import Reports from "./_components/Reports";
 import TripReport from "./_components/TripReport";
+import ActiveTeams from "./_components/ActiveTeams";
 
 export default function Home() {
   return (
@@ -13,6 +14,7 @@ export default function Home() {
       <BestTours />
       <Reports />
       <TripReport />
+      <ActiveTeams />
     </div>
   );
 }

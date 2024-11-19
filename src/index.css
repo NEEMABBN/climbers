@@ -52,6 +52,10 @@ h5 {
   font-family: "YekanBold" !important;
 }
 
+.YekanReg {
+  font-family: "YekanRegular";
+}
+
 ::-webkit-scrollbar {
   width: 7px;
 }

@@ -28,7 +28,10 @@ import Fishing from "/src/assets/Images/Fishing.png"
 import FamilyNavigation from "/src/assets/Images/FamilyNavigation.png"
 import GirlAtJungle from "/src/assets/Images/GirlOpenedHand.png"
 import LinearSVG from "/src/assets/Images/LinearLocation.svg"
-
+import ParmisCompany from "/src/assets/Images/ParmisCompany.png"
+import AbnoosCompany from "/src/assets/Images/AbnoosCompany.png"
+import TahaAirCompany from "/src/assets/Images/TahaAirCompany.png"
+import ElhamAirCompany from "/src/assets/Images/ElhamAirCompany.png"
 
 const Images = {
     Logo: Logo,
@@ -61,6 +64,10 @@ const Images = {
     FamilyNavigation: FamilyNavigation,
     GirlAtJungle: GirlAtJungle,
     LinearSVG: LinearSVG,
+    ParmisCompany: ParmisCompany,
+    AbnoosCompany: AbnoosCompany,
+    TahaAirCompany: TahaAirCompany,
+    ElhamAirCompany: ElhamAirCompany,
 }
 
 export default Images;
