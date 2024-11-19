@@ -32,6 +32,11 @@ import ParmisCompany from "/src/assets/Images/ParmisCompany.png"
 import AbnoosCompany from "/src/assets/Images/AbnoosCompany.png"
 import TahaAirCompany from "/src/assets/Images/TahaAirCompany.png"
 import ElhamAirCompany from "/src/assets/Images/ElhamAirCompany.png"
+import ClimbingShoes from "/src/assets/Images/ClimbingShoes.png"
+import Bag from "/src/assets/Images/Bag.png"
+import ClimbingCane from "/src/assets/Images/ClimbingCane.png"
+import Flask from "/src/assets/Images/Flask.png"
+import MountaineeringBackpack from "/src/assets/Images/MountaineeringBackpack.png"
 
 const Images = {
     Logo: Logo,
@@ -68,6 +73,11 @@ const Images = {
     AbnoosCompany: AbnoosCompany,
     TahaAirCompany: TahaAirCompany,
     ElhamAirCompany: ElhamAirCompany,
+    ClimbingShoes: ClimbingShoes,
+    Bag: Bag,
+    ClimbingCane: ClimbingCane,
+    Flask: Flask,
+    MountaineeringBackpack: MountaineeringBackpack,
 }
 
 export default Images;

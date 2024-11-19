@@ -5,6 +5,7 @@ import BestTours from "./_components/BestTours";
 import Reports from "./_components/Reports";
 import TripReport from "./_components/TripReport";
 import ActiveTeams from "./_components/ActiveTeams";
+import NewProducts from "./_components/NewProducts";
 
 export default function Home() {
   return (
@@ -15,6 +16,7 @@ export default function Home() {
       <Reports />
       <TripReport />
       <ActiveTeams />
+      <NewProducts />
     </div>
   );
 }
