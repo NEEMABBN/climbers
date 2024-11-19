@@ -26,6 +26,8 @@ import HistoricalPlace from "/src/assets/Images/HistoricalPlaces.png"
 import JungleNavigation from "/src/assets/Images/JungleNavigation.png"
 import Fishing from "/src/assets/Images/Fishing.png"
 import FamilyNavigation from "/src/assets/Images/FamilyNavigation.png"
+import GirlAtJungle from "/src/assets/Images/GirlOpenedHand.png"
+import LinearSVG from "/src/assets/Images/LinearLocation.svg"
 
 
 const Images = {
@@ -57,6 +59,8 @@ const Images = {
     JungleNavigation: JungleNavigation,
     Fishing: Fishing,
     FamilyNavigation: FamilyNavigation,
+    GirlAtJungle: GirlAtJungle,
+    LinearSVG: LinearSVG,
 }
 
 export default Images;
