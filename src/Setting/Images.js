@@ -42,6 +42,7 @@ import BlogWomanWithMask from "/src/assets/Images/WomanWithMask-Blog.png"
 import BlogFlashlight from "/src/assets/Images/Flashlight-Blog.png"
 import BlogFearOfFalling from "/src/assets/Images/FearOfFalling-Blog.png"
 import BlogUserProfile from "/src/assets/Images/BlogUserProfile.png"
+import Quotation from "/src/assets/Images/quote-down.svg"
 
 const Images = {
     Logo: Logo,
@@ -88,6 +89,7 @@ const Images = {
     BlogFlashlight: BlogFlashlight,
     BlogFearOfFalling: BlogFearOfFalling,
     BlogUserProfile: BlogUserProfile,
+    Quotation: Quotation,
 }
 
 export default Images;

@@ -7,6 +7,7 @@ import TripReport from "./_components/TripReport";
 import ActiveTeams from "./_components/ActiveTeams";
 import NewProducts from "./_components/NewProducts";
 import BlogSlides from "./_components/BlogSlides";
+import CommentsSection from "./_components/CommentsSection";
 
 export default function Home() {
   return (
@@ -19,6 +20,7 @@ export default function Home() {
       <ActiveTeams />
       <NewProducts />
       <BlogSlides />
+      <CommentsSection />
     </div>
   );
 }
