@@ -43,6 +43,9 @@ import BlogFlashlight from "/src/assets/Images/Flashlight-Blog.png"
 import BlogFearOfFalling from "/src/assets/Images/FearOfFalling-Blog.png"
 import BlogUserProfile from "/src/assets/Images/BlogUserProfile.png"
 import Quotation from "/src/assets/Images/quote-down.svg"
+import CupIcon from "/src/assets/Images/CupIcon.svg"
+import CashIcon from "/src/assets/Images/CashIcon.svg"
+import LeadersIcon from "/src/assets/Images/LeadersIcon.svg"
 
 const Images = {
     Logo: Logo,
@@ -90,6 +93,9 @@ const Images = {
     BlogFearOfFalling: BlogFearOfFalling,
     BlogUserProfile: BlogUserProfile,
     Quotation: Quotation,
+    CupIcon: CupIcon,
+    CashIcon: CashIcon,
+    LeadersIcon: LeadersIcon,
 }
 
 export default Images;

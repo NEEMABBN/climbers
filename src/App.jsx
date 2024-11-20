@@ -2,6 +2,7 @@ import React from "react";
 import Navbar from "./Layouts/Navbar";
 import { Route, Routes } from "react-router-dom";
 import router from "./router";
+import Footer from "./Layouts/Footer";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
           <Route key={index} path={item.path} element={item.element} />
         ))}
       </Routes>
+      <Footer />
     </div>
   );
 }
