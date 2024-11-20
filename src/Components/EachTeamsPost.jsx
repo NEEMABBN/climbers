@@ -1,6 +1,7 @@
 import React from "react";
-import { FaChevronLeft, FaRegHeart } from "react-icons/fa";
+import { FaRegHeart } from "react-icons/fa";
 import { GoStarFill } from "react-icons/go";
+import DetailButton from "./DetailButton";
 
 export default function EachTeamsPost({
   image,
@@ -48,10 +49,7 @@ export default function EachTeamsPost({
             <GoStarFill className="text-[#F2CB00] text-base" />
           </span>
         </div>
-        <button className="text-Primary flex items-center gap-4">
-          مشاهده جزئیات
-          <FaChevronLeft />
-        </button>
+        <DetailButton />
       </div>
     </div>
   );

@@ -37,6 +37,11 @@ import Bag from "/src/assets/Images/Bag.png"
 import ClimbingCane from "/src/assets/Images/ClimbingCane.png"
 import Flask from "/src/assets/Images/Flask.png"
 import MountaineeringBackpack from "/src/assets/Images/MountaineeringBackpack.png"
+import BlogJacket from "/src/assets/Images/Jacket-Blog.png"
+import BlogWomanWithMask from "/src/assets/Images/WomanWithMask-Blog.png"
+import BlogFlashlight from "/src/assets/Images/Flashlight-Blog.png"
+import BlogFearOfFalling from "/src/assets/Images/FearOfFalling-Blog.png"
+import BlogUserProfile from "/src/assets/Images/BlogUserProfile.png"
 
 const Images = {
     Logo: Logo,
@@ -78,6 +83,11 @@ const Images = {
     ClimbingCane: ClimbingCane,
     Flask: Flask,
     MountaineeringBackpack: MountaineeringBackpack,
+    BlogJacket: BlogJacket,
+    BlogWomanWithMask: BlogWomanWithMask,
+    BlogFlashlight: BlogFlashlight,
+    BlogFearOfFalling: BlogFearOfFalling,
+    BlogUserProfile: BlogUserProfile,
 }
 
 export default Images;

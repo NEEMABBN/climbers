@@ -6,6 +6,7 @@ import Reports from "./_components/Reports";
 import TripReport from "./_components/TripReport";
 import ActiveTeams from "./_components/ActiveTeams";
 import NewProducts from "./_components/NewProducts";
+import BlogSlides from "./_components/BlogSlides";
 
 export default function Home() {
   return (
@@ -17,6 +18,7 @@ export default function Home() {
       <TripReport />
       <ActiveTeams />
       <NewProducts />
+      <BlogSlides />
     </div>
   );
 }
