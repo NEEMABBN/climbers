@@ -48,7 +48,7 @@ export default function EachToursPost({
         </div>
         <div className="flex items-center gap-1">
           <span className="text-Secoundray">{price}</span>
-          <span className="text-Disable">تومان</span>
+          <span className="text-Disable text-sm">تومان</span>
         </div>
       </div>
     </div>
