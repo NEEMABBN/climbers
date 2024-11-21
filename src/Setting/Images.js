@@ -1,6 +1,7 @@
 import Logo from "/src/assets/Images/Logo.png"
 import LogoMobile from "/src/assets/Images/Logo-Mobile.png"
 import HomeHeaderSlide1 from "/src/assets/Images/HomeBanerSlide1.png"
+import HomeHeaderSlide1Mobile from "/src/assets/Images/HomeBanerSlide1Mobile.png"
 import BestPlaceIcon from "/src/assets/Images/BestPlaceIcon.svg"
 import SeaIcon from "/src/assets/Images/seaIcon.svg"
 import WaterfallIcon from "/src/assets/Images/WaterfallIcon.svg"
@@ -52,6 +53,7 @@ const Images = {
     Logo: Logo,
     LogoMobile: LogoMobile,
     HomeHeaderSlide1: HomeHeaderSlide1,
+    HomeHeaderSlide1Mobile: HomeHeaderSlide1Mobile,
     BestPlaceIcon: BestPlaceIcon,
     SeaIcon: SeaIcon,
     SeaIconV2: SeaIconV2,

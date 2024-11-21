@@ -9,18 +9,22 @@ export default function HomeHeader() {
   const data = [
     {
       image: Images.HomeHeaderSlide1,
+      imageMobile: Images.HomeHeaderSlide1Mobile,
       information: "رشته کوه‌های البرز",
     },
     {
       image: Images.HomeHeaderSlide1,
+      imageMobile: Images.HomeHeaderSlide1Mobile,
       information: "رشته کوه‌های دماوند",
     },
     {
       image: Images.HomeHeaderSlide1,
+      imageMobile: Images.HomeHeaderSlide1Mobile,
       information: "رشته کوه‌های زاگرس",
     },
     {
       image: Images.HomeHeaderSlide1,
+      imageMobile: Images.HomeHeaderSlide1Mobile,
       information: "رشته کوه‌های آلپ",
     },
   ];
@@ -38,7 +42,11 @@ export default function HomeHeader() {
       >
         {data.map((item, index) => (
           <SwiperSlide key={index}>
-            <EachHeaderSlide image={item.image} info={item.information} />
+            <EachHeaderSlide
+              image={item.image}
+              imageMobile={item.imageMobile}
+              info={item.information}
+            />
           </SwiperSlide>
         ))}
       </Swiper>
