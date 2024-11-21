@@ -65,8 +65,22 @@ export default function NewProducts() {
         title="جدیدترین کالا‌ها"
         children={
           <Swiper
-            slidesPerView={4}
-            spaceBetween={13}
+            slidesPerView={1.5}
+            spaceBetween={10}
+            breakpoints={{
+              640: {
+                slidesPerView: 2,
+                spaceBetween: 10,
+              },
+              768: {
+                slidesPerView: 3,
+                spaceBetween: 10,
+              },
+              1024: {
+                slidesPerView: 4,
+                spaceBetween: 13,
+              },
+            }}
             dir="rtl"
             loop={true}
             pagination={{

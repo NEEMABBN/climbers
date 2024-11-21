@@ -31,9 +31,11 @@ export default function EachToursPost({
         <img src={image} alt="" className="" />
       </div>
 
-      <h3 className="w-full text-start text-Secoundray px-2">{location}</h3>
+      <h3 className="w-full text-start text-Secoundray px-2 line-clamp-1">
+        {location}
+      </h3>
       <div className="w-full flex items-center justify-between px-2">
-        <span className="text-Disable text-sm">{agency}</span>
+        <span className="text-Disable text-sm line-clamp-1">{agency}</span>
         <span className="flex items-center gap-1 text-sm">
           {rate}
           <GoStarFill className="text-[#F2CB00] text-lg" />

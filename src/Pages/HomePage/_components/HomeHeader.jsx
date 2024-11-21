@@ -26,7 +26,7 @@ export default function HomeHeader() {
   ];
 
   return (
-    <header className="container mx-auto flex items-center pt-10 pb-20">
+    <header className="container mx-auto flex items-center pt-10 pb-20 sm:px-0 px-3">
       <Swiper
         spaceBetween={10}
         autoplay={{

@@ -2,6 +2,9 @@ import React from "react";
 import TemplateV1 from "../../../Components/TemplateV1";
 import Images from "../../../Setting/Images";
 import EachToursPost from "../../../Components/EachToursPost";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/pagination";
 
 export default function BestTours() {
   const toursData = [
@@ -72,22 +75,60 @@ export default function BestTours() {
       <TemplateV1
         title="متنوع‌ترین و بهترین تورها"
         children={
-          <div className="w-full flex items-center gap-2">
-            {toursData.map((item, index) => (
-              <EachToursPost
-                key={index}
-                image={item.image}
-                categoryIcom={item.categoryIcon}
-                categoryName={item.categoryName}
-                location={item.location}
-                agency={item.agency}
-                rate={item.rate}
-                startDate={item.StartDate}
-                endDate={item.EndDate}
-                month={item.Month}
-                price={item.price}
-              />
-            ))}
+          <div className="w-full">
+            <Swiper
+              slidesPerView={1.5}
+              spaceBetween={10}
+              breakpoints={{
+                640: {
+                  slidesPerView: 2,
+                  spaceBetween: 10,
+                },
+                800: {
+                  slidesPerView: 3,
+                  spaceBetween: 10,
+                },
+                1024: {
+                  slidesPerView: 4,
+                  spaceBetween: 15,
+                },
+              }}
+              className="mySwiper xl:!hidden"
+            >
+              {toursData.map((item, index) => (
+                <SwiperSlide key={index}>
+                  <EachToursPost
+                    image={item.image}
+                    categoryIcom={item.categoryIcon}
+                    categoryName={item.categoryName}
+                    location={item.location}
+                    agency={item.agency}
+                    rate={item.rate}
+                    startDate={item.StartDate}
+                    endDate={item.EndDate}
+                    month={item.Month}
+                    price={item.price}
+                  />
+                </SwiperSlide>
+              ))}
+            </Swiper>
+            <div className="w-full xl:flex hidden items-center gap-2">
+              {toursData.map((item, index) => (
+                <EachToursPost
+                  key={index}
+                  image={item.image}
+                  categoryIcom={item.categoryIcon}
+                  categoryName={item.categoryName}
+                  location={item.location}
+                  agency={item.agency}
+                  rate={item.rate}
+                  startDate={item.StartDate}
+                  endDate={item.EndDate}
+                  month={item.Month}
+                  price={item.price}
+                />
+              ))}
+            </div>
           </div>
         }
       />

@@ -17,7 +17,7 @@ export default function NavbarItem() {
   }, [location]);
 
   return (
-    <div className="w-full border-solid border-y-[1px] border-Borders">
+    <div className="md:flex hidden w-full border-solid border-y-[1px] border-Borders">
       <ul className="container mx-auto flex items-center justify-start relative gap-3 py-2">
         <li>
           <NavLink

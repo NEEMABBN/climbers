@@ -10,24 +10,28 @@ import { IoCallOutline, IoLocationOutline } from "react-icons/io5";
 export default function Footer() {
   return (
     <div className="w-full py-16 bg-Borders flex flex-col items-center gap-10">
-      <div className="container mx-auto flex items-center justify-center gap-10">
-        <div className="flex items-center justify-start bg-white rounded-2xl pl-8 gap-7">
+      <div className="container mx-auto flex lg:flex-row flex-col-reverse items-center justify-center lg:gap-10 gap-5">
+        <div className="md:w-auto w-[270px] flex items-center justify-start bg-white rounded-2xl md:pl-8 md:gap-7 gap-2">
           <img src={Images.CupIcon} alt="" className="w-[45px]" />
-          <span className="text-Secoundray">کیفیت بالای خدمات</span>
+          <span className="text-Secoundray md:text-base text-sm">
+            کیفیت بالای خدمات
+          </span>
         </div>
-        <div className="flex items-center justify-start bg-white rounded-2xl pl-8 gap-7">
+        <div className="md:w-auto w-[270px] flex items-center justify-start bg-white rounded-2xl md:pl-8 md:gap-7 gap-2">
           <img src={Images.CashIcon} alt="" className="w-[45px]" />
-          <span className="text-Secoundray">مناسب با بودجه شما</span>
+          <span className="text-Secoundray md:text-base text-sm">
+            مناسب با بودجه شما
+          </span>
         </div>
-        <div className="flex items-center justify-start bg-white rounded-2xl pl-8 gap-7">
+        <div className="md:w-auto w-[270px] flex items-center justify-start bg-white rounded-2xl md:pl-8 md:gap-7 gap-2">
           <img src={Images.LeadersIcon} alt="" className="w-[45px]" />
-          <span className="text-Secoundray">
+          <span className="text-Secoundray md:text-base text-sm">
             تورلیدرهای حرفه‌ای و تایید شده
           </span>
         </div>
       </div>
       <div className="w-full border-solid border-y-2 border-white">
-        <div className="container mx-auto flex items-center justify-between py-5">
+        <div className="container mx-auto flex lg:flex-row flex-col items-center justify-between py-5 lg:gap-0 gap-5">
           <img src={Images.Logo} alt="" className="w-[117px]" />
           <FooterNavItem />
           <div className="flex items-center gap-4">
@@ -43,10 +47,10 @@ export default function Footer() {
           </div>
         </div>
       </div>
-      <div className="container mx-auto flex items-center justify-between">
-        <div className="w-1/2 flex flex-col items-start gap-2.5">
+      <div className="container mx-auto sm:px-0 px-3 flex sm:flex-row flex-col items-center justify-between lg:gap-0 sm:gap-5 gap-7">
+        <div className="sm:w-1/2 w-full flex flex-col items-start gap-2.5">
           <span className="text-Secoundray font-semibold">چرا کوهنورد؟</span>
-          <p className="text-Secoundray line-clamp-3 text-sm leading-6">
+          <p className="text-Secoundray sm:line-clamp-3 text-sm leading-6">
             لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با
             استفاده از طراحان گرافیک است لورم ایپسوم متن ساختگی با تولید سادگی
             نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک استلورم ایپسوم متن
@@ -59,8 +63,12 @@ export default function Footer() {
           <div className="flex items-center gap-2">
             <IoCallOutline className="text-Primary text-2xl" />
             <div className="flex items-center gap-5">
-              <span className="text-Secoundray">09875653463</span>
-              <span className="text-Secoundray">09875653463</span>
+              <span className="text-Secoundray sm:text-base text-sm">
+                09875653463
+              </span>
+              <span className="text-Secoundray sm:text-base text-sm">
+                09875653463
+              </span>
             </div>
           </div>
           <div className="flex items-center gap-2">

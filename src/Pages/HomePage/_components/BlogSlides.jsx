@@ -2,6 +2,9 @@ import React from "react";
 import TemplateV1 from "../../../Components/TemplateV1";
 import Images from "../../../Setting/Images";
 import EachBlogPost from "../../../Components/EachBlogPost";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/pagination";
 
 export default function BlogSlides() {
   const blogData = [
@@ -48,18 +51,48 @@ export default function BlogSlides() {
       <TemplateV1
         title="بلاگ"
         children={
-          <div className="w-full flex items-center gap-3">
-            {blogData.map((item, index) => (
-              <EachBlogPost
-                key={index}
-                image={item.image}
-                date={item.date}
-                title={item.title}
-                description={item.description}
-                userProfile={item.userProfile}
-                userName={item.userName}
-              />
-            ))}
+          <div className="w-full">
+            <Swiper
+              slidesPerView={1.2}
+              spaceBetween={8}
+              breakpoints={{
+                800: {
+                  slidesPerView: 2,
+                  spaceBetween: 15,
+                },
+                1024: {
+                  slidesPerView: 3,
+                  spaceBetween: 15,
+                },
+              }}
+              className="mySwiper xl:!hidden"
+            >
+              {blogData.map((item, index) => (
+                <SwiperSlide key={index}>
+                  <EachBlogPost
+                    image={item.image}
+                    date={item.date}
+                    title={item.title}
+                    description={item.description}
+                    userProfile={item.userProfile}
+                    userName={item.userName}
+                  />
+                </SwiperSlide>
+              ))}
+            </Swiper>
+            <div className="w-full xl:flex hidden items-center gap-3">
+              {blogData.map((item, index) => (
+                <EachBlogPost
+                  key={index}
+                  image={item.image}
+                  date={item.date}
+                  title={item.title}
+                  description={item.description}
+                  userProfile={item.userProfile}
+                  userName={item.userName}
+                />
+              ))}
+            </div>
           </div>
         }
       />

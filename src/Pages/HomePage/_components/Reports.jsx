@@ -2,6 +2,9 @@ import React from "react";
 import TemplateV1 from "../../../Components/TemplateV1";
 import EachPopularPlaceSlide from "../../../Components/EachPopularPlaceSlide";
 import Images from "../../../Setting/Images";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/pagination";
 
 export default function Reports() {
   const reportsData = [
@@ -52,20 +55,56 @@ export default function Reports() {
       <TemplateV1
         title="گزارش برنامه‌ها"
         children={
-          <div className="w-full flex items-center gap-4">
-            {reportsData.map((item, index) => (
-              <EachPopularPlaceSlide
-                key={index}
-                image={item.image}
-                location={item.location}
-                categoryIcom={item.categoryIcon}
-                categoryName={item.categoryName}
-                rate={item.rate}
-                user={item.user}
-                version1={false}
-                version2={true}
-              />
-            ))}
+          <div className="w-full">
+            <Swiper
+              slidesPerView={1.5}
+              spaceBetween={10}
+              breakpoints={{
+                640: {
+                  slidesPerView: 2,
+                  spaceBetween: 10,
+                },
+                768: {
+                  slidesPerView: 3,
+                  spaceBetween: 15,
+                },
+                1024: {
+                  slidesPerView: 4,
+                  spaceBetween: 15,
+                },
+              }}
+              className="mySwiper xl:!hidden"
+            >
+              {reportsData.map((item, index) => (
+                <SwiperSlide key={index}>
+                  <EachPopularPlaceSlide
+                    image={item.image}
+                    location={item.location}
+                    categoryIcom={item.categoryIcon}
+                    categoryName={item.categoryName}
+                    rate={item.rate}
+                    user={item.user}
+                    version1={false}
+                    version2={true}
+                  />
+                </SwiperSlide>
+              ))}
+            </Swiper>
+            <div className="w-full xl:flex hidden items-center gap-4">
+              {reportsData.map((item, index) => (
+                <EachPopularPlaceSlide
+                  key={index}
+                  image={item.image}
+                  location={item.location}
+                  categoryIcom={item.categoryIcon}
+                  categoryName={item.categoryName}
+                  rate={item.rate}
+                  user={item.user}
+                  version1={false}
+                  version2={true}
+                />
+              ))}
+            </div>
           </div>
         }
       />

@@ -93,17 +93,21 @@ export default function CommentsSection() {
 
   const breakpointColumnsObj = {
     default: 5,
-    1024: 3,
+    1240: 4,
+    1023: 3,
     768: 2,
-    500: 1,
+    640: 1,
   };
 
   return (
     <div className="container mx-auto flex flex-col items-center py-24 gap-12">
       <h2 className="text-3xl text-Titles">نظرات کاربران</h2>
       <div className="w-full flex flex-col items-center overflow-hidden">
-        <div className="w-full flex h-[650px] overflow-hidden">
-          <Masonry breakpointCols={breakpointColumnsObj} className="flex gap-3">
+        <div className="w-full flex h-[650px] overflow-hidden sm:px-0 px-3">
+          <Masonry
+            breakpointCols={breakpointColumnsObj}
+            className="flex gap-3 w-full"
+          >
             {commentData.map((item, index) => (
               <EachCommentBoxItem
                 key={index}

@@ -2,6 +2,9 @@ import React from "react";
 import TemplateV1 from "../../../Components/TemplateV1";
 import Images from "../../../Setting/Images";
 import EachTeamsPost from "../../../Components/EachTeamsPost";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/pagination";
 
 export default function ActiveTeams() {
   const teamsData = [
@@ -48,19 +51,46 @@ export default function ActiveTeams() {
       <TemplateV1
         title="فعال‌ترین تیم‌ها"
         children={
-          <div className="w-full grid grid-cols-2 gap-4">
-            {teamsData.map((item, index) => (
-              <EachTeamsPost
-                key={index}
-                image={item.companyImage}
-                name={item.companyName}
-                workArea={item.companyWorkArea}
-                experience={item.experience}
-                origin={item.originCity}
-                trips={item.tripsNumber}
-                rate={item.rate}
-              />
-            ))}
+          <div className="w-full">
+            <Swiper
+              slidesPerView={1.1}
+              spaceBetween={5}
+              breakpoints={{
+                640: {
+                  slidesPerView: 1,
+                  spaceBetween: 10,
+                },
+              }}
+              className="mySwiper xl:!hidden"
+            >
+              {teamsData.map((item, index) => (
+                <SwiperSlide key={index}>
+                  <EachTeamsPost
+                    image={item.companyImage}
+                    name={item.companyName}
+                    workArea={item.companyWorkArea}
+                    experience={item.experience}
+                    origin={item.originCity}
+                    trips={item.tripsNumber}
+                    rate={item.rate}
+                  />
+                </SwiperSlide>
+              ))}
+            </Swiper>
+            <div className="w-full xl:grid hidden grid-cols-2 gap-4">
+              {teamsData.map((item, index) => (
+                <EachTeamsPost
+                  key={index}
+                  image={item.companyImage}
+                  name={item.companyName}
+                  workArea={item.companyWorkArea}
+                  experience={item.experience}
+                  origin={item.originCity}
+                  trips={item.tripsNumber}
+                  rate={item.rate}
+                />
+              ))}
+            </div>
           </div>
         }
       />

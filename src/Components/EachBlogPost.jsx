@@ -14,7 +14,7 @@ export default function EachBlogPost({
       <img
         src={image}
         alt=""
-        className="w-[380px] min-w-[310px] h-[200px] rounded-2xl overflow-hidden"
+        className="xl:min-w-[300px] xl:h-[200px] rounded-2xl overflow-hidden"
       />
       <span className="text-Disable text-sm w-full text-start px-2">
         {date}

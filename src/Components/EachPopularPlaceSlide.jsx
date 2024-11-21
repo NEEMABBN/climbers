@@ -14,7 +14,7 @@ export default function EachPopularPlaceSlide({
   rate,
 }) {
   return (
-    <div className="w-[300px] flex relative z-[2] rounded-2xl overflow-hidden group">
+    <div className="xl:w-[300px] w-auto flex relative z-[2] rounded-2xl overflow-hidden group">
       <div
         className={`${
           version2 ? "flex" : "hidden"
