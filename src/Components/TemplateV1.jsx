@@ -13,7 +13,7 @@ export default function TemplateV1({ title, children, links }) {
           نمایش همه
         </Link>
       </div>
-      <div className="w-full sm:mr-0 mr-5">{children}</div>
+      <div className="w-full sm:pr-0 pr-2">{children}</div>
       <Link
         to={links}
         className="bg-white md:hidden block text-Primary border-solid border-2 border-Primary rounded-2xl px-4 py-2"
