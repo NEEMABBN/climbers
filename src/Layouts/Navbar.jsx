@@ -1,15 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import { FiSearch } from "react-icons/fi";
 import Images from "../Setting/Images";
 import NavbarItem from "../Components/NavbarItem";
 import { IoMenu } from "react-icons/io5";
+import SideMenu from "./SideMenu";
 
 export default function Navbar() {
+  const [isOpen, setIsOpen] = useState(false);
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
+
   return (
     <div className="w-full flex flex-col items-center">
       <div className="container mx-auto flex items-center justify-between py-4 sm:px-0 px-3">
         <div className="flex items-center md:gap-5 gap-3">
-          <button className="md:hidden flex">
+          <button onClick={toggleMenu} className="md:hidden flex">
             <IoMenu className="text-Secoundray text-3xl" />
           </button>
           <img src={Images.Logo} alt="" className="w-[117px] md:block hidden" />
@@ -42,6 +48,7 @@ export default function Navbar() {
           />
         </div>
       </div>
+      <SideMenu isOpen={isOpen} toggleMenu={toggleMenu} />
     </div>
   );
 }
