@@ -7,7 +7,7 @@ export default function SideMenu({ isOpen, toggleMenu }) {
     <div
       className={`${
         isOpen ? "right-0" : "right-[-30rem]"
-      } fixed top-0 transition-all duration-300 pt-7 bg-white flex flex-col items-center z-50 w-[60%] h-screen shadow-[0_0_50px_-10px_rgba(14,154,138,0.45)]`}
+      } fixed top-0 transition-all duration-300 pt-7 bg-white md:hidden flex flex-col items-center z-50 w-[60%] h-screen shadow-[0_0_90px_-20px_rgba(14,154,138,0.40)]`}
     >
       <button
         onClick={toggleMenu}
