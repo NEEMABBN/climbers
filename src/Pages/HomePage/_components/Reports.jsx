@@ -54,6 +54,7 @@ export default function Reports() {
     <div className="w-full py-16">
       <TemplateV1
         title="گزارش برنامه‌ها"
+        links="/Reports"
         children={
           <div className="w-full">
             <Swiper

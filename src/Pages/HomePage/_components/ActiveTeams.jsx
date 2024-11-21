@@ -50,6 +50,7 @@ export default function ActiveTeams() {
     <div className="w-full flex py-16 bg-[#EAEAEA87]">
       <TemplateV1
         title="فعال‌ترین تیم‌ها"
+        links="/Contact"
         children={
           <div className="w-full">
             <Swiper

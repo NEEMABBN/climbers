@@ -63,6 +63,7 @@ export default function NewProducts() {
     <div className="w-full bg-[#09695D] py-16">
       <TemplateV1
         title="جدیدترین کالا‌ها"
+        links="/somepage"
         children={
           <Swiper
             slidesPerView={1.5}

@@ -74,6 +74,7 @@ export default function BestTours() {
     <div className="w-full py-16">
       <TemplateV1
         title="متنوع‌ترین و بهترین تورها"
+        links="/Tours"
         children={
           <div className="w-full">
             <Swiper

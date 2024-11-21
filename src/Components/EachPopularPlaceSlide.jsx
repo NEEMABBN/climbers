@@ -36,8 +36,10 @@ export default function EachPopularPlaceSlide({
       </button>
       <img src={image} alt="" className="w-full" />
       <div
-        className={`w-full flex items-center justify-start py-3.5 px-3 gap-1 absolute bg-[#00000066] rounded-2xl transition-all duration-200 right-0 left-0 ${
-          version2 ? "group-hover:bottom-0 bottom-[-2.4rem]" : "bottom-0"
+        className={`w-full flex items-center justify-start py-3.5 px-3 gap-1 absolute bg-[#00000066] transition-all duration-200 right-0 left-0 ${
+          version2
+            ? "group-hover:bottom-0 bottom-[-2.4rem] rounded-2xl group-hover:rounded-none"
+            : "bottom-0 rounded-2xl"
         }`}
       >
         <span className={`${version1 ? "flex" : "hidden"} text-white`}>

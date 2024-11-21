@@ -50,6 +50,7 @@ export default function BlogSlides() {
     <div className="w-full flex py-16 bg-white shadow-[0_0_50px_-15px_rgba(14,154,138,0.35)]">
       <TemplateV1
         title="بلاگ"
+        links="/Blogs"
         children={
           <div className="w-full">
             <Swiper

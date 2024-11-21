@@ -70,6 +70,7 @@ export default function PopularPlaces() {
     <div className="w-full bg-[#DFE5E587] py-16">
       <TemplateV1
         title="مکان‌های محبوب گردشگری"
+        links="/Agencies"
         children={
           <div className="w-full flex flex-col items-center gap-8">
             <div className="w-full">
