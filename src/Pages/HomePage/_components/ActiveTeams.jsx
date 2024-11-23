@@ -47,7 +47,7 @@ export default function ActiveTeams() {
   ];
 
   return (
-    <div className="w-full flex py-16 bg-[#EAEAEA87]">
+    <div className="w-full flex py-12 bg-[#EAEAEA87]">
       <TemplateV1
         title="فعال‌ترین تیم‌ها"
         links="/Contact"
@@ -55,14 +55,14 @@ export default function ActiveTeams() {
           <div className="w-full">
             <Swiper
               slidesPerView={1.1}
-              spaceBetween={5}
+              spaceBetween={8}
               breakpoints={{
                 640: {
                   slidesPerView: 1,
-                  spaceBetween: 10,
+                  spaceBetween: 15,
                 },
               }}
-              className="mySwiper xl:!hidden"
+              className="mySwiper xl:!hidden !py-10 !px-2"
             >
               {teamsData.map((item, index) => (
                 <SwiperSlide key={index}>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import TemplateV1 from "../../../Components/TemplateV1";
 import Images from "../../../Setting/Images";
 import EachPopularPlaceSlide from "../../../Components/EachPopularPlaceSlide";
@@ -249,7 +249,7 @@ export default function PopularPlaces() {
       category: "کویر",
     },
   ];
-
+  const swiperRef = useRef(null);
   const [allPosts] = useState(postData);
   const [filteredPosts, setFilteredPosts] = useState(
     allPosts.filter((post) => post.category === "برترین‌ها")
@@ -260,6 +260,9 @@ export default function PopularPlaces() {
     setActiveCategory(category);
     const filtered = allPosts.filter((post) => post.category === category);
     setFilteredPosts(filtered);
+    if (swiperRef.current) {
+      swiperRef.current.slideTo(0);
+    }
   };
 
   return (
@@ -322,6 +325,7 @@ export default function PopularPlaces() {
 
             <div className="w-full">
               <Swiper
+                onSwiper={(swiper) => (swiperRef.current = swiper)}
                 slidesPerView={1.5}
                 spaceBetween={10}
                 breakpoints={{

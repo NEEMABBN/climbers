@@ -71,7 +71,7 @@ export default function BestTours() {
   ];
 
   return (
-    <div className="w-full py-16">
+    <div className="w-full py-12">
       <TemplateV1
         title="متنوع‌ترین و بهترین تورها"
         links="/Tours"
@@ -83,18 +83,18 @@ export default function BestTours() {
               breakpoints={{
                 640: {
                   slidesPerView: 2,
-                  spaceBetween: 10,
+                  spaceBetween: 15,
                 },
                 800: {
                   slidesPerView: 3,
-                  spaceBetween: 10,
+                  spaceBetween: 15,
                 },
                 1024: {
                   slidesPerView: 4,
                   spaceBetween: 15,
                 },
               }}
-              className="mySwiper xl:!hidden"
+              className="mySwiper xl:!hidden !py-8 lg:!px-0 !px-2"
             >
               {toursData.map((item, index) => (
                 <SwiperSlide key={index}>

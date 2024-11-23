@@ -13,25 +13,31 @@
     font-family: "DanaBold";
     src: url(./assets/Fonts/Dana/Bold/DanaFaNum-Bold.ttf) format("truetype"),
       url(./assets/Fonts/Dana/Bold/DanaFaNum-Bold.woff) format("woff"),
-      url(./assets/Fonts/Dana/Bold/DanaFaNum-Bold.woff2) format("woff2")
+      url(./assets/Fonts/Dana/Bold/DanaFaNum-Bold.woff2) format("woff2");
   }
 
   @font-face {
     font-family: "YekanMedium";
-    src: url(./assets/Fonts/IRYekan/Medium/iranyekanwebmediumfanum.ttf) format("truetype"),
-      url(./assets/Fonts/IRYekan/Medium/iranyekanwebmediumfanum.woff) format("woff")
+    src: url(./assets/Fonts/IRYekan/Medium/iranyekanwebmediumfanum.ttf)
+        format("truetype"),
+      url(./assets/Fonts/IRYekan/Medium/iranyekanwebmediumfanum.woff)
+        format("woff");
   }
 
   @font-face {
     font-family: "YekanRegular";
-    src: url(./assets/Fonts/IRYekan/Regular/iranyekanwebregularfanum.ttf) format("truetype"),
-      url(./assets/Fonts/IRYekan/Regular/iranyekanwebregularfanum.woff) format("woff")
+    src: url(./assets/Fonts/IRYekan/Regular/iranyekanwebregularfanum.ttf)
+        format("truetype"),
+      url(./assets/Fonts/IRYekan/Regular/iranyekanwebregularfanum.woff)
+        format("woff");
   }
 
   @font-face {
     font-family: "YekanBold";
-    src: url(./assets/Fonts/IRYekan/ExtraBold/iranyekanwebextraboldfanum.ttf) format("truetype"),
-      url(./assets/Fonts/IRYekan/ExtraBold/iranyekanwebextraboldfanum.woff) format("woff")
+    src: url(./assets/Fonts/IRYekan/ExtraBold/iranyekanwebextraboldfanum.ttf)
+        format("truetype"),
+      url(./assets/Fonts/IRYekan/ExtraBold/iranyekanwebextraboldfanum.woff)
+        format("woff");
   }
 }
 
@@ -61,7 +67,7 @@ h5 {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #0E9A8A;
+  background: #0e9a8a;
   border-radius: 15px;
 }
 
@@ -83,10 +89,10 @@ h5 {
   height: 2px;
   background-color: blue;
   width: 0;
-  transition: all 0.3s ease;
+  transition: left 2000ms ease-in-out, width 3000ms ease-in-out;
 }
 
-.nav-link.active+.underline {
+.nav-link.active + .underline {
   width: 100%;
   left: 0;
 }
