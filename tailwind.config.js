@@ -13,6 +13,9 @@ export default {
         Borders: "#EEEEEE",
         Disable: "#B0AFA9",
         CustomBlack: "#00000066",
+      },
+      fontSize: {
+        SubTitle: "15px",
       }
     },
   },

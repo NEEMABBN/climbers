@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import TemplateV1 from "../../../Components/TemplateV1";
 import EachProductPost from "../../../Components/EachProductPost";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -58,6 +58,7 @@ export default function NewProducts() {
       price: 1000000,
     },
   ];
+  const swiperRef = useRef(null);
 
   return (
     <div className="w-full bg-[#09695D] py-16">
@@ -65,22 +66,24 @@ export default function NewProducts() {
         title="جدیدترین کالا‌ها"
         titleColor="text-white"
         links="/somepage"
+        swiperRef={swiperRef}
         children={
           <Swiper
             slidesPerView={1.5}
             spaceBetween={10}
+            onSwiper={(swiper) => (swiperRef.current = swiper)}
             breakpoints={{
               640: {
                 slidesPerView: 2,
-                spaceBetween: 10,
               },
               768: {
                 slidesPerView: 3,
-                spaceBetween: 10,
               },
               1024: {
                 slidesPerView: 4,
-                spaceBetween: 13,
+              },
+              1280: {
+                slidesPerView: 5,
               },
             }}
             dir="rtl"

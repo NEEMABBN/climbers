@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import TemplateV1 from "../../../Components/TemplateV1";
 import EachPopularPlaceSlide from "../../../Components/EachPopularPlaceSlide";
 import Images from "../../../Setting/Images";
@@ -33,6 +33,14 @@ export default function Reports() {
       categoryName: "جنگل",
     },
     {
+      image: Images.BoatRide,
+      location: "قایق سواری در سواحل استانبول",
+      user: "محمد محمدی",
+      rate: 3.5,
+      categoryIcon: Images.SeaIconV2,
+      categoryName: "دریاچه",
+    },
+    {
       image: Images.Fishing,
       location: "ماهیگیری در سد سلیمان‌تنگه ساری",
       user: "محمد محمدی",
@@ -49,17 +57,20 @@ export default function Reports() {
       categoryName: "دریاچه",
     },
   ];
+  const swiperRef = useRef(null);
 
   return (
     <div className="w-full py-16">
       <TemplateV1
         title="گزارش برنامه‌ها"
         links="/Reports"
+        swiperRef={swiperRef}
         children={
           <div className="w-full">
             <Swiper
               slidesPerView={1.5}
               spaceBetween={10}
+              onSwiper={(swiper) => (swiperRef.current = swiper)}
               breakpoints={{
                 640: {
                   slidesPerView: 2,
@@ -73,8 +84,12 @@ export default function Reports() {
                   slidesPerView: 4,
                   spaceBetween: 15,
                 },
+                1280: {
+                  slidesPerView: 5,
+                  spaceBetween: 10,
+                },
               }}
-              className="mySwiper xl:!hidden"
+              className="mySwiper"
             >
               {reportsData.map((item, index) => (
                 <SwiperSlide key={index}>
@@ -91,21 +106,6 @@ export default function Reports() {
                 </SwiperSlide>
               ))}
             </Swiper>
-            <div className="w-full xl:flex hidden items-center gap-4">
-              {reportsData.map((item, index) => (
-                <EachPopularPlaceSlide
-                  key={index}
-                  image={item.image}
-                  location={item.location}
-                  categoryIcom={item.categoryIcon}
-                  categoryName={item.categoryName}
-                  rate={item.rate}
-                  user={item.user}
-                  version1={false}
-                  version2={true}
-                />
-              ))}
-            </div>
           </div>
         }
       />

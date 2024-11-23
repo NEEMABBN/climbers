@@ -48,6 +48,15 @@ import Quotation from "/src/assets/Images/quote-down.svg"
 import CupIcon from "/src/assets/Images/CupIcon.svg"
 import CashIcon from "/src/assets/Images/CashIcon.svg"
 import LeadersIcon from "/src/assets/Images/LeadersIcon.svg"
+import BestPlaceIconActive from "/src/assets/Images/BestPlaceIconActive.svg"
+import SeaIconActive from "/src/assets/Images/SeaIconActive.svg"
+import WaterfallIconActive from "/src/assets/Images/WaterfallIconActive.svg"
+import MountainIconActive from "/src/assets/Images/MountainIconActive.svg"
+import IslandIconActive from "/src/assets/Images/IslandIconActive.svg"
+import ForestIconActive from "/src/assets/Images/ForestIconActive.svg"
+import DesertIconActive from "/src/assets/Images/DesertIconActive.svg"
+import ValleyIcon from "/src/assets/Images/ValleyIcon.svg"
+import ValleyIconActive from "/src/assets/Images/ValleyIconActive.svg"
 
 const Images = {
     Logo: Logo,
@@ -55,16 +64,25 @@ const Images = {
     HomeHeaderSlide1: HomeHeaderSlide1,
     HomeHeaderSlide1Mobile: HomeHeaderSlide1Mobile,
     BestPlaceIcon: BestPlaceIcon,
+    BestPlaceIconActive: BestPlaceIconActive,
     SeaIcon: SeaIcon,
+    SeaIconActive: SeaIconActive,
     SeaIconV2: SeaIconV2,
     WaterfallIcon: WaterfallIcon,
+    WaterfallIconActive: WaterfallIconActive,
     MountainIcon: MountainIcon,
+    MountainIconActive: MountainIconActive,
     IslandIcon: IslandIcon,
+    IslandIconActive: IslandIconActive,
     ForestIcon: ForestIcon,
+    ForestIconActive: ForestIconActive,
     ForestIconV2: ForestIconV2,
     DesertIcon: DesertIcon,
+    DesertIconActive: DesertIconActive,
     CaveIcon: CaveIcon,
     AncientIcon: AncientIcon,
+    ValleyIcon: ValleyIcon,
+    ValleyIconActive: ValleyIconActive,
     PopularPlaceSlide1: PopularPlaceSlide1,
     PopularPlaceSlide2: PopularPlaceSlide2,
     PopularPlaceSlide3: PopularPlaceSlide3,

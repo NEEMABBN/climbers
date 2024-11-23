@@ -118,7 +118,7 @@ export default function CommentsSection() {
             ))}
           </Masonry>
         </div>
-        <span className="w-full h-2 shadow-[0_0px_100px_280px_rgba(255,255,255,0.91)]"></span>
+        <span className="w-full h-2 shadow-[0_0px_190px_260px_rgba(255,255,255,1)]"></span>
       </div>
       <span className="text-Secoundray font-bold translate-y-[-13rem]">
         و 120+ نفر دیگر

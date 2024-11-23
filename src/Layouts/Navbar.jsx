@@ -12,7 +12,7 @@ export default function Navbar() {
   };
 
   return (
-    <div className="w-full flex flex-col items-center">
+    <div className="w-full flex flex-col items-center fixed top-0 right-0 left-0 z-30 bg-white shadow-md">
       <div className="container mx-auto flex items-center justify-between py-4 sm:px-0 px-3">
         <div className="flex items-center md:gap-5 gap-3">
           <button onClick={toggleMenu} className="md:hidden flex">

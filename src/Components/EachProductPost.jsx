@@ -20,7 +20,7 @@ export default function EachProductPost({
         </div>
       </div>
       <div className="w-full flex items-center justify-between px-2">
-        <span className="text-Secoundray line-clamp-1 YekanReg font-semibold">
+        <span className="text-Secoundray line-clamp-1 YekanReg font-semibold text-SubTitle">
           {name}
         </span>
         <span className="flex items-center gap-1 text-sm">

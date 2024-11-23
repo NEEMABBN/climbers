@@ -10,30 +10,42 @@ export default function PopularPlaces() {
   const categoryData = [
     {
       icon: Images.BestPlaceIcon,
+      activeIcon: Images.BestPlaceIconActive,
       name: "برترین‌ها",
     },
     {
       icon: Images.SeaIcon,
+      activeIcon: Images.SeaIconActive,
       name: "دریا، دریاچه",
     },
     {
       icon: Images.WaterfallIcon,
+      activeIcon: Images.WaterfallIconActive,
       name: "آبشار",
     },
     {
       icon: Images.MountainIcon,
+      activeIcon: Images.MountainIconActive,
       name: "کوه",
     },
     {
       icon: Images.IslandIcon,
+      activeIcon: Images.IslandIconActive,
       name: "جزیره",
     },
     {
       icon: Images.ForestIcon,
+      activeIcon: Images.ForestIconActive,
       name: "جنگل",
     },
     {
+      icon: Images.ValleyIcon,
+      activeIcon: Images.ValleyIconActive,
+      name: "دره",
+    },
+    {
       icon: Images.DesertIcon,
+      activeIcon: Images.DesertIconActive,
       name: "کویر",
     },
   ];
@@ -45,6 +57,12 @@ export default function PopularPlaces() {
       category: "برترین‌ها",
     },
     {
+      image: Images.PopularPlaceSlide1,
+      city: "ترکمن صحرا",
+      province: "مازندران",
+      category: "برترین‌ها",
+    },
+    {
       image: Images.PopularPlaceSlide2,
       city: "ترکمن صحرا",
       province: "مازندران",
@@ -87,7 +105,19 @@ export default function PopularPlaces() {
       category: "دریا، دریاچه",
     },
     {
+      image: Images.PopularPlaceSlide2,
+      city: "ترکمن صحرا",
+      province: "مازندران",
+      category: "دریا، دریاچه",
+    },
+    {
       image: Images.PopularPlaceSlide5,
+      city: "ترکمن صحرا",
+      province: "مازندران",
+      category: "دریا، دریاچه",
+    },
+    {
+      image: Images.PopularPlaceSlide2,
       city: "ترکمن صحرا",
       province: "مازندران",
       category: "دریا، دریاچه",
@@ -117,7 +147,25 @@ export default function PopularPlaces() {
       category: "آبشار",
     },
     {
+      image: Images.PopularPlaceSlide3,
+      city: "ترکمن صحرا",
+      province: "مازندران",
+      category: "آبشار",
+    },
+    {
       image: Images.PopularPlaceSlide1,
+      city: "ترکمن صحرا",
+      province: "مازندران",
+      category: "آبشار",
+    },
+    {
+      image: Images.PopularPlaceSlide3,
+      city: "ترکمن صحرا",
+      province: "مازندران",
+      category: "آبشار",
+    },
+    {
+      image: Images.PopularPlaceSlide3,
       city: "ترکمن صحرا",
       province: "مازندران",
       category: "آبشار",
@@ -153,6 +201,12 @@ export default function PopularPlaces() {
       category: "کوه",
     },
     {
+      image: Images.PopularPlaceSlide2,
+      city: "ترکمن صحرا",
+      province: "مازندران",
+      category: "کوه",
+    },
+    {
       image: Images.PopularPlaceSlide4,
       city: "ترکمن صحرا",
       province: "مازندران",
@@ -189,6 +243,18 @@ export default function PopularPlaces() {
       category: "جزیره",
     },
     {
+      image: Images.PopularPlaceSlide2,
+      city: "ترکمن صحرا",
+      province: "مازندران",
+      category: "جزیره",
+    },
+    {
+      image: Images.PopularPlaceSlide2,
+      city: "ترکمن صحرا",
+      province: "مازندران",
+      category: "جزیره",
+    },
+    {
       image: Images.PopularPlaceSlide4,
       city: "ترکمن صحرا",
       province: "مازندران",
@@ -208,6 +274,12 @@ export default function PopularPlaces() {
     },
     {
       image: Images.PopularPlaceSlide2,
+      city: "ترکمن صحرا",
+      province: "مازندران",
+      category: "جنگل",
+    },
+    {
+      image: Images.PopularPlaceSlide3,
       city: "ترکمن صحرا",
       province: "مازندران",
       category: "جنگل",
@@ -237,6 +309,18 @@ export default function PopularPlaces() {
       category: "کویر",
     },
     {
+      image: Images.PopularPlaceSlide3,
+      city: "ترکمن صحرا",
+      province: "مازندران",
+      category: "کویر",
+    },
+    {
+      image: Images.PopularPlaceSlide3,
+      city: "ترکمن صحرا",
+      province: "مازندران",
+      category: "کویر",
+    },
+    {
       image: Images.PopularPlaceSlide4,
       city: "ترکمن صحرا",
       province: "مازندران",
@@ -247,6 +331,48 @@ export default function PopularPlaces() {
       city: "ترکمن صحرا",
       province: "مازندران",
       category: "کویر",
+    },
+    {
+      image: Images.PopularPlaceSlide3,
+      city: "ترکمن صحرا",
+      province: "مازندران",
+      category: "دره",
+    },
+    {
+      image: Images.PopularPlaceSlide4,
+      city: "ترکمن صحرا",
+      province: "مازندران",
+      category: "دره",
+    },
+    {
+      image: Images.PopularPlaceSlide5,
+      city: "ترکمن صحرا",
+      province: "مازندران",
+      category: "دره",
+    },
+    {
+      image: Images.PopularPlaceSlide2,
+      city: "ترکمن صحرا",
+      province: "مازندران",
+      category: "دره",
+    },
+    {
+      image: Images.PopularPlaceSlide3,
+      city: "ترکمن صحرا",
+      province: "مازندران",
+      category: "دره",
+    },
+    {
+      image: Images.PopularPlaceSlide1,
+      city: "ترکمن صحرا",
+      province: "مازندران",
+      category: "دره",
+    },
+    {
+      image: Images.PopularPlaceSlide4,
+      city: "ترکمن صحرا",
+      province: "مازندران",
+      category: "دره",
     },
   ];
   const swiperRef = useRef(null);
@@ -270,6 +396,7 @@ export default function PopularPlaces() {
       <TemplateV1
         title="مکان‌های محبوب گردشگری"
         links="/Agencies"
+        swiperRef={swiperRef}
         children={
           <div className="w-full flex flex-col items-center gap-8">
             <div className="w-full">
@@ -296,15 +423,18 @@ export default function PopularPlaces() {
                         activeCategory === item.name
                           ? "border-Primary"
                           : "border-white"
-                      } flex lg:w-auto w-full items-center lg:justify-normal justify-center lg:gap-2 gap-2.5 py-1.5 sm:px-4 bg-white border-solid border-2 rounded-2xl`}
+                      } flex lg:w-auto w-full items-center lg:justify-normal justify-center lg:gap-2 gap-2.5 py-1 sm:px-4 bg-white border-solid border-2 rounded-2xl`}
                     >
-                      <img src={item.icon} alt="" className="" />
+                      {activeCategory === item.name ? (
+                        <img src={item.activeIcon} alt="" className="" />
+                      ) : (
+                        <img src={item.icon} alt="" className="" />
+                      )}
                       <span className="text-Secoundray">{item.name}</span>
                     </button>
                   </SwiperSlide>
                 ))}
               </Swiper>
-
               <div className="w-full lg:flex hidden items-center gap-5">
                 {categoryData.map((item, index) => (
                   <button
@@ -314,9 +444,13 @@ export default function PopularPlaces() {
                       activeCategory === item.name
                         ? "border-Primary"
                         : "border-white"
-                    } flex lg:w-auto w-full items-center lg:justify-normal justify-center lg:gap-2 gap-2.5 py-1.5 sm:px-4 bg-white border-solid border-2 rounded-2xl`}
+                    } flex lg:w-auto w-full items-center lg:justify-normal justify-center lg:gap-2 gap-2.5 py-1 sm:px-4 bg-white border-solid border-2 rounded-2xl`}
                   >
-                    <img src={item.icon} alt="" className="" />
+                    {activeCategory === item.name ? (
+                      <img src={item.activeIcon} alt="" className="" />
+                    ) : (
+                      <img src={item.icon} alt="" className="" />
+                    )}
                     <span className="text-Secoundray">{item.name}</span>
                   </button>
                 ))}
@@ -337,8 +471,12 @@ export default function PopularPlaces() {
                     slidesPerView: 4,
                     spaceBetween: 15,
                   },
+                  1280: {
+                    slidesPerView: 5,
+                    spaceBetween: 15,
+                  },
                 }}
-                className="mySwiper xl:!hidden"
+                className="mySwiper"
               >
                 {filteredPosts.map((item, index) => (
                   <SwiperSlide key={index}>
@@ -352,18 +490,6 @@ export default function PopularPlaces() {
                   </SwiperSlide>
                 ))}
               </Swiper>
-              <div className="w-full xl:flex hidden items-center gap-4">
-                {filteredPosts.map((item, index) => (
-                  <EachPopularPlaceSlide
-                    key={index}
-                    image={item.image}
-                    location={item.city}
-                    province={item.province}
-                    version1={true}
-                    version2={false}
-                  />
-                ))}
-              </div>
             </div>
           </div>
         }

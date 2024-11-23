@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import TemplateV1 from "../../../Components/TemplateV1";
 import Images from "../../../Setting/Images";
 import EachTeamsPost from "../../../Components/EachTeamsPost";
@@ -45,17 +45,20 @@ export default function ActiveTeams() {
       rate: 4.5,
     },
   ];
+  const swiperRef = useRef(null);
 
   return (
     <div className="w-full flex py-12 bg-[#EAEAEA87]">
       <TemplateV1
         title="فعال‌ترین تیم‌ها"
         links="/Contact"
+        swiperRef={swiperRef}
         children={
           <div className="w-full">
             <Swiper
               slidesPerView={1.1}
               spaceBetween={8}
+              onSwiper={(swiper) => (swiperRef.current = swiper)}
               breakpoints={{
                 640: {
                   slidesPerView: 1,

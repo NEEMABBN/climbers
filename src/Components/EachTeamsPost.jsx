@@ -18,7 +18,7 @@ export default function EachTeamsPost({
         <div className="flex items-center gap-3 sm:w-auto w-full">
           <img src={image} alt="" className="" />
           <div className="flex flex-col items-start gap-1">
-            <span className="text-Secoundray YekanReg font-semibold">
+            <span className="text-Secoundray YekanReg text-SubTitle font-semibold">
               {name}
             </span>
             <p className="text-Secoundray text-sm line-clamp-1">{workArea}</p>
