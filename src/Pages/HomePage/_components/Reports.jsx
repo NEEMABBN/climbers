@@ -96,8 +96,10 @@ export default function Reports() {
                   <EachPopularPlaceSlide
                     image={item.image}
                     location={item.location}
-                    categoryIcom={item.categoryIcon}
+                    imageAlt={item.location}
+                    categoryIcon={item.categoryIcon}
                     categoryName={item.categoryName}
+                    categoryIconAlt={item.categoryName}
                     rate={item.rate}
                     user={item.user}
                     version1={false}

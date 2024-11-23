@@ -4,11 +4,13 @@ import { GoStarFill } from "react-icons/go";
 
 export default function EachPopularPlaceSlide({
   image,
+  imageAlt,
   location,
   province,
   version1,
   version2,
-  categoryIcom,
+  categoryIcon,
+  categoryIconAlt,
   categoryName,
   user,
   rate,
@@ -21,8 +23,8 @@ export default function EachPopularPlaceSlide({
         } bg-CustomBlack overflow-hidden items-center justify-start w-[30px] group-hover:w-[90px] transition-all duration-300 gap-2 absolute top-2 right-2 rounded-full py-1 px-1.5`}
       >
         <img
-          src={categoryIcom}
-          alt=""
+          src={categoryIcon}
+          alt={categoryIconAlt}
           className="!max-w-[15px] !min-w-[17px]"
         />
         <span className="text-white text-sm">{categoryName}</span>
@@ -34,7 +36,7 @@ export default function EachPopularPlaceSlide({
       >
         <FaRegHeart className="text-white text-xl" />
       </button>
-      <img src={image} alt="" className="w-full" />
+      <img src={image} alt={imageAlt} className="w-full" />
       <div
         className={`w-full flex items-center justify-start py-3.5 px-3 gap-1 absolute bg-[#00000066] transition-all duration-200 right-0 left-0 ${
           version2

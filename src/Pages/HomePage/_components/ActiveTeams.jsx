@@ -71,6 +71,7 @@ export default function ActiveTeams() {
                 <SwiperSlide key={index}>
                   <EachTeamsPost
                     image={item.companyImage}
+                    imageAlt={item.companyName}
                     name={item.companyName}
                     workArea={item.companyWorkArea}
                     experience={item.experience}
@@ -86,6 +87,7 @@ export default function ActiveTeams() {
                 <EachTeamsPost
                   key={index}
                   image={item.companyImage}
+                  imageAlt={item.companyName}
                   name={item.companyName}
                   workArea={item.companyWorkArea}
                   experience={item.experience}

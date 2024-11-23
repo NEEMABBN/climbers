@@ -482,6 +482,7 @@ export default function PopularPlaces() {
                   <SwiperSlide key={index}>
                     <EachPopularPlaceSlide
                       image={item.image}
+                      imageAlt={item.province}
                       location={item.city}
                       province={item.province}
                       version1={true}

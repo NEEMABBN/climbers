@@ -98,6 +98,7 @@ export default function NewProducts() {
                 <EachProductPost
                   image={item.image}
                   name={item.name}
+                  imageAlt={item.name}
                   rate={item.rate}
                   category={item.category}
                   price={item.price}

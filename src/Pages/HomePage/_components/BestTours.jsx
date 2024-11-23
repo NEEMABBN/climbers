@@ -119,7 +119,9 @@ export default function BestTours() {
                 <SwiperSlide key={index}>
                   <EachToursPost
                     image={item.image}
-                    categoryIcom={item.categoryIcon}
+                    imageAlt={item.location}
+                    categoryIcon={item.categoryIcon}
+                    categoryIconAlt={item.categoryName}
                     categoryName={item.categoryName}
                     location={item.location}
                     agency={item.agency}

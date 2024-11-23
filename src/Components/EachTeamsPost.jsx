@@ -5,6 +5,7 @@ import DetailButton from "./DetailButton";
 
 export default function EachTeamsPost({
   image,
+  imageAlt,
   name,
   workArea,
   experience,
@@ -16,7 +17,7 @@ export default function EachTeamsPost({
     <div className="w-full flex flex-col items-center gap-2.5 border-solid border-[1px] bg-white border-Borders rounded-2xl p-3.5 hover:shadow-xl transition-all duration-200">
       <div className="w-full flex sm:flex-row flex-col items-center justify-between">
         <div className="flex items-center gap-3 sm:w-auto w-full">
-          <img src={image} alt="" className="" />
+          <img src={image} alt={imageAlt} className="w-[53px]" />
           <div className="flex flex-col items-start gap-1">
             <span className="text-Secoundray YekanReg text-SubTitle font-semibold">
               {name}

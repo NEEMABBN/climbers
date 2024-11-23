@@ -46,6 +46,7 @@ export default function HomeHeader() {
               image={item.image}
               imageMobile={item.imageMobile}
               info={item.information}
+              imageAlt={item.information}
             />
           </SwiperSlide>
         ))}

@@ -4,11 +4,13 @@ import { Link } from "react-router-dom";
 
 export default function EachBlogPost({
   image,
+  imageAlt,
   date,
   title,
   description,
   userName,
   userProfile,
+  userProfileAlt,
   links,
 }) {
   return (
@@ -16,7 +18,7 @@ export default function EachBlogPost({
       <Link to={links}>
         <img
           src={image}
-          alt=""
+          alt={imageAlt}
           className="xl:min-w-[300px] xl:h-[200px] rounded-2xl overflow-hidden"
         />
       </Link>
@@ -25,7 +27,9 @@ export default function EachBlogPost({
       </span>
       <div className="w-full flex flex-col items-start gap-2 px-2">
         <Link to={links}>
-          <h3 className="YekanReg text-Secoundray line-clamp-1 text-SubTitle">{title}</h3>
+          <h3 className="YekanReg text-Secoundray line-clamp-1 text-SubTitle">
+            {title}
+          </h3>
         </Link>
         <p className="text-sm leading-6 text-Secoundray line-clamp-3">
           {description}
@@ -35,7 +39,7 @@ export default function EachBlogPost({
         <div className="flex items-center gap-1">
           <img
             src={userProfile}
-            alt=""
+            alt={userProfileAlt}
             className="w-[32.5px] h-[32.5px] rounded-full overflow-hidden"
           />
           <span className="text-sm text-Disable">{userName}</span>

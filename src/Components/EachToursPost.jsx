@@ -4,8 +4,10 @@ import { FaRegHeart } from "react-icons/fa";
 
 export default function EachToursPost({
   image,
+  imageAlt,
   categoryName,
-  categoryIcom,
+  categoryIcon,
+  categoryIconAlt,
   location,
   agency,
   rate,
@@ -19,8 +21,8 @@ export default function EachToursPost({
       <div className="w-full relative rounded-2xl overflow-hidden">
         <div className="bg-CustomBlack overflow-hidden flex items-center justify-start w-[30px] group-hover:w-[95px] transition-all duration-300 gap-2 absolute top-2 right-2 rounded-full py-1 px-1.5">
           <img
-            src={categoryIcom}
-            alt=""
+            src={categoryIcon}
+            alt={categoryIconAlt}
             className="!max-w-[20px] !min-w-[20px]"
           />
           <span className="text-white">{categoryName}</span>
@@ -28,7 +30,7 @@ export default function EachToursPost({
         <button className="bg-CustomBlack absolute top-2 left-2 p-1.5 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-200">
           <FaRegHeart className="text-white text-xl" />
         </button>
-        <img src={image} alt="" className="w-full" />
+        <img src={image} alt={imageAlt} className="w-full" />
       </div>
 
       <h3 className="w-full text-start text-SubTitle text-Secoundray px-2 line-clamp-1">

@@ -12,19 +12,31 @@ export default function Footer() {
     <div className="w-full py-16 bg-Borders flex flex-col items-center gap-10">
       <div className="container mx-auto flex lg:flex-row flex-col-reverse items-center justify-center lg:gap-10 gap-5">
         <div className="md:w-auto w-[270px] flex items-center justify-start bg-white rounded-2xl md:pl-8 md:gap-7 gap-2">
-          <img src={Images.CupIcon} alt="" className="w-[45px]" />
+          <img
+            src={Images.CupIcon}
+            alt="کیفیت بالای خدمات"
+            className="w-[45px]"
+          />
           <span className="text-Secoundray md:text-base text-sm">
             کیفیت بالای خدمات
           </span>
         </div>
         <div className="md:w-auto w-[270px] flex items-center justify-start bg-white rounded-2xl md:pl-8 md:gap-7 gap-2">
-          <img src={Images.CashIcon} alt="" className="w-[45px]" />
+          <img
+            src={Images.CashIcon}
+            alt="مناسب با بودجه شما"
+            className="w-[45px]"
+          />
           <span className="text-Secoundray md:text-base text-sm">
             مناسب با بودجه شما
           </span>
         </div>
         <div className="md:w-auto w-[270px] flex items-center justify-start bg-white rounded-2xl md:pl-8 md:gap-7 gap-2">
-          <img src={Images.LeadersIcon} alt="" className="w-[45px]" />
+          <img
+            src={Images.LeadersIcon}
+            alt="تورلیدرهای حرفه‌ای و تایید شده"
+            className="w-[45px]"
+          />
           <span className="text-Secoundray md:text-base text-sm">
             تورلیدرهای حرفه‌ای و تایید شده
           </span>
@@ -32,7 +44,7 @@ export default function Footer() {
       </div>
       <div className="w-full border-solid border-y-2 border-white">
         <div className="container mx-auto flex lg:flex-row flex-col items-center justify-between py-5 lg:gap-0 gap-5">
-          <img src={Images.Logo} alt="" className="w-[117px]" />
+          <img src={Images.Logo} alt="Climbers Logo" className="w-[117px]" />
           <FooterNavItem />
           <div className="flex items-center gap-4">
             <Link to="/" className="text-Secoundray text-2xl">

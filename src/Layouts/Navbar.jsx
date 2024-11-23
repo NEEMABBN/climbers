@@ -18,10 +18,14 @@ export default function Navbar() {
           <button onClick={toggleMenu} className="md:hidden flex">
             <IoMenu className="text-Secoundray text-3xl" />
           </button>
-          <img src={Images.Logo} alt="" className="w-[117px] md:block hidden" />
+          <img
+            src={Images.Logo}
+            alt="Climbers Logo"
+            className="w-[117px] md:block hidden"
+          />
           <img
             src={Images.LogoMobile}
-            alt=""
+            alt="Climbers Logo"
             className="w-[117px] md:hidden block"
           />
           <div className="md:flex hidden items-center border-solid border-2 border-Borders rounded-2xl bg-white w-[400px] gap-3 py-2 pr-2 pl-7">

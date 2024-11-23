@@ -93,10 +93,12 @@ export default function BlogSlides() {
                 <SwiperSlide key={index}>
                   <EachBlogPost
                     image={item.image}
+                    imageAlt={item.title}
                     date={item.date}
                     title={item.title}
                     description={item.description}
                     userProfile={item.userProfile}
+                    userProfileAlt={item.userName}
                     userName={item.userName}
                     links={item.links}
                   />

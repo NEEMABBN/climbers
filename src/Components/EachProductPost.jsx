@@ -4,6 +4,7 @@ import { GoStarFill } from "react-icons/go";
 
 export default function EachProductPost({
   image,
+  imageAlt,
   name,
   rate,
   category,
@@ -16,7 +17,7 @@ export default function EachProductPost({
           <FaRegHeart className="text-white text-xl" />
         </button>
         <div className="w-[300px] h-[200px] flex justify-center items-center">
-          <img src={image} alt="" className="" />
+          <img src={image} alt={imageAlt} className="" />
         </div>
       </div>
       <div className="w-full flex items-center justify-between px-2">
