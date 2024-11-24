@@ -243,16 +243,12 @@ export default function OccasionalTours() {
           <div className="w-full flex flex-col items-center gap-8">
             <div className="w-full">
               <Swiper
-                slidesPerView={2.5}
-                spaceBetween={10}
+                slidesPerView={1.4}
+                spaceBetween={5}
                 breakpoints={{
-                  600: {
-                    slidesPerView: 3.5,
-                    spaceBetween: 15,
-                  },
                   768: {
-                    slidesPerView: 4.5,
-                    spaceBetween: 15,
+                    slidesPerView: 2.5,
+                    spaceBetween: 10,
                   },
                 }}
                 className="mySwiper lg:!hidden"
@@ -307,15 +303,15 @@ export default function OccasionalTours() {
                 breakpoints={{
                   768: {
                     slidesPerView: 3,
-                    spaceBetween: 15,
+                    spaceBetween: 10,
                   },
                   1024: {
                     slidesPerView: 4,
-                    spaceBetween: 15,
+                    spaceBetween: 10,
                   },
                   1280: {
                     slidesPerView: 5,
-                    spaceBetween: 15,
+                    spaceBetween: 10,
                   },
                 }}
                 className="mySwiper"

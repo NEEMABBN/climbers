@@ -26,7 +26,7 @@ export default function TemplateV1({
       </h2>
       <div className="w-full sm:pr-0 pr-2">{children}</div>
       <div className="w-full flex items-center justify-between sm:px-0 px-2">
-        <div className="md:w-auto w-full flex items-center md:justify-normal justify-center gap-3 relative z-[2]">
+        <div className="lg:w-auto w-full flex items-center lg:justify-normal justify-center gap-3 relative z-[2]">
           <button
             onClick={prevSlide}
             className="bg-white p-2.5 hover:bg-Primary rounded-2xl text-xl text-Primary hover:text-white border-solid border-[1px] border-Primary transition-all duration-300"

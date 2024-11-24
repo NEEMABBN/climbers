@@ -3,8 +3,8 @@ import Images from "../../../Setting/Images";
 
 export default function SearchBar() {
   return (
-    <div className="w-full bg-[#DFE5E587] py-10">
-      <div className="container mx-auto flex items-end gap-5">
+    <div className="w-full bg-[#DFE5E587] py-12">
+      <div className="container mx-auto flex md:flex-row flex-col md:items-end items-center gap-5 sm:px-0 px-3">
         <div className="w-full flex flex-col items-start gap-1">
           <label htmlFor="text" className="">
             مبدا/ مقصد:
@@ -33,7 +33,7 @@ export default function SearchBar() {
           </div>
         </div>
 
-        <div className="w-full flex flex-col items-start gap-1">
+        <div className="w-full lg:flex hidden flex-col items-start gap-1">
           <label htmlFor="" className="">
             سبک سفر:
           </label>
@@ -42,7 +42,7 @@ export default function SearchBar() {
             id=""
             className="w-full py-2 rounded-2xl px-2 outline-none"
           >
-            <option value="" className="!text-Disable" disabled selected hidden>
+            <option value="" className="!text-Disable">
               انتخاب کنید
             </option>
             <option value="" className="">
@@ -51,7 +51,7 @@ export default function SearchBar() {
           </select>
         </div>
 
-        <div className="w-full flex flex-col items-start gap-1">
+        <div className="w-full lg:flex hidden flex-col items-start gap-1">
           <label htmlFor="" className="">
             سطح توانایی:
           </label>
@@ -60,7 +60,7 @@ export default function SearchBar() {
             id=""
             className="w-full py-2 rounded-2xl px-2 outline-none"
           >
-            <option value="" className="!text-Disable" disabled selected hidden>
+            <option value="" className="!text-Disable">
               انتخاب کنید
             </option>
             <option value="" className="">
@@ -69,7 +69,7 @@ export default function SearchBar() {
           </select>
         </div>
 
-        <button className="text-white bg-Primary px-6 py-2 rounded-2xl">
+        <button className="text-white bg-Primary px-9 py-2.5 rounded-2xl">
           جستجو
         </button>
       </div>
