@@ -3,6 +3,7 @@ import SearchBar from "./_components/SearchBar";
 import LastMinuteTours from "./_components/LastMinuteTours";
 import SelectedDestinations from "./_components/SelectedDestinations";
 import BestSellingTours from "./_components/BestSellingTours";
+import OccasionalTours from "./_components/OccasionalTours";
 
 export default function Tours() {
   return (
@@ -11,6 +12,7 @@ export default function Tours() {
       <LastMinuteTours />
       <SelectedDestinations />
       <BestSellingTours />
+      <OccasionalTours />
     </div>
   );
 }
