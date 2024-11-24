@@ -59,6 +59,10 @@ import ValleyIcon from "/src/assets/Images/ValleyIcon.svg"
 import ValleyIconActive from "/src/assets/Images/ValleyIconActive.svg"
 import LocationIcon from "/src/assets/Images/LocationIcon.svg"
 import CalendarIcon from "/src/assets/Images/CalenderIcon.svg"
+import MahmudabadBeaches from "/src/assets/Images/MahmudabadBeaches.png"
+import MountDamavand from "/src/assets/Images/MountDamavand.png"
+import MasalCity from "/src/assets/Images/MasalCity.png"
+import BandarAbbasCity from "/src/assets/Images/BandarAbbasCity.png"
 
 const Images = {
     Logo: Logo,
@@ -122,6 +126,10 @@ const Images = {
     LeadersIcon: LeadersIcon,
     LocationIcon: LocationIcon,
     CalendarIcon: CalendarIcon,
+    MahmudabadBeaches: MahmudabadBeaches,
+    MountDamavand: MountDamavand,
+    MasalCity: MasalCity,
+    BandarAbbasCity: BandarAbbasCity,
 }
 
 export default Images;
