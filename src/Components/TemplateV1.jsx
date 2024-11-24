@@ -8,6 +8,7 @@ export default function TemplateV1({
   links,
   titleColor = "text-Titles",
   swiperRef,
+  gaps = "gap-12",
 }) {
   const nextSlide = () => {
     swiperRef.current.slideNext();
@@ -17,7 +18,7 @@ export default function TemplateV1({
   };
 
   return (
-    <div className="container mx-auto flex flex-col items-center gap-12">
+    <div className={`container mx-auto flex flex-col items-center ${gaps}`}>
       <h2
         className={`md:text-3xl text-2xl w-full md:text-start text-center ${titleColor}`}
       >
