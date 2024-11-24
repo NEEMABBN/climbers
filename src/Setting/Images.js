@@ -57,6 +57,8 @@ import ForestIconActive from "/src/assets/Images/ForestIconActive.svg"
 import DesertIconActive from "/src/assets/Images/DesertIconActive.svg"
 import ValleyIcon from "/src/assets/Images/ValleyIcon.svg"
 import ValleyIconActive from "/src/assets/Images/ValleyIconActive.svg"
+import LocationIcon from "/src/assets/Images/LocationIcon.svg"
+import CalendarIcon from "/src/assets/Images/CalenderIcon.svg"
 
 const Images = {
     Logo: Logo,
@@ -118,6 +120,8 @@ const Images = {
     CupIcon: CupIcon,
     CashIcon: CashIcon,
     LeadersIcon: LeadersIcon,
+    LocationIcon: LocationIcon,
+    CalendarIcon: CalendarIcon,
 }
 
 export default Images;
