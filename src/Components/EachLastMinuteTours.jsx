@@ -20,13 +20,13 @@ export default function EachLastMinuteTours({
   return (
     <div className="flex flex-col items-center gap-2 group p-1 border-solid border-[1px] rounded-2xl hover:shadow-xl transition-all duration-200">
       <div className="w-full relative rounded-2xl overflow-hidden">
-        <div className="bg-CustomBlack overflow-hidden flex items-center justify-start w-[30px] group-hover:w-[95px] transition-all duration-300 gap-2 absolute top-2 right-2 rounded-full py-1 px-1.5">
+        <div className="bg-CustomBlack overflow-hidden flex items-center justify-start w-[32px] group-hover:w-[95px] transition-all duration-300 gap-2 absolute top-2 right-2 rounded-full py-1 px-1.5">
           <img
             src={categoryIcon}
             alt={categoryIconAlt}
             className="!max-w-[20px] !min-w-[20px]"
           />
-          <span className="text-white">{categoryName}</span>
+          <span className="text-white text-sm">{categoryName}</span>
         </div>
         <button className="bg-CustomBlack absolute top-2 left-2 p-1.5 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-200">
           <FaRegHeart className="text-white text-xl" />
