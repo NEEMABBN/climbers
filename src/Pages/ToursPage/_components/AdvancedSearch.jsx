@@ -4,6 +4,7 @@ import Images from "../../../Setting/Images";
 import EachToursPost from "../../../Components/EachToursPost";
 import { FaChevronDown, FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import Masonry from "react-masonry-css";
+import { useNavigate } from "react-router-dom";
 
 export default function AdvancedSearch() {
   const toursData = [
@@ -347,6 +348,16 @@ export default function AdvancedSearch() {
     },
   ];
 
+  const navigate = useNavigate();
+  const submitDetailsPage = (tours) => {
+    //When you get the "API", check the "location" value!!!
+    if (!tours || !tours.location) {
+      console.error("Post object or location is missing:", tours);
+      return;
+    }
+    const slug = tours.location.replace(/\s+/g, "-");
+    navigate(`/tours/${tours.id}-${slug}`, { state: tours });
+  };
   const postsPerPage = 20;
   const [isOpen, setIsOpen] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
@@ -894,6 +905,7 @@ export default function AdvancedSearch() {
                 month={item.Month}
                 price={item.price}
                 mb="mb-2"
+                onClick={() => submitDetailsPage(item)}
               />
             ))}
           </Masonry>
