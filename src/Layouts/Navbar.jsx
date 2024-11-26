@@ -4,8 +4,11 @@ import Images from "../Setting/Images";
 import NavbarItem from "../Components/NavbarItem";
 import { IoMenu } from "react-icons/io5";
 import SideMenu from "./SideMenu";
+import { useLocation } from "react-router-dom";
 
 export default function Navbar() {
+  const location = useLocation();
+  const isHomePage = location.pathname === "/";
   const [isOpen, setIsOpen] = useState(false);
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -42,16 +45,18 @@ export default function Navbar() {
         </button>
       </div>
       <NavbarItem />
-      <div className="md:hidden flex w-full border-solid border-Borders border-y-2 py-2">
-        <div className="container sm:mx-auto mx-3 flex items-center border-solid border-2 border-Borders rounded-2xl bg-white gap-3 py-2 pr-2 pl-7">
-          <FiSearch className="text-3xl text-Primary rotate-90" />
-          <input
-            type="text"
-            placeholder="جستجوی اماکن گردشگری، تورها، ..."
-            className="w-full outline-none rounded-l-2xl py-2"
-          />
+      {isHomePage && (
+        <div className="md:hidden flex w-full border-solid border-Borders border-y-2 py-2">
+          <div className="container sm:mx-auto mx-3 flex items-center border-solid border-2 border-Borders rounded-2xl bg-white gap-3 py-2 pr-2 pl-7">
+            <FiSearch className="text-3xl text-Primary rotate-90" />
+            <input
+              type="text"
+              placeholder="جستجوی اماکن گردشگری، تورها، ..."
+              className="w-full outline-none rounded-l-2xl py-2"
+            />
+          </div>
         </div>
-      </div>
+      )}
       <SideMenu isOpen={isOpen} toggleMenu={toggleMenu} />
     </div>
   );

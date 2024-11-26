@@ -383,7 +383,7 @@ export default function AdvancedSearch() {
   };
 
   return (
-    <div className="container mx-auto flex md:flex-row flex-col gap-3 py-10 sm:px-0 px-3">
+    <div className="container mx-auto flex md:flex-row flex-col gap-3 py-5 sm:px-0 px-3">
       {/* Desktop Search Box */}
       <div className="w-[300px] sticky top-0 right-0 h-fit bg-[#FAFAFA] px-2 pt-5 pb-1 gap-3.5 border-solid border-Borders border-[1px] rounded-2xl md:flex hidden flex-col items-center">
         <span className="text-Secoundray YekanBold">جستجوی پیشرفته</span>
