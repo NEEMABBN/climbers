@@ -15,9 +15,12 @@ export default function EachToursPost({
   endDate,
   month,
   price,
+  mb,
 }) {
   return (
-    <div className="flex flex-col items-center gap-2 group p-1 border-solid border-[1px] rounded-2xl hover:shadow-xl transition-all duration-200">
+    <div
+      className={`${mb} flex bg-white flex-col items-center gap-2 group p-1 border-solid border-[1px] rounded-2xl hover:shadow-xl transition-all duration-200`}
+    >
       <div className="w-full relative rounded-2xl overflow-hidden">
         <div className="bg-CustomBlack overflow-hidden flex items-center justify-start w-[32px] group-hover:w-[95px] transition-all duration-300 gap-2 absolute top-2 right-2 rounded-full py-1 px-1.5">
           <img

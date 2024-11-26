@@ -4,6 +4,7 @@ import Contact from "./Pages/ContactPage/Contact";
 import Home from "./Pages/HomePage/Home";
 import Reports from "./Pages/ReportsPage/Reports";
 import TouristAttractions from "./Pages/TouristAttractionsPage/TouristAttractions";
+import AdvancedSearch from "./Pages/ToursPage/_components/AdvancedSearch";
 import Tours from "./Pages/ToursPage/Tours";
 
 const router = [
@@ -12,7 +13,7 @@ const router = [
     element: <Home />,
   },
   {
-    path: "/Tours",
+    path: "/Tours/*",
     element: <Tours />,
   },
   {
@@ -34,6 +35,10 @@ const router = [
   {
     path: "/Contact",
     element: <Contact />,
+  },
+  {
+    path: "/Tours/Search",
+    element: <AdvancedSearch />,
   },
 ];
 

@@ -18,32 +18,30 @@
 
   @font-face {
     font-family: "YekanMedium";
-    src: url(./assets/Fonts/IRYekan/Medium/iranyekanwebmediumfanum.ttf)
-        format("truetype"),
-      url(./assets/Fonts/IRYekan/Medium/iranyekanwebmediumfanum.woff)
-        format("woff");
+    src: url(./assets/Fonts/IRYekan/Medium/iranyekanwebmediumfanum.ttf) format("truetype"),
+      url(./assets/Fonts/IRYekan/Medium/iranyekanwebmediumfanum.woff) format("woff");
   }
 
   @font-face {
     font-family: "YekanRegular";
-    src: url(./assets/Fonts/IRYekan/Regular/iranyekanwebregularfanum.ttf)
-        format("truetype"),
-      url(./assets/Fonts/IRYekan/Regular/iranyekanwebregularfanum.woff)
-        format("woff");
+    src: url(./assets/Fonts/IRYekan/Regular/iranyekanwebregularfanum.ttf) format("truetype"),
+      url(./assets/Fonts/IRYekan/Regular/iranyekanwebregularfanum.woff) format("woff");
   }
 
   @font-face {
     font-family: "YekanBold";
-    src: url(./assets/Fonts/IRYekan/ExtraBold/iranyekanwebextraboldfanum.ttf)
-        format("truetype"),
-      url(./assets/Fonts/IRYekan/ExtraBold/iranyekanwebextraboldfanum.woff)
-        format("woff");
+    src: url(./assets/Fonts/IRYekan/ExtraBold/iranyekanwebextraboldfanum.ttf) format("truetype"),
+      url(./assets/Fonts/IRYekan/ExtraBold/iranyekanwebextraboldfanum.woff) format("woff");
   }
 }
 
 * {
   direction: rtl;
   font-family: "YekanMedium";
+}
+
+body {
+  overflow-x: hidden;
 }
 
 h1,
@@ -92,7 +90,7 @@ h5 {
   transition: left 2000ms ease-in-out, width 3000ms ease-in-out;
 }
 
-.nav-link.active + .underline {
+.nav-link.active+.underline {
   width: 100%;
   left: 0;
 }

@@ -1,5 +1,6 @@
 import React from "react";
 import Images from "../../../Setting/Images";
+import { Link } from "react-router-dom";
 
 export default function SearchBar() {
   return (
@@ -69,9 +70,12 @@ export default function SearchBar() {
           </select>
         </div>
 
-        <button className="text-white bg-Primary px-9 py-2.5 rounded-2xl">
+        <Link
+          to="/Tours/Search"
+          className="text-white bg-Primary px-9 py-2.5 rounded-2xl"
+        >
           جستجو
-        </button>
+        </Link>
       </div>
     </div>
   );
