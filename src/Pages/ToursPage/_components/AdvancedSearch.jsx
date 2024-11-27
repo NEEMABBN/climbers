@@ -2,9 +2,10 @@ import React, { useState } from "react";
 import FilterBoxTemplate from "../../../Components/FilterBoxTemplate";
 import Images from "../../../Setting/Images";
 import EachToursPost from "../../../Components/EachToursPost";
-import { FaChevronDown, FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import Masonry from "react-masonry-css";
 import { useNavigate } from "react-router-dom";
+import { IoClose } from "react-icons/io5";
 
 export default function AdvancedSearch() {
   const toursData = [
@@ -620,7 +621,13 @@ export default function AdvancedSearch() {
         </label>
       </div>
       {/* Mobile Search Box */}
-      <div className="w-full md:hidden flex flex-col gap-5">
+      <div
+        className={`w-full md:hidden flex flex-col gap-5 bg-white ${
+          isOpen
+            ? "absolute top-[76px] right-0 left-0 px-2 z-10 pb-[15rem]"
+            : "static"
+        }`}
+      >
         <span
           onClick={() => setIsOpen(!isOpen)}
           className={`${
@@ -630,7 +637,7 @@ export default function AdvancedSearch() {
           } w-full text-Secoundray py-4 YekanBold`}
         >
           جستجوی پیشرفته
-          <FaChevronDown className={isOpen ? "block" : "hidden"} />
+          <IoClose className={isOpen ? "block text-2xl" : "hidden"} />
         </span>
         {isOpen && (
           <div className="w-full flex flex-col items-center gap-3">
@@ -869,12 +876,14 @@ export default function AdvancedSearch() {
                 تورهای لحظه آخری
               </span>
             </label>
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              className="bg-Primary text-white py-3 px-12 rounded-2xl"
-            >
-              جستجو
-            </button>
+            <div className="w-full bg-[#FAFAFA] flex items-center justify-center shadow-[0px_0px_45px_-5px_rgba(14,154,138,0.3)] p-3 fixed bottom-0 left-0 right-0">
+              <button
+                onClick={() => setIsOpen(!isOpen)}
+                className="bg-Primary text-white w-full py-3 rounded-2xl"
+              >
+                جستجو
+              </button>
+            </div>
           </div>
         )}
       </div>
