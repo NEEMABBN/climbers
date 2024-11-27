@@ -43,7 +43,7 @@ export default function SearchBar() {
             id=""
             className="w-full py-2 rounded-2xl px-2 outline-none"
           >
-            <option value="" className="!text-Disable">
+            <option value="" className="">
               انتخاب کنید
             </option>
             <option value="" className="">
@@ -61,7 +61,7 @@ export default function SearchBar() {
             id=""
             className="w-full py-2 rounded-2xl px-2 outline-none"
           >
-            <option value="" className="!text-Disable">
+            <option value="" className="">
               انتخاب کنید
             </option>
             <option value="" className="">

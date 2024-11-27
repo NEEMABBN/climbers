@@ -10,7 +10,7 @@ export default {
         Primary: "#0E9A8A",
         Secoundray: "#0F1D1A",
         Titles: "#2C3639",
-        Borders: "#EEEEEE",
+        Borders: "#E2E2E2",
         Disable: "#B0AFA9",
         CustomBlack: "#00000066",
       },
@@ -19,5 +19,5 @@ export default {
       }
     },
   },
-  plugins: [],
+  plugins: [require('@tailwindcss/forms')],
 }
