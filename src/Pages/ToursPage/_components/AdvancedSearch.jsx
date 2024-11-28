@@ -1,11 +1,13 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import FilterBoxTemplate from "../../../Components/FilterBoxTemplate";
 import Images from "../../../Setting/Images";
 import EachToursPost from "../../../Components/EachToursPost";
-import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import { FaChevronLeft, FaChevronRight, FaTimes } from "react-icons/fa";
 import Masonry from "react-masonry-css";
 import { useNavigate } from "react-router-dom";
 import { IoClose } from "react-icons/io5";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
 
 export default function AdvancedSearch() {
   const toursData = [
@@ -348,8 +350,56 @@ export default function AdvancedSearch() {
       price: 1500000,
     },
   ];
+  const filters = [
+    {
+      title: "تورهای مناسبتی",
+      items: ["جشن تولد", "نمایشگاهی و فستیوال", "کریسمس و سال نو میلادی"],
+      key: "occasionalTours",
+    },
+    {
+      title: "فعالیت‌ها",
+      items: ["صخره نوردی", "کوهنوردی", "شنا", "پیاده‌روی"],
+      key: "Activities",
+    },
+    {
+      title: "سبک سفر",
+      items: ["کویر", "کوهستان", "بومگردی", "رودخانه", "دریا", "جنگل"],
+      key: "travelStyle",
+    },
+    {
+      title: "سطح توانایی",
+      items: ["پیشرفته", "متوسط", "مبتدی", "خانوادگی"],
+      key: "abilityLevel",
+    },
+    {
+      title: "ظرفیت",
+      items: ["-10 نفر", "+10 نفر", "+20 نفر", "+30 نفر"],
+      key: "Capacity",
+    },
+    {
+      title: "خدمات",
+      items: ["بیمه", "لیدر", "وعده‌های غذای", "بازی و سرگرمی"],
+      key: "Services",
+    },
+    {
+      title: "وسیله نقلیه",
+      items: ["ماشین", "جیپ", "هواپیما", "قطار", "اتوبوس", "مینی‌بوس"],
+      key: "transport",
+    },
+    {
+      title: "مدت اقامت",
+      items: ["-7 روز", "7 روز", "+7 روز"],
+      key: "LengthStay",
+    },
+    {
+      title: "زمان از روز",
+      items: ["صبح", "بعد از ظهر", "عصر"],
+      key: "timeOfDay",
+    },
+  ];
 
   const navigate = useNavigate();
+
   const submitDetailsPage = (tours) => {
     //When you get the "API", check the "location" value!!!
     if (!tours || !tours.location) {
@@ -361,11 +411,13 @@ export default function AdvancedSearch() {
   };
   const postsPerPage = 20;
   const [isOpen, setIsOpen] = useState(false);
+  const [showSelectedFilters, setShowSelectedFilters] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const totalPages = Math.ceil(toursData.length / postsPerPage);
   const startIndex = (currentPage - 1) * postsPerPage;
   const endIndex = startIndex + postsPerPage;
   const currentPosts = toursData.slice(startIndex, endIndex);
+
   const handleNext = () => {
     if (currentPage < totalPages) {
       setCurrentPage((prev) => prev + 1);
@@ -376,11 +428,45 @@ export default function AdvancedSearch() {
       setCurrentPage((prev) => prev - 1);
     }
   };
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, [currentPage]);
+
   const breakpointColumnsObj = {
     default: 4,
     1280: 3,
     1023: 2,
     640: 1,
+  };
+
+  const [selectedFilters, setSelectedFilters] = useState({
+    occasionalTours: [],
+    Activities: [],
+    travelStyle: [],
+    abilityLevel: [],
+    Capacity: [],
+    Services: [],
+    transport: [],
+    LengthStay: [],
+    timeOfDay: [],
+  });
+
+  const toggleFilter = (key, item) => {
+    setSelectedFilters((prevFilters) => {
+      const isSelected = prevFilters[key].includes(item);
+      return {
+        ...prevFilters,
+        [key]: isSelected
+          ? prevFilters[key].filter((i) => i !== item)
+          : [...prevFilters[key], item],
+      };
+    });
+  };
+  const handleRemoveFilter = (filterKey, item) => {
+    setSelectedFilters((prevFilters) => ({
+      ...prevFilters,
+      [filterKey]: prevFilters[filterKey].filter((i) => i !== item),
+    }));
   };
 
   return (
@@ -415,305 +501,24 @@ export default function AdvancedSearch() {
           </div>
         </div>
         <div className="w-full flex flex-col items-center border-solid border-Borders border-t-[1px]">
-          <FilterBoxTemplate title="تورهای مناسبتی">
-            <div className="w-full flex flex-col items-start gap-3.5">
-              <label className="flex items-center gap-1.5 w-full cursor-pointer">
-                <input
-                  type="checkbox"
-                  className="form-checkbox focus:ring-0 checked:!bg-Primary rounded-md border-Borders border-[1px] checked:!border-none"
-                />
-                <span className="text-sm text-Secoundray">جشن تولد</span>
-              </label>
-              <label className="flex items-center gap-1.5 w-full cursor-pointer">
-                <input
-                  type="checkbox"
-                  className="form-checkbox focus:ring-0 checked:!bg-Primary rounded-md border-Borders border-[1px] checked:!border-none"
-                />
-                <span className="text-sm text-Secoundray">
-                  نمایشگاهی و فستیوال
-                </span>
-              </label>
-              <label className="flex items-center gap-1.5 w-full cursor-pointer">
-                <input
-                  type="checkbox"
-                  className="form-checkbox focus:ring-0 checked:!bg-Primary rounded-md border-Borders border-[1px] checked:!border-none"
-                />
-                <span className="text-sm text-Secoundray">
-                  کریسمس و سال نو میلادی
-                </span>
-              </label>
-            </div>
-          </FilterBoxTemplate>
-          <FilterBoxTemplate title="فعالیت‌ها">
-            <div className="w-full flex flex-col items-start gap-3.5">
-              <label className="flex items-center gap-1.5 w-full cursor-pointer">
-                <input
-                  type="checkbox"
-                  className="form-checkbox focus:ring-0 checked:!bg-Primary rounded-md border-Borders border-[1px] checked:!border-none"
-                />
-                <span className="text-sm text-Secoundray">صخره نوردی</span>
-              </label>
-              <label className="flex items-center gap-1.5 w-full cursor-pointer">
-                <input
-                  type="checkbox"
-                  className="form-checkbox focus:ring-0 checked:!bg-Primary rounded-md border-Borders border-[1px] checked:!border-none"
-                />
-                <span className="text-sm text-Secoundray">کوهنوردی</span>
-              </label>
-              <label className="flex items-center gap-1.5 w-full cursor-pointer">
-                <input
-                  type="checkbox"
-                  className="form-checkbox focus:ring-0 checked:!bg-Primary rounded-md border-Borders border-[1px] checked:!border-none"
-                />
-                <span className="text-sm text-Secoundray">شنا</span>
-              </label>
-              <label className="flex items-center gap-1.5 w-full cursor-pointer">
-                <input
-                  type="checkbox"
-                  className="form-checkbox focus:ring-0 checked:!bg-Primary rounded-md border-Borders border-[1px] checked:!border-none"
-                />
-                <span className="text-sm text-Secoundray">پیاده‌روی</span>
-              </label>
-            </div>
-          </FilterBoxTemplate>
-          <FilterBoxTemplate title="سبک سفر">
-            <div className="w-full flex flex-col items-start gap-3.5">
-              <label className="flex items-center gap-1.5 w-full cursor-pointer">
-                <input
-                  type="checkbox"
-                  className="form-checkbox focus:ring-0 checked:!bg-Primary rounded-md border-Borders border-[1px] checked:!border-none"
-                />
-                <span className="text-sm text-Secoundray">کویر</span>
-              </label>
-              <label className="flex items-center gap-1.5 w-full cursor-pointer">
-                <input
-                  type="checkbox"
-                  className="form-checkbox focus:ring-0 checked:!bg-Primary rounded-md border-Borders border-[1px] checked:!border-none"
-                />
-                <span className="text-sm text-Secoundray">کوهستان</span>
-              </label>
-              <label className="flex items-center gap-1.5 w-full cursor-pointer">
-                <input
-                  type="checkbox"
-                  className="form-checkbox focus:ring-0 checked:!bg-Primary rounded-md border-Borders border-[1px] checked:!border-none"
-                />
-                <span className="text-sm text-Secoundray">بومگردی</span>
-              </label>
-              <label className="flex items-center gap-1.5 w-full cursor-pointer">
-                <input
-                  type="checkbox"
-                  className="form-checkbox focus:ring-0 checked:!bg-Primary rounded-md border-Borders border-[1px] checked:!border-none"
-                />
-                <span className="text-sm text-Secoundray">رودخانه</span>
-              </label>
-              <label className="flex items-center gap-1.5 w-full cursor-pointer">
-                <input
-                  type="checkbox"
-                  className="form-checkbox focus:ring-0 checked:!bg-Primary rounded-md border-Borders border-[1px] checked:!border-none"
-                />
-                <span className="text-sm text-Secoundray">دریا</span>
-              </label>
-              <label className="flex items-center gap-1.5 w-full cursor-pointer">
-                <input
-                  type="checkbox"
-                  className="form-checkbox focus:ring-0 checked:!bg-Primary rounded-md border-Borders border-[1px] checked:!border-none"
-                />
-                <span className="text-sm text-Secoundray">جنگل</span>
-              </label>
-            </div>
-          </FilterBoxTemplate>
-          <FilterBoxTemplate title="سطح توانایی">
-            <div className="w-full flex flex-col items-start gap-3.5">
-              <label className="flex items-center gap-1.5 w-full cursor-pointer">
-                <input
-                  type="checkbox"
-                  className="form-checkbox focus:ring-0 checked:!bg-Primary rounded-md border-Borders border-[1px] checked:!border-none"
-                />
-                <span className="text-sm text-Secoundray">پیشرفته</span>
-              </label>
-              <label className="flex items-center gap-1.5 w-full cursor-pointer">
-                <input
-                  type="checkbox"
-                  className="form-checkbox focus:ring-0 checked:!bg-Primary rounded-md border-Borders border-[1px] checked:!border-none"
-                />
-                <span className="text-sm text-Secoundray">متوسط</span>
-              </label>
-              <label className="flex items-center gap-1.5 w-full cursor-pointer">
-                <input
-                  type="checkbox"
-                  className="form-checkbox focus:ring-0 checked:!bg-Primary rounded-md border-Borders border-[1px] checked:!border-none"
-                />
-                <span className="text-sm text-Secoundray">مبتدی</span>
-              </label>
-              <label className="flex items-center gap-1.5 w-full cursor-pointer">
-                <input
-                  type="checkbox"
-                  className="form-checkbox focus:ring-0 checked:!bg-Primary rounded-md border-Borders border-[1px] checked:!border-none"
-                />
-                <span className="text-sm text-Secoundray">خانوادگی</span>
-              </label>
-            </div>
-          </FilterBoxTemplate>
-          <FilterBoxTemplate title="ظرفیت">
-            <div className="w-full flex flex-col items-start gap-3.5">
-              <label className="flex items-center gap-1.5 w-full cursor-pointer">
-                <input
-                  type="checkbox"
-                  className="form-checkbox focus:ring-0 checked:!bg-Primary rounded-md border-Borders border-[1px] checked:!border-none"
-                />
-                <span className="text-sm text-Secoundray">-10 نفر</span>
-              </label>
-              <label className="flex items-center gap-1.5 w-full cursor-pointer">
-                <input
-                  type="checkbox"
-                  className="form-checkbox focus:ring-0 checked:!bg-Primary rounded-md border-Borders border-[1px] checked:!border-none"
-                />
-                <span className="text-sm text-Secoundray">+10 نفر</span>
-              </label>
-              <label className="flex items-center gap-1.5 w-full cursor-pointer">
-                <input
-                  type="checkbox"
-                  className="form-checkbox focus:ring-0 checked:!bg-Primary rounded-md border-Borders border-[1px] checked:!border-none"
-                />
-                <span className="text-sm text-Secoundray">+20 نفر</span>
-              </label>
-              <label className="flex items-center gap-1.5 w-full cursor-pointer">
-                <input
-                  type="checkbox"
-                  className="form-checkbox focus:ring-0 checked:!bg-Primary rounded-md border-Borders border-[1px] checked:!border-none"
-                />
-                <span className="text-sm text-Secoundray">+30 نفر</span>
-              </label>
-            </div>
-          </FilterBoxTemplate>
-          <FilterBoxTemplate title="خدمات">
-            <div className="w-full flex flex-col items-start gap-3.5">
-              <label className="flex items-center gap-1.5 w-full cursor-pointer">
-                <input
-                  type="checkbox"
-                  className="form-checkbox focus:ring-0 checked:!bg-Primary rounded-md border-Borders border-[1px] checked:!border-none"
-                />
-                <span className="text-sm text-Secoundray">بیمه</span>
-              </label>
-              <label className="flex items-center gap-1.5 w-full cursor-pointer">
-                <input
-                  type="checkbox"
-                  className="form-checkbox focus:ring-0 checked:!bg-Primary rounded-md border-Borders border-[1px] checked:!border-none"
-                />
-                <span className="text-sm text-Secoundray">لیدر</span>
-              </label>
-              <label className="flex items-center gap-1.5 w-full cursor-pointer">
-                <input
-                  type="checkbox"
-                  className="form-checkbox focus:ring-0 checked:!bg-Primary rounded-md border-Borders border-[1px] checked:!border-none"
-                />
-                <span className="text-sm text-Secoundray">وعده‌های غذایی</span>
-              </label>
-              <label className="flex items-center gap-1.5 w-full cursor-pointer">
-                <input
-                  type="checkbox"
-                  className="form-checkbox focus:ring-0 checked:!bg-Primary rounded-md border-Borders border-[1px] checked:!border-none"
-                />
-                <span className="text-sm text-Secoundray">بازی و سرگرمی</span>
-              </label>
-            </div>
-          </FilterBoxTemplate>
-          <FilterBoxTemplate title="وسیله نقلیه">
-            <div className="w-full flex flex-col items-start gap-3.5">
-              <label className="flex items-center gap-1.5 w-full cursor-pointer">
-                <input
-                  type="checkbox"
-                  className="form-checkbox focus:ring-0 checked:!bg-Primary rounded-md border-Borders border-[1px] checked:!border-none"
-                />
-                <span className="text-sm text-Secoundray">ماشین</span>
-              </label>
-              <label className="flex items-center gap-1.5 w-full cursor-pointer">
-                <input
-                  type="checkbox"
-                  className="form-checkbox focus:ring-0 checked:!bg-Primary rounded-md border-Borders border-[1px] checked:!border-none"
-                />
-                <span className="text-sm text-Secoundray">جیپ</span>
-              </label>
-              <label className="flex items-center gap-1.5 w-full cursor-pointer">
-                <input
-                  type="checkbox"
-                  className="form-checkbox focus:ring-0 checked:!bg-Primary rounded-md border-Borders border-[1px] checked:!border-none"
-                />
-                <span className="text-sm text-Secoundray">هواپیما</span>
-              </label>
-              <label className="flex items-center gap-1.5 w-full cursor-pointer">
-                <input
-                  type="checkbox"
-                  className="form-checkbox focus:ring-0 checked:!bg-Primary rounded-md border-Borders border-[1px] checked:!border-none"
-                />
-                <span className="text-sm text-Secoundray">قطار</span>
-              </label>
-              <label className="flex items-center gap-1.5 w-full cursor-pointer">
-                <input
-                  type="checkbox"
-                  className="form-checkbox focus:ring-0 checked:!bg-Primary rounded-md border-Borders border-[1px] checked:!border-none"
-                />
-                <span className="text-sm text-Secoundray">اتوبوس</span>
-              </label>
-              <label className="flex items-center gap-1.5 w-full cursor-pointer">
-                <input
-                  type="checkbox"
-                  className="form-checkbox focus:ring-0 checked:!bg-Primary rounded-md border-Borders border-[1px] checked:!border-none"
-                />
-                <span className="text-sm text-Secoundray">مینی‌بوس</span>
-              </label>
-            </div>
-          </FilterBoxTemplate>
-          <FilterBoxTemplate title="مدت اقامت">
-            <div className="w-full flex flex-col items-start gap-3.5">
-              <label className="flex items-center gap-1.5 w-full cursor-pointer">
-                <input
-                  type="checkbox"
-                  className="form-checkbox focus:ring-0 checked:!bg-Primary rounded-md border-Borders border-[1px] checked:!border-none"
-                />
-                <span className="text-sm text-Secoundray">-7 روز</span>
-              </label>
-              <label className="flex items-center gap-1.5 w-full cursor-pointer">
-                <input
-                  type="checkbox"
-                  className="form-checkbox focus:ring-0 checked:!bg-Primary rounded-md border-Borders border-[1px] checked:!border-none"
-                />
-                <span className="text-sm text-Secoundray">7 روز</span>
-              </label>
-              <label className="flex items-center gap-1.5 w-full cursor-pointer">
-                <input
-                  type="checkbox"
-                  className="form-checkbox focus:ring-0 checked:!bg-Primary rounded-md border-Borders border-[1px] checked:!border-none"
-                />
-                <span className="text-sm text-Secoundray">+7 روز</span>
-              </label>
-            </div>
-          </FilterBoxTemplate>
-          <FilterBoxTemplate title="زمان از روز">
-            <div className="w-full flex flex-col items-start gap-3.5">
-              <label className="flex items-center gap-1.5 w-full cursor-pointer">
-                <input
-                  type="checkbox"
-                  className="form-checkbox focus:ring-0 checked:!bg-Primary rounded-md border-Borders border-[1px] checked:!border-none"
-                />
-                <span className="text-sm text-Secoundray">صبح</span>
-              </label>
-              <label className="flex items-center gap-1.5 w-full cursor-pointer">
-                <input
-                  type="checkbox"
-                  className="form-checkbox focus:ring-0 checked:!bg-Primary rounded-md border-Borders border-[1px] checked:!border-none"
-                />
-                <span className="text-sm text-Secoundray">بعد از ظهر</span>
-              </label>
-              <label className="flex items-center gap-1.5 w-full cursor-pointer">
-                <input
-                  type="checkbox"
-                  className="form-checkbox focus:ring-0 checked:!bg-Primary rounded-md border-Borders border-[1px] checked:!border-none"
-                />
-                <span className="text-sm text-Secoundray">عصر</span>
-              </label>
-            </div>
-          </FilterBoxTemplate>
+          {filters.map(({ title, items, key }) => (
+            <FilterBoxTemplate title={title} key={key}>
+              {items.map((item, index) => (
+                <label
+                  key={index}
+                  className="flex items-center gap-1.5 w-full cursor-pointer"
+                >
+                  <input
+                    type="checkbox"
+                    className="form-checkbox focus:ring-0 checked:!bg-Primary rounded-md border-Borders border-[1px] checked:!border-none"
+                    checked={selectedFilters[key].includes(item)}
+                    onChange={() => toggleFilter(key, item)}
+                  />
+                  <span className="text-sm text-Secoundray">{item}</span>
+                </label>
+              ))}
+            </FilterBoxTemplate>
+          ))}
         </div>
         <label className="w-full flex items-center gap-1.5 py-2 border-Borders border-solid border-b-[1px]">
           <input
@@ -782,309 +587,24 @@ export default function AdvancedSearch() {
               </div>
             </div>
             <div className="w-full flex flex-col items-center border-solid border-Borders border-t-[1px]">
-              <FilterBoxTemplate title="تورهای مناسبتی">
-                <div className="w-full flex flex-col items-start gap-3.5">
-                  <label className="flex items-center gap-1.5 w-full cursor-pointer">
-                    <input
-                      type="checkbox"
-                      className="form-checkbox focus:ring-0 checked:!bg-Primary rounded-md border-Borders border-[1px] checked:!border-none"
-                    />
-                    <span className="text-sm text-Secoundray">جشن تولد</span>
-                  </label>
-                  <label className="flex items-center gap-1.5 w-full cursor-pointer">
-                    <input
-                      type="checkbox"
-                      className="form-checkbox focus:ring-0 checked:!bg-Primary rounded-md border-Borders border-[1px] checked:!border-none"
-                    />
-                    <span className="text-sm text-Secoundray">
-                      نمایشگاهی و فستیوال
-                    </span>
-                  </label>
-                  <label className="flex items-center gap-1.5 w-full cursor-pointer">
-                    <input
-                      type="checkbox"
-                      className="form-checkbox focus:ring-0 checked:!bg-Primary rounded-md border-Borders border-[1px] checked:!border-none"
-                    />
-                    <span className="text-sm text-Secoundray">
-                      کریسمس و سال نو میلادی
-                    </span>
-                  </label>
-                </div>
-              </FilterBoxTemplate>
-              <FilterBoxTemplate title="فعالیت‌ها">
-                <div className="w-full flex flex-col items-start gap-3.5">
-                  <label className="flex items-center gap-1.5 w-full cursor-pointer">
-                    <input
-                      type="checkbox"
-                      className="form-checkbox focus:ring-0 checked:!bg-Primary rounded-md border-Borders border-[1px] checked:!border-none"
-                    />
-                    <span className="text-sm text-Secoundray">صخره نوردی</span>
-                  </label>
-                  <label className="flex items-center gap-1.5 w-full cursor-pointer">
-                    <input
-                      type="checkbox"
-                      className="form-checkbox focus:ring-0 checked:!bg-Primary rounded-md border-Borders border-[1px] checked:!border-none"
-                    />
-                    <span className="text-sm text-Secoundray">کوهنوردی</span>
-                  </label>
-                  <label className="flex items-center gap-1.5 w-full cursor-pointer">
-                    <input
-                      type="checkbox"
-                      className="form-checkbox focus:ring-0 checked:!bg-Primary rounded-md border-Borders border-[1px] checked:!border-none"
-                    />
-                    <span className="text-sm text-Secoundray">شنا</span>
-                  </label>
-                  <label className="flex items-center gap-1.5 w-full cursor-pointer">
-                    <input
-                      type="checkbox"
-                      className="form-checkbox focus:ring-0 checked:!bg-Primary rounded-md border-Borders border-[1px] checked:!border-none"
-                    />
-                    <span className="text-sm text-Secoundray">پیاده‌روی</span>
-                  </label>
-                </div>
-              </FilterBoxTemplate>
-              <FilterBoxTemplate title="سبک سفر">
-                <div className="w-full flex flex-col items-start gap-3.5">
-                  <label className="flex items-center gap-1.5 w-full cursor-pointer">
-                    <input
-                      type="checkbox"
-                      className="form-checkbox focus:ring-0 checked:!bg-Primary rounded-md border-Borders border-[1px] checked:!border-none"
-                    />
-                    <span className="text-sm text-Secoundray">کویر</span>
-                  </label>
-                  <label className="flex items-center gap-1.5 w-full cursor-pointer">
-                    <input
-                      type="checkbox"
-                      className="form-checkbox focus:ring-0 checked:!bg-Primary rounded-md border-Borders border-[1px] checked:!border-none"
-                    />
-                    <span className="text-sm text-Secoundray">کوهستان</span>
-                  </label>
-                  <label className="flex items-center gap-1.5 w-full cursor-pointer">
-                    <input
-                      type="checkbox"
-                      className="form-checkbox focus:ring-0 checked:!bg-Primary rounded-md border-Borders border-[1px] checked:!border-none"
-                    />
-                    <span className="text-sm text-Secoundray">بومگردی</span>
-                  </label>
-                  <label className="flex items-center gap-1.5 w-full cursor-pointer">
-                    <input
-                      type="checkbox"
-                      className="form-checkbox focus:ring-0 checked:!bg-Primary rounded-md border-Borders border-[1px] checked:!border-none"
-                    />
-                    <span className="text-sm text-Secoundray">رودخانه</span>
-                  </label>
-                  <label className="flex items-center gap-1.5 w-full cursor-pointer">
-                    <input
-                      type="checkbox"
-                      className="form-checkbox focus:ring-0 checked:!bg-Primary rounded-md border-Borders border-[1px] checked:!border-none"
-                    />
-                    <span className="text-sm text-Secoundray">دریا</span>
-                  </label>
-                  <label className="flex items-center gap-1.5 w-full cursor-pointer">
-                    <input
-                      type="checkbox"
-                      className="form-checkbox focus:ring-0 checked:!bg-Primary rounded-md border-Borders border-[1px] checked:!border-none"
-                    />
-                    <span className="text-sm text-Secoundray">جنگل</span>
-                  </label>
-                </div>
-              </FilterBoxTemplate>
-              <FilterBoxTemplate title="سطح توانایی">
-                <div className="w-full flex flex-col items-start gap-3.5">
-                  <label className="flex items-center gap-1.5 w-full cursor-pointer">
-                    <input
-                      type="checkbox"
-                      className="form-checkbox focus:ring-0 checked:!bg-Primary rounded-md border-Borders border-[1px] checked:!border-none"
-                    />
-                    <span className="text-sm text-Secoundray">پیشرفته</span>
-                  </label>
-                  <label className="flex items-center gap-1.5 w-full cursor-pointer">
-                    <input
-                      type="checkbox"
-                      className="form-checkbox focus:ring-0 checked:!bg-Primary rounded-md border-Borders border-[1px] checked:!border-none"
-                    />
-                    <span className="text-sm text-Secoundray">متوسط</span>
-                  </label>
-                  <label className="flex items-center gap-1.5 w-full cursor-pointer">
-                    <input
-                      type="checkbox"
-                      className="form-checkbox focus:ring-0 checked:!bg-Primary rounded-md border-Borders border-[1px] checked:!border-none"
-                    />
-                    <span className="text-sm text-Secoundray">مبتدی</span>
-                  </label>
-                  <label className="flex items-center gap-1.5 w-full cursor-pointer">
-                    <input
-                      type="checkbox"
-                      className="form-checkbox focus:ring-0 checked:!bg-Primary rounded-md border-Borders border-[1px] checked:!border-none"
-                    />
-                    <span className="text-sm text-Secoundray">خانوادگی</span>
-                  </label>
-                </div>
-              </FilterBoxTemplate>
-              <FilterBoxTemplate title="ظرفیت">
-                <div className="w-full flex flex-col items-start gap-3.5">
-                  <label className="flex items-center gap-1.5 w-full cursor-pointer">
-                    <input
-                      type="checkbox"
-                      className="form-checkbox focus:ring-0 checked:!bg-Primary rounded-md border-Borders border-[1px] checked:!border-none"
-                    />
-                    <span className="text-sm text-Secoundray">-10 نفر</span>
-                  </label>
-                  <label className="flex items-center gap-1.5 w-full cursor-pointer">
-                    <input
-                      type="checkbox"
-                      className="form-checkbox focus:ring-0 checked:!bg-Primary rounded-md border-Borders border-[1px] checked:!border-none"
-                    />
-                    <span className="text-sm text-Secoundray">+10 نفر</span>
-                  </label>
-                  <label className="flex items-center gap-1.5 w-full cursor-pointer">
-                    <input
-                      type="checkbox"
-                      className="form-checkbox focus:ring-0 checked:!bg-Primary rounded-md border-Borders border-[1px] checked:!border-none"
-                    />
-                    <span className="text-sm text-Secoundray">+20 نفر</span>
-                  </label>
-                  <label className="flex items-center gap-1.5 w-full cursor-pointer">
-                    <input
-                      type="checkbox"
-                      className="form-checkbox focus:ring-0 checked:!bg-Primary rounded-md border-Borders border-[1px] checked:!border-none"
-                    />
-                    <span className="text-sm text-Secoundray">+30 نفر</span>
-                  </label>
-                </div>
-              </FilterBoxTemplate>
-              <FilterBoxTemplate title="خدمات">
-                <div className="w-full flex flex-col items-start gap-3.5">
-                  <label className="flex items-center gap-1.5 w-full cursor-pointer">
-                    <input
-                      type="checkbox"
-                      className="form-checkbox focus:ring-0 checked:!bg-Primary rounded-md border-Borders border-[1px] checked:!border-none"
-                    />
-                    <span className="text-sm text-Secoundray">بیمه</span>
-                  </label>
-                  <label className="flex items-center gap-1.5 w-full cursor-pointer">
-                    <input
-                      type="checkbox"
-                      className="form-checkbox focus:ring-0 checked:!bg-Primary rounded-md border-Borders border-[1px] checked:!border-none"
-                    />
-                    <span className="text-sm text-Secoundray">لیدر</span>
-                  </label>
-                  <label className="flex items-center gap-1.5 w-full cursor-pointer">
-                    <input
-                      type="checkbox"
-                      className="form-checkbox focus:ring-0 checked:!bg-Primary rounded-md border-Borders border-[1px] checked:!border-none"
-                    />
-                    <span className="text-sm text-Secoundray">
-                      وعده‌های غذایی
-                    </span>
-                  </label>
-                  <label className="flex items-center gap-1.5 w-full cursor-pointer">
-                    <input
-                      type="checkbox"
-                      className="form-checkbox focus:ring-0 checked:!bg-Primary rounded-md border-Borders border-[1px] checked:!border-none"
-                    />
-                    <span className="text-sm text-Secoundray">
-                      بازی و سرگرمی
-                    </span>
-                  </label>
-                </div>
-              </FilterBoxTemplate>
-              <FilterBoxTemplate title="وسیله نقلیه">
-                <div className="w-full flex flex-col items-start gap-3.5">
-                  <label className="flex items-center gap-1.5 w-full cursor-pointer">
-                    <input
-                      type="checkbox"
-                      className="form-checkbox focus:ring-0 checked:!bg-Primary rounded-md border-Borders border-[1px] checked:!border-none"
-                    />
-                    <span className="text-sm text-Secoundray">ماشین</span>
-                  </label>
-                  <label className="flex items-center gap-1.5 w-full cursor-pointer">
-                    <input
-                      type="checkbox"
-                      className="form-checkbox focus:ring-0 checked:!bg-Primary rounded-md border-Borders border-[1px] checked:!border-none"
-                    />
-                    <span className="text-sm text-Secoundray">جیپ</span>
-                  </label>
-                  <label className="flex items-center gap-1.5 w-full cursor-pointer">
-                    <input
-                      type="checkbox"
-                      className="form-checkbox focus:ring-0 checked:!bg-Primary rounded-md border-Borders border-[1px] checked:!border-none"
-                    />
-                    <span className="text-sm text-Secoundray">هواپیما</span>
-                  </label>
-                  <label className="flex items-center gap-1.5 w-full cursor-pointer">
-                    <input
-                      type="checkbox"
-                      className="form-checkbox focus:ring-0 checked:!bg-Primary rounded-md border-Borders border-[1px] checked:!border-none"
-                    />
-                    <span className="text-sm text-Secoundray">قطار</span>
-                  </label>
-                  <label className="flex items-center gap-1.5 w-full cursor-pointer">
-                    <input
-                      type="checkbox"
-                      className="form-checkbox focus:ring-0 checked:!bg-Primary rounded-md border-Borders border-[1px] checked:!border-none"
-                    />
-                    <span className="text-sm text-Secoundray">اتوبوس</span>
-                  </label>
-                  <label className="flex items-center gap-1.5 w-full cursor-pointer">
-                    <input
-                      type="checkbox"
-                      className="form-checkbox focus:ring-0 checked:!bg-Primary rounded-md border-Borders border-[1px] checked:!border-none"
-                    />
-                    <span className="text-sm text-Secoundray">مینی‌بوس</span>
-                  </label>
-                </div>
-              </FilterBoxTemplate>
-              <FilterBoxTemplate title="مدت اقامت">
-                <div className="w-full flex flex-col items-start gap-3.5">
-                  <label className="flex items-center gap-1.5 w-full cursor-pointer">
-                    <input
-                      type="checkbox"
-                      className="form-checkbox focus:ring-0 checked:!bg-Primary rounded-md border-Borders border-[1px] checked:!border-none"
-                    />
-                    <span className="text-sm text-Secoundray">-7 روز</span>
-                  </label>
-                  <label className="flex items-center gap-1.5 w-full cursor-pointer">
-                    <input
-                      type="checkbox"
-                      className="form-checkbox focus:ring-0 checked:!bg-Primary rounded-md border-Borders border-[1px] checked:!border-none"
-                    />
-                    <span className="text-sm text-Secoundray">7 روز</span>
-                  </label>
-                  <label className="flex items-center gap-1.5 w-full cursor-pointer">
-                    <input
-                      type="checkbox"
-                      className="form-checkbox focus:ring-0 checked:!bg-Primary rounded-md border-Borders border-[1px] checked:!border-none"
-                    />
-                    <span className="text-sm text-Secoundray">+7 روز</span>
-                  </label>
-                </div>
-              </FilterBoxTemplate>
-              <FilterBoxTemplate title="زمان از روز">
-                <div className="w-full flex flex-col items-start gap-3.5">
-                  <label className="flex items-center gap-1.5 w-full cursor-pointer">
-                    <input
-                      type="checkbox"
-                      className="form-checkbox focus:ring-0 checked:!bg-Primary rounded-md border-Borders border-[1px] checked:!border-none"
-                    />
-                    <span className="text-sm text-Secoundray">صبح</span>
-                  </label>
-                  <label className="flex items-center gap-1.5 w-full cursor-pointer">
-                    <input
-                      type="checkbox"
-                      className="form-checkbox focus:ring-0 checked:!bg-Primary rounded-md border-Borders border-[1px] checked:!border-none"
-                    />
-                    <span className="text-sm text-Secoundray">بعد از ظهر</span>
-                  </label>
-                  <label className="flex items-center gap-1.5 w-full cursor-pointer">
-                    <input
-                      type="checkbox"
-                      className="form-checkbox focus:ring-0 checked:!bg-Primary rounded-md border-Borders border-[1px] checked:!border-none"
-                    />
-                    <span className="text-sm text-Secoundray">عصر</span>
-                  </label>
-                </div>
-              </FilterBoxTemplate>
+              {filters.map(({ title, items, key }) => (
+                <FilterBoxTemplate title={title} key={key}>
+                  {items.map((item, index) => (
+                    <label
+                      key={index}
+                      className="flex items-center gap-1.5 w-full cursor-pointer"
+                    >
+                      <input
+                        type="checkbox"
+                        className="form-checkbox focus:ring-0 checked:!bg-Primary rounded-md border-Borders border-[1px] checked:!border-none"
+                        checked={selectedFilters[key].includes(item)}
+                        onChange={() => toggleFilter(key, item)}
+                      />
+                      <span className="text-sm text-Secoundray">{item}</span>
+                    </label>
+                  ))}
+                </FilterBoxTemplate>
+              ))}
             </div>
             <label className="w-full flex items-center gap-1.5 py-2 border-Borders border-solid border-b-[1px]">
               <input
@@ -1106,7 +626,11 @@ export default function AdvancedSearch() {
             </label>
             <div className="w-full bg-[#FAFAFA] flex items-center justify-center shadow-[0px_0px_45px_-5px_rgba(14,154,138,0.3)] p-3 fixed bottom-0 left-0 right-0">
               <button
-                onClick={() => setIsOpen(!isOpen)}
+                onClick={() => {
+                  setIsOpen(false);
+                  setShowSelectedFilters(true);
+                  window.scrollTo({ top: 0, behavior: "smooth" });
+                }}
                 className="bg-Primary text-white w-full py-3 rounded-2xl"
               >
                 جستجو
@@ -1121,6 +645,44 @@ export default function AdvancedSearch() {
           isOpen ? "hidden" : "flex"
         } flex-1 flex-col items-center gap-10`}
       >
+        {showSelectedFilters && (
+          <Swiper
+            slidesPerView={1.4}
+            spaceBetween={5}
+            breakpoints={{
+              540: {
+                slidesPerView: 2.1,
+              },
+              635: {
+                slidesPerView: 2.5,
+              },
+              768: {
+                slidesPerView: 3.1,
+                spaceBetween: 5,
+              },
+            }}
+            className="mySwiper w-full"
+          >
+            {Object.entries(selectedFilters).map(([filterKey, options]) =>
+              options.map((item) => (
+                <SwiperSlide
+                  key={`${filterKey}-${item}`}
+                  className="flex items-center"
+                >
+                  <div className="bg-[#00000080] text-white text-sm py-3 px-3 rounded-2xl flex items-center justify-between gap-2">
+                    <span>{item}</span>
+                    <button
+                      onClick={() => handleRemoveFilter(filterKey, item)}
+                      className=""
+                    >
+                      <FaTimes />
+                    </button>
+                  </div>
+                </SwiperSlide>
+              ))
+            )}
+          </Swiper>
+        )}
         <div className="w-full h-full bg-[#FAFAFA] rounded-2xl">
           <Masonry
             breakpointCols={breakpointColumnsObj}

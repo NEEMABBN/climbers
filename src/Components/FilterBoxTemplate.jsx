@@ -29,7 +29,9 @@ export default function FilterBoxTemplate({ title, children }) {
           maxHeight: isOpen ? `${contentRef.current?.scrollHeight}px` : "0px",
         }}
       >
-        <div className="w-full">{children}</div>
+        <div className="w-full flex flex-col items-start gap-3.5">
+          {children}
+        </div>
       </div>
     </div>
   );
