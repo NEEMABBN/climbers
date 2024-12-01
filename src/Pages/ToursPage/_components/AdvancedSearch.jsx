@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom";
 import { IoClose } from "react-icons/io5";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
+import DateRangePicker from "../../../Components/DateRangePicker";
 
 export default function AdvancedSearch() {
   const toursData = [
@@ -355,46 +356,80 @@ export default function AdvancedSearch() {
       title: "تورهای مناسبتی",
       items: ["جشن تولد", "نمایشگاهی و فستیوال", "کریسمس و سال نو میلادی"],
       key: "occasionalTours",
+      type: "checkbox",
     },
     {
       title: "فعالیت‌ها",
       items: ["صخره نوردی", "کوهنوردی", "شنا", "پیاده‌روی"],
       key: "Activities",
+      type: "checkbox",
     },
     {
       title: "سبک سفر",
       items: ["کویر", "کوهستان", "بومگردی", "رودخانه", "دریا", "جنگل"],
       key: "travelStyle",
+      type: "checkbox",
     },
     {
       title: "سطح توانایی",
       items: ["پیشرفته", "متوسط", "مبتدی", "خانوادگی"],
       key: "abilityLevel",
+      type: "checkbox",
     },
     {
       title: "ظرفیت",
       items: ["-10 نفر", "+10 نفر", "+20 نفر", "+30 نفر"],
       key: "Capacity",
+      type: "checkbox",
     },
     {
       title: "خدمات",
       items: ["بیمه", "لیدر", "وعده‌های غذای", "بازی و سرگرمی"],
       key: "Services",
+      type: "checkbox",
     },
     {
       title: "وسیله نقلیه",
       items: ["ماشین", "جیپ", "هواپیما", "قطار", "اتوبوس", "مینی‌بوس"],
       key: "transport",
+      type: "checkbox",
     },
     {
       title: "مدت اقامت",
       items: ["-7 روز", "7 روز", "+7 روز"],
       key: "LengthStay",
+      type: "checkbox",
     },
     {
       title: "زمان از روز",
       items: ["صبح", "بعد از ظهر", "عصر"],
       key: "timeOfDay",
+      type: "checkbox",
+    },
+    {
+      title: "ارتفاع کوه",
+      items: [
+        "کمتر از 2000 متر",
+        "2000 تا 3000 متر",
+        "3000 تا 4000 متر",
+        "بیشتر از 4000 متر",
+      ],
+      key: "mountainHeight",
+      type: "checkbox",
+    },
+    {
+      title: "امتیاز تور",
+      items: ["1 ستاره", "2 ستاره", "3 ستاره", "4 ستاره", "5 ستاره"],
+      key: "rating",
+      type: "radio",
+    },
+    {
+      title: "هزینه تور",
+      key: "cost",
+      type: "range",
+      min: 0,
+      max: 20000,
+      step: 50,
     },
   ];
 
@@ -449,24 +484,32 @@ export default function AdvancedSearch() {
     transport: [],
     LengthStay: [],
     timeOfDay: [],
+    mountainHeight: [],
+    rating: "",
+    cost: 0,
   });
 
-  const toggleFilter = (key, item) => {
-    setSelectedFilters((prevFilters) => {
-      const isSelected = prevFilters[key].includes(item);
+  const toggleFilter = (key, value) => {
+    setSelectedFilters((prev) => {
+      const currentValues = prev[key] || [];
       return {
-        ...prevFilters,
-        [key]: isSelected
-          ? prevFilters[key].filter((i) => i !== item)
-          : [...prevFilters[key], item],
+        ...prev,
+        [key]: currentValues.includes(value)
+          ? currentValues.filter((item) => item !== value)
+          : [...currentValues, value],
       };
     });
   };
-  const handleRemoveFilter = (filterKey, item) => {
-    setSelectedFilters((prevFilters) => ({
-      ...prevFilters,
-      [filterKey]: prevFilters[filterKey].filter((i) => i !== item),
-    }));
+
+  const toggleRangeSelection = (key, value) => {
+    setSelectedFilters((prev) => {
+      const currentSelection = prev[key] || [];
+      const newSelection = currentSelection.includes(value)
+        ? currentSelection.filter((item) => item !== value)
+        : [...currentSelection, value].sort((a, b) => a - b);
+
+      return { ...prev, [key]: newSelection };
+    });
   };
 
   return (
@@ -501,26 +544,64 @@ export default function AdvancedSearch() {
           </div>
         </div>
         <div className="w-full flex flex-col items-center border-solid border-Borders border-t-[1px]">
-          {filters.map(({ title, items, key }) => (
+          {filters.map(({ title, items, key, type, min, max, step }) => (
             <FilterBoxTemplate title={title} key={key}>
-              {items.map((item, index) => (
-                <label
-                  key={index}
-                  className="flex items-center gap-1.5 w-full cursor-pointer"
-                >
-                  <input
-                    type="checkbox"
-                    className="form-checkbox focus:ring-0 checked:!bg-Primary rounded-md border-Borders border-[1px] checked:!border-none"
-                    checked={selectedFilters[key].includes(item)}
-                    onChange={() => toggleFilter(key, item)}
-                  />
-                  <span className="text-sm text-Secoundray">{item}</span>
-                </label>
-              ))}
+              {/* Checkbox */}
+              {type === "checkbox" && (
+                <div className="space-y-1">
+                  {items.map((item, index) => (
+                    <label
+                      key={index}
+                      className="flex items-center gap-1.5 w-full cursor-pointer"
+                    >
+                      <input
+                        type="checkbox"
+                        className="form-checkbox focus:ring-0 checked:!bg-Primary rounded-md border-Borders border-[1px] checked:!border-none"
+                        checked={selectedFilters[key]?.includes(item)}
+                        onChange={() => toggleFilter(key, item)}
+                      />
+                      <span className="text-sm text-Secoundray">{item}</span>
+                    </label>
+                  ))}
+                </div>
+              )}
+
+              {/* Radio */}
+              {type === "radio" && (
+                <div className="flex flex-row-reverse items-center w-full overflow-hidden rounded-2xl border border-solid border-Borders">
+                  {[1, 2, 3, 4, 5].map((star) => (
+                    <label
+                      key={star}
+                      className="cursor-pointer w-full flex items-center text-center"
+                    >
+                      <input
+                        type="checkbox"
+                        name={key}
+                        value={star}
+                        checked={selectedFilters[key]?.includes(star)}
+                        onChange={() => toggleRangeSelection(key, star)}
+                        className="hidden w-full"
+                      />
+                      <span
+                        className={`!w-full py-1 transition-all duration-200 ${
+                          selectedFilters[key]?.includes(star)
+                            ? "bg-Primary text-white"
+                            : "bg-white text-Secoundray"
+                        }`}
+                      >
+                        {star}
+                      </span>
+                    </label>
+                  ))}
+                </div>
+              )}
+
+              {/* Range */}
+              {type === "range" && <DateRangePicker />}
             </FilterBoxTemplate>
           ))}
         </div>
-        <label className="w-full flex items-center gap-1.5 py-2 border-Borders border-solid border-b-[1px]">
+        <label className="w-full cursor-pointer flex items-center gap-1.5 py-2 border-Borders border-solid border-b-[1px]">
           <input
             type="checkbox"
             className="form-checkbox focus:ring-0 checked:!bg-Primary rounded-md border-Borders border-[1px] checked:!border-none"
@@ -529,7 +610,7 @@ export default function AdvancedSearch() {
             پرفروش‌ترین تورها
           </span>
         </label>
-        <label className="w-full flex items-center gap-1.5 py-2">
+        <label className="w-full cursor-pointer flex items-center gap-1.5 py-2">
           <input
             type="checkbox"
             className="form-checkbox focus:ring-0 checked:!bg-Primary rounded-md border-Borders border-[1px] checked:!border-none"

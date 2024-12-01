@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
 import { FaChevronLeft } from "react-icons/fa";
 
-export default function FilterBoxTemplate({ title, children }) {
+export default function FilterBoxTemplate({ title, children, subTitle }) {
   const [isOpen, setIsOpen] = useState(false);
   const contentRef = useRef(null);
 
@@ -9,9 +9,12 @@ export default function FilterBoxTemplate({ title, children }) {
     <div className="bg-white w-full border-solid border-Borders border-b-[1px] py-2">
       <div
         onClick={() => setIsOpen(!isOpen)}
-        className="w-full flex items-center justify-between cursor-pointer py-3"
+        className="w-full flex items-center justify-between cursor-pointer py-4"
       >
-        <span className="text-SubTitle text-Secoundray">{title}</span>
+        <span className="text-SubTitle text-Secoundray flex items-center gap-1">
+          {title}
+          <span className="text-Secoundray text-sm">{subTitle}</span>
+        </span>
         <button
           className={`text-Secoundray transition-transform duration-300 ${
             isOpen ? "rotate-[-90deg]" : "rotate-0"
