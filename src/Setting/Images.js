@@ -47,7 +47,7 @@ import BlogUserProfile from "/src/assets/Images/BlogUserProfile.png"
 import Quotation from "/src/assets/Images/quote-down.svg"
 import CupIcon from "/src/assets/Images/CupIcon.svg"
 import CashIcon from "/src/assets/Images/CashIcon.svg"
-import LeadersIcon from "/src/assets/Images/LeadersIcon.svg"
+import BestLeadersIcon from "/src/assets/Images/BestLeadersIcon.svg"
 import BestPlaceIconActive from "/src/assets/Images/BestPlaceIconActive.svg"
 import SeaIconActive from "/src/assets/Images/SeaIconActive.svg"
 import WaterfallIconActive from "/src/assets/Images/WaterfallIconActive.svg"
@@ -63,6 +63,24 @@ import MahmudabadBeaches from "/src/assets/Images/MahmudabadBeaches.png"
 import MountDamavand from "/src/assets/Images/MountDamavand.png"
 import MasalCity from "/src/assets/Images/MasalCity.png"
 import BandarAbbasCity from "/src/assets/Images/BandarAbbasCity.png"
+import EmiratesCruiseShip from "/src/assets/Images/EmiratesCruiseShip.png"
+import EmiratesCruiseShipAtNight from "/src/assets/Images/EmiratesCruiseShipAtNight.png"
+import EmiratesCruiseShipPool from "/src/assets/Images/EmiratesCruiseShipPool.png"
+import EmiratesCruiseShipRestaurant from "/src/assets/Images/EmiratesCruiseShipRestaurant.png"
+import EmiratesCruiseShipWithFriends from "/src/assets/Images/EmiratesCruiseShipWithFriends.png"
+import MountaineeringIcon from "/src/assets/Images/MountaineeringIcon.svg"
+import walkingIcon from "/src/assets/Images/walkingIcon.svg"
+import mealIcon from "/src/assets/Images/mealIcon.svg"
+import LeaderIcon from "/src/assets/Images/LeaderIcon.svg"
+import insuranceIcon from "/src/assets/Images/insuranceIcon.svg"
+import GamesIcon from "/src/assets/Images/GamesIcon.svg"
+import RouteGuide from "/src/assets/Images/RouteGuide.svg"
+import CookIcon from "/src/assets/Images/CookIcon.svg"
+import SupervisorIcon from "/src/assets/Images/SupervisorIcon.svg"
+import ClimberShopIcon from "/src/assets/Images/ClimberShopIcon.svg"
+import CheckMarkIcon from "/src/assets/Images/checkMarkIcon.svg"
+import IslandImage from "/src/assets/Images/IslandImage.png"
+import MarkerIcon from "/src/assets/Images/MarkerIcon.svg"
 
 const Images = {
     Logo: Logo,
@@ -123,13 +141,31 @@ const Images = {
     Quotation: Quotation,
     CupIcon: CupIcon,
     CashIcon: CashIcon,
-    LeadersIcon: LeadersIcon,
+    BestLeadersIcon: BestLeadersIcon,
     LocationIcon: LocationIcon,
     CalendarIcon: CalendarIcon,
     MahmudabadBeaches: MahmudabadBeaches,
     MountDamavand: MountDamavand,
     MasalCity: MasalCity,
     BandarAbbasCity: BandarAbbasCity,
+    EmiratesCruiseShip: EmiratesCruiseShip,
+    EmiratesCruiseShipAtNight: EmiratesCruiseShipAtNight,
+    EmiratesCruiseShipPool: EmiratesCruiseShipPool,
+    EmiratesCruiseShipRestaurant: EmiratesCruiseShipRestaurant,
+    EmiratesCruiseShipWithFriends: EmiratesCruiseShipWithFriends,
+    MountaineeringIcon: MountaineeringIcon,
+    walkingIcon: walkingIcon,
+    mealIcon: mealIcon,
+    insuranceIcon: insuranceIcon,
+    LeaderIcon: LeaderIcon,
+    GamesIcon: GamesIcon,
+    SupervisorIcon: SupervisorIcon,
+    CookIcon: CookIcon,
+    RouteGuide: RouteGuide,
+    ClimberShopIcon: ClimberShopIcon,
+    CheckMarkIcon: CheckMarkIcon,
+    IslandImage: IslandImage,
+    MarkerIcon: MarkerIcon,
 }
 
 export default Images;

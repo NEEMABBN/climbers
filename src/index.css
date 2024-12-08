@@ -105,7 +105,7 @@ input[type="text"] {
   @apply rounded-none outline-none border-none focus:ring-0 py-0;
 }
 select {
-  @apply w-full border-none rounded-2xl bg-white cursor-pointer focus:ring-0;
+  @apply w-full border-none rounded-2xl bg-white cursor-pointer focus:!ring-0 focus:border-Borders;
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;

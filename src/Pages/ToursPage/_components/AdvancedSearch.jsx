@@ -548,7 +548,7 @@ export default function AdvancedSearch() {
             <FilterBoxTemplate title={title} key={key}>
               {/* Checkbox */}
               {type === "checkbox" && (
-                <div className="space-y-1">
+                <div className="flex flex-col items-start gap-2">
                   {items.map((item, index) => (
                     <label
                       key={index}

@@ -13,6 +13,7 @@ export default {
         Borders: "#E2E2E2",
         Disable: "#B0AFA9",
         CustomBlack: "#00000066",
+        Error: "#F20000",
       },
       fontSize: {
         SubTitle: "15px",

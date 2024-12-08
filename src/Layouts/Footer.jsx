@@ -33,7 +33,7 @@ export default function Footer() {
         </div>
         <div className="md:w-auto w-[270px] flex items-center justify-start bg-white rounded-2xl md:pl-8 md:gap-7 gap-2">
           <img
-            src={Images.LeadersIcon}
+            src={Images.BestLeadersIcon}
             alt="تورلیدرهای حرفه‌ای و تایید شده"
             className="w-[45px]"
           />

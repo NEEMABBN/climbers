@@ -9,6 +9,7 @@ export default function TemplateV1({
   titleColor = "text-Titles",
   swiperRef,
   gaps = "gap-12",
+  titleSize = "md:text-3xl text-2xl",
 }) {
   const nextSlide = () => {
     swiperRef.current.slideNext();
@@ -20,7 +21,7 @@ export default function TemplateV1({
   return (
     <div className={`container mx-auto flex flex-col items-center ${gaps}`}>
       <h2
-        className={`md:text-3xl text-2xl w-full md:text-start text-center ${titleColor}`}
+        className={`${titleSize} w-full md:text-start text-center ${titleColor}`}
       >
         {title}
       </h2>
@@ -37,7 +38,7 @@ export default function TemplateV1({
             to={links}
             className="bg-white lg:hidden block text-Primary border-solid border-[1px] border-Primary rounded-2xl px-6 py-2"
           >
-            نمایش همه
+            نمایش بیشتر
           </Link>
           <button
             onClick={nextSlide}
@@ -50,7 +51,7 @@ export default function TemplateV1({
           to={links}
           className="bg-white lg:block hidden text-Primary border-solid border-[1px] border-Primary rounded-2xl px-6 py-2"
         >
-          نمایش همه
+          نمایش بیشتر
         </Link>
       </div>
     </div>
