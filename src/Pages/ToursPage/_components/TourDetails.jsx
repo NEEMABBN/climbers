@@ -19,7 +19,7 @@ export default function TourDetails() {
   const post = location.state; // داده‌های پست ارسال‌شده
 
   if (!post) {
-    return <p className="text-red-500">پست مورد نظر یافت نشد!</p>;
+    return <p className="text-Error">پست مورد نظر یافت نشد!</p>;
   }
 
   const helpSideMenu = [
