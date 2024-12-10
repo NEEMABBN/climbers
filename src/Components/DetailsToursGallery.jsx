@@ -1,11 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
 import Images from "../Setting/Images";
 import { FaChevronLeft } from "react-icons/fa";
+import ToursImageGalleryModal from "./ToursImageGalleryModal";
 
 const DetailsToursGallery = () => {
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openModal = () => {
+    setIsModalOpen(true);
+    document.body.style.overflow = "hidden"; // جلوگیری از اسکرول
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+    document.body.style.overflow = "auto"; // بازگرداندن اسکرول
+  };
+
   return (
     <div className="w-full flex items-center relative overflow-hidden gap-3">
-      <button className="absolute bottom-2 left-2 p-2.5 bg-CustomBlack rounded-2xl text-white flex items-center gap-2">
+      <ToursImageGalleryModal isOpen={isModalOpen} onClose={closeModal} />
+      <button onClick={openModal} className="absolute bottom-2 left-2 p-2.5 bg-CustomBlack rounded-2xl text-white flex items-center gap-2">
         <span>و 8 تصویر دیگر</span>
         <FaChevronLeft />
       </button>

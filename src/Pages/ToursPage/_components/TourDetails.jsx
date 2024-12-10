@@ -35,7 +35,7 @@ export default function TourDetails() {
     "نظرات کاربران",
   ];
 
-  const [activeSection, setActiveSection] = useState("اطلاعات کلی");
+  const [activeSection, setActiveSection] = useState(null);
   const handleSetActive = (section) => {
     setActiveSection(section);
   };
@@ -47,7 +47,6 @@ export default function TourDetails() {
         activeSection={activeSection}
         setActiveSection={handleSetActive}
       />
-
       <div className="flex-1 flex flex-col items-center gap-10">
         <DetailsToursGallery />
         <div className="w-full flex flex-row-reverse gap-4">
@@ -65,12 +64,10 @@ export default function TourDetails() {
                 کتابهای زیادی در شصت و سه درصد گذشته حال و آینده، شناخت فراوان
                 جامعه و متخصصان را می طلبد."
             />
-
             <SpecialTourFacilities
               sectionName="امکانات ویژه"
               title="امکانات ویژه"
             />
-
             <TourSchedule
               sectionName="برنامه زمانبندی تور"
               title="برنامه زمانبندی تور"
@@ -80,9 +77,7 @@ export default function TourDetails() {
                 در ستون و سطرآنچنان که لازم است
               "
             />
-
             <TourOfficials sectionName="مسئولان تور" title="مسئولان تور" />
-
             <ToursTools
               sectionName="ابزارهای مورد نیاز"
               title="ابزارهای مورد نیاز"
@@ -92,7 +87,6 @@ export default function TourDetails() {
                 فروشگاه کوهنوردان فراهم کنید.
               "
             />
-
             <TourRestrictions
               sectionName="محدودیت‌ها"
               title="محدودیت‌ها"
@@ -102,16 +96,13 @@ export default function TourDetails() {
                 که تجربه کافی دارند مشورت کنید.
               "
             />
-
             <TourRouteAttractions
               sectionName="جاذبه‌های مسیر"
               title="جاذبه‌های مسیر"
               description="جاذبه‌های زیبایی که در طول مسیر به آن می‌رسید."
               SimilarSection="جاذبه‌های مشابه"
             />
-
             <SimilarTours sectionName="تورهای مشابه" title="تورهای مشابه" />
-
             <ToursUserComments
               sectionName="نظرات کاربران"
               title="نظرات کاربران"

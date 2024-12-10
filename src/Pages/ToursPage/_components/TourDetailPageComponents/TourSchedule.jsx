@@ -68,9 +68,9 @@ export default function TourSchedule({ sectionName, title, description }) {
               key={index}
               className="w-full flex flex-col items-start gap-1 border-solid pt-1.5 pb-5 border-Borders border-b-[1px] last:border-none relative"
             >
-              <span class="Circle-Icon absolute flex items-center justify-center h-11 w-11 bg-[#0E9A8A75] rounded-full top-0 right-[-3.2rem]">
+              <span className="Circle-Icon absolute flex items-center justify-center h-11 w-11 bg-[#0E9A8A75] rounded-full top-0 right-[-3.2rem]">
                 <div className="relative w-1/2 h-1/2">
-                  <span class="absolute z-[3] flex items-center justify-center h-full w-full rounded-full bg-Primary text-white">
+                  <span className="absolute z-[3] flex items-center justify-center h-full w-full rounded-full bg-Primary text-white">
                     {item.id}
                   </span>
                 </div>
