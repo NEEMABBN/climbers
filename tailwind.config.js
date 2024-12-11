@@ -19,6 +19,7 @@ export default {
       },
       fontSize: {
         SubTitle: "15px",
+        largTitle: "26px",
       }
     },
   },

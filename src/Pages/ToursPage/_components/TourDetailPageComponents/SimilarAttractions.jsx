@@ -58,6 +58,7 @@ export default function SimilarAttractions({ SimilarAttraction }) {
         pagination={false}
         navigation={false}
         modules={[Pagination, Navigation]}
+        spaceBetween={10}
         onSwiper={(swiper) => {
           swiperRef2.current = swiper;
         }}
@@ -68,15 +69,17 @@ export default function SimilarAttractions({ SimilarAttraction }) {
       >
         {similarAttractions.map((item, index) => (
           <SwiperSlide key={index}>
-            <div className="w-full flex items-start gap-6">
-              <div className="w-1/2 flex flex-col items-start gap-2">
-                <span className="text-[25px] text-Secoundray">{item.name}</span>
-                <p className="text-SubTitle text-Secoundray leading-6">
+            <div className="w-full flex md:flex-row flex-col-reverse items-start gap-6">
+              <div className="md:w-1/2 w-full flex flex-col items-start gap-2">
+                <span className="sm:text-largTitle text-xl text-Secoundray">
+                  {item.name}
+                </span>
+                <p className="sm:text-SubTitle text-sm text-Secoundray leading-6">
                   {item.description}
                 </p>
               </div>
-              <div className="w-1/2 rounded-2xl overflow-hidden">
-                <img src={item.image} alt={item.name} />
+              <div className="md:w-1/2 w-full rounded-2xl overflow-hidden">
+                <img src={item.image} alt={item.name} className="w-full" />
               </div>
             </div>
           </SwiperSlide>

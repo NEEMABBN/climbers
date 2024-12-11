@@ -44,10 +44,10 @@ const Modal = ({ isOpen, onClose }) => {
 
   if (!showModal) return null;
   return (
-    <div className="fixed inset-0 z-[999999] bg-[#FFFFFF99] w-full flex items-center justify-center">
+    <div className="fixed inset-0 z-[999999] bg-[#FFFFFF99] w-full flex items-center justify-center sm:px-0 px-2">
       <div onClick={onClose} className="absolute inset-0"></div>
       <div
-        className={`relative transform z-[9999999] transition-all shadow-[0px_2px_4px_0px_rgba(14,30,37,0.12),0px_2px_16px_0px_rgba(14,30,37,0.32)] rounded-2xl duration-300 bg-white p-5 gap-7 container mx-auto flex flex-col items-center ${
+        className={`relative transform z-[9999999] transition-all shadow-[0px_2px_4px_0px_rgba(14,30,37,0.12),0px_2px_16px_0px_rgba(14,30,37,0.32)] rounded-2xl duration-300 bg-white sm:p-5 p-2 gap-7 container mx-auto flex flex-col items-center ${
           animateModal ? "scale-100" : "scale-0"
         }`}
       >
@@ -60,32 +60,35 @@ const Modal = ({ isOpen, onClose }) => {
             <HiXMark className="text-gray-600" />
           </button>
         </div>
-
         <div className="w-full flex flex-col items-center gap-5">
           <Swiper
-            slidesPerView={1.4}
+            slidesPerView={1}
             spaceBetween={10}
             modules={[Thumbs]}
-            // navigation
+            breakpoints={{
+              780: {
+                slidesPerView: 1.4,
+                spaceBetween: 10,
+              },
+            }}
             thumbs={{ swiper: thumbsSwiper }}
             onSwiper={(swiper) => (swiperRef.current = swiper)}
-            className="w-full h-96"
+            className="w-full h-full"
           >
             {images.map((img, index) => (
               <SwiperSlide key={index}>
                 <img
                   src={img}
                   alt={`Slide ${index + 1}`}
-                  className="w-full h-full object-cover rounded-2xl"
+                  className="w-full sm:h-full object-cover rounded-2xl"
                 />
               </SwiperSlide>
             ))}
           </Swiper>
-
-          <div className="w-full flex items-center justify-center gap-7">
+          <div className="w-full flex items-center justify-center sm:gap-7 gap-1.5">
             <button
               onClick={prevSlide}
-              className="flex items-center justify-center text-Primary border-solid border-Primary border-[1px] rounded-2xl p-3.5"
+              className="flex items-center justify-center text-Primary border-solid border-Primary border-[1px] rounded-2xl sm:p-3.5 p-2.5"
             >
               <FaChevronRight />
             </button>
@@ -94,21 +97,21 @@ const Modal = ({ isOpen, onClose }) => {
               slidesPerView={4}
               spaceBetween={3}
               onSwiper={setThumbsSwiper}
-              className="w-[30%] !mx-0"
+              className="xl:w-[30%] sm:w-[40%] w-full !mx-0"
             >
               {images.map((img, index) => (
                 <SwiperSlide key={index}>
                   <img
                     src={img}
                     alt={`Thumbnail ${index + 1}`}
-                    className="w-[90px] h-[60px] rounded-2xl cursor-pointer"
+                    className="sm:w-[90px] sm:h-[60px] rounded-2xl cursor-pointer"
                   />
                 </SwiperSlide>
               ))}
             </Swiper>
             <button
               onClick={nextSlide}
-              className="flex items-center justify-center text-Primary border-solid border-Primary border-[1px] rounded-2xl p-3.5"
+              className="flex items-center justify-center text-Primary border-solid border-Primary border-[1px] rounded-2xl sm:p-3.5 p-2.5"
             >
               <FaChevronLeft />
             </button>

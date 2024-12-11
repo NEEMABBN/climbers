@@ -7,7 +7,7 @@ export default function TourInfoQuickReferenceMenu({
   setActiveSection,
 }) {
   return (
-    <div className="w-[10%] flex h-fit sticky top-[8.5rem]">
+    <div className="w-[10%] xl:flex hidden h-fit sticky top-[8.5rem]">
       <ul className="w-full flex flex-col items-start gap-1.5">
         {sections.map((item, index) => (
           <li key={index} className="relative">

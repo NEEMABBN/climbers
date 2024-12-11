@@ -23,8 +23,8 @@ export default function TourRouteAttractions({
       name={sectionName}
       className="w-full flex flex-col items-start gap-4 my-9"
     >
-      <h2 className="text-Secoundray text-[26px]">{title}</h2>
-      <p className="text-Secoundray text-SubTitle">{description}</p>
+      <h2 className="text-Secoundray sm:text-largTitle text-xl">{title}</h2>
+      <p className="text-Secoundray sm:text-SubTitle text-sm">{description}</p>
       <div className="w-full flex flex-col items-center gap-4 border-solid border-Borders border-[1px] rounded-2xl">
         <div className="w-full rounded-2xl overflow-hidden">
           <RoutesMap

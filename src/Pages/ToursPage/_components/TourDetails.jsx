@@ -17,9 +17,8 @@ export default function TourDetails() {
   const location = useLocation(); // اطلاعات ارسال‌شده از state
   const { id } = useParams(); // شناسه از URL
   const post = location.state; // داده‌های پست ارسال‌شده
-
-  if (!post) {
-    return <p className="text-Error">پست مورد نظر یافت نشد!</p>;
+  {
+    !post && <p className="text-Error">پست مورد نظر یافت نشد!</p>;
   }
 
   const helpSideMenu = [
@@ -36,8 +35,18 @@ export default function TourDetails() {
   ];
 
   const [activeSection, setActiveSection] = useState(null);
+  const [openInfoCompletionMenu, setOpenInfoCompletionMenu] = useState(false);
+
   const handleSetActive = (section) => {
     setActiveSection(section);
+  };
+  const handleOpenInfoCompletionMenu = () => {
+    setOpenInfoCompletionMenu(!openInfoCompletionMenu);
+    {
+      openInfoCompletionMenu
+        ? (document.body.style.overflow = "auto")
+        : (document.body.style.overflow = "hidden");
+    }
   };
 
   return (
@@ -47,11 +56,26 @@ export default function TourDetails() {
         activeSection={activeSection}
         setActiveSection={handleSetActive}
       />
+      <div
+        className={`fixed z-[9999] bg-white rounded-2xl w-full lg:hidden ${
+          openInfoCompletionMenu ? "hidden" : "flex"
+        } items-center justify-center shadow-[0px_2px_50px_1px_rgba(14,154,138,0.2)] border-solid border-Borders border-[1px] p-3 bottom-0 right-0 left-0`}
+      >
+        <button
+          onClick={handleOpenInfoCompletionMenu}
+          className="w-full bg-Primary text-white rounded-2xl py-3.5"
+        >
+          درخواست رزرو
+        </button>
+      </div>
       <div className="flex-1 flex flex-col items-center gap-10">
         <DetailsToursGallery />
         <div className="w-full flex flex-row-reverse gap-4">
-          <TourInformationCompletionMenu />
-          <div className="flex-1 flex flex-col items-center">
+          <TourInformationCompletionMenu
+            isOpen={openInfoCompletionMenu}
+            toggleMenu={handleOpenInfoCompletionMenu}
+          />
+          <div className="flex-1 flex flex-col items-center sm:mx-0 mx-4">
             <GeneralTourInformation
               sectionName="اطلاعات کلی"
               title={post.location}

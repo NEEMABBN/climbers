@@ -57,15 +57,15 @@ export default function ToursUserComments({ sectionName, title }) {
       name={sectionName}
       className="w-full flex flex-col items-center mt-9 mb-24 gap-6"
     >
-      <div className="w-full flex items-center justify-between">
-        <div className="flex items-end gap-4">
-          <h2 className="text-Secoundray text-[26px]">{title}</h2>
+      <div className="w-full flex sm:items-center items-start justify-between">
+        <div className="flex sm:flex-row flex-col sm:items-end items-start sm:gap-4 gap-1">
+          <h2 className="text-Secoundray sm:text-largTitle text-xl">{title}</h2>
           <div className="flex items-center gap-1">
             <span className="text-Secoundray text-lg">3.5</span>
             <FaStar className="text-[#F2CB00] text-xl" />
           </div>
         </div>
-        <button className="text-white bg-Primary px-6 py-2.5 rounded-2xl">
+        <button className="text-white bg-Primary px-6 py-2.5 rounded-2xl sm:text-base text-SubTitle">
           نظر شما چیه؟
         </button>
       </div>
@@ -77,7 +77,7 @@ export default function ToursUserComments({ sectionName, title }) {
           >
             <div className="w-full flex items-center justify-between">
               <div className="flex items-center gap-4">
-                <span className="text-lg text-Secoundray font-semibold">
+                <span className="sm:text-lg text-Secoundray font-semibold">
                   {item.userName}
                 </span>
                 <div className="flex items-start gap-1">
@@ -100,7 +100,7 @@ export default function ToursUserComments({ sectionName, title }) {
                   </span>
                 </div>
               )}
-              <p className="text-SubTitle text-Secoundray leading-7 line-clamp-2">
+              <p className="sm:text-SubTitle text-sm text-Secoundray leading-7 line-clamp-2">
                 {item.comment}
               </p>
             </div>

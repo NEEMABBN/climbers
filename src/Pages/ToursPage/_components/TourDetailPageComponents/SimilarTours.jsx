@@ -87,19 +87,27 @@ export default function SimilarTours({ sectionName, title }) {
   return (
     <Element
       name={sectionName}
-      className="w-full flex flex-col items-center border-solid border-Borders border-y-[1px] py-9"
+      className="w-full flex flex-col items-center border-solid border-Borders border-y-[1px] py-6"
     >
       <TemplateV1
         title={title}
         swiperRef={swiperRef}
-        titleSize="text-[26px]"
+        titleSize="sm:text-largTitle text-xl"
         children={
           <div className="w-full flex">
             <Swiper
-              slidesPerView={3}
+              slidesPerView={1.5}
               spaceBetween={10}
+              breakpoints={{
+                640: {
+                  slidesPerView: 2,
+                },
+                780: {
+                  slidesPerView: 3,
+                },
+              }}
               onSwiper={(swiper) => (swiperRef.current = swiper)}
-              className="mySwiper !grid !grid-cols-3"
+              className="mySwiper !grid md:!grid-cols-3 sm:!grid-cols-2 !grid-cols-1 !py-6"
             >
               {toursData.map((item, index) => (
                 <SwiperSlide key={index}>

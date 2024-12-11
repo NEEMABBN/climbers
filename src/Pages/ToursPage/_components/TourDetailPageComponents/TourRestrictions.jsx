@@ -19,9 +19,11 @@ export default function TourRestrictions({ sectionName, title, description }) {
       name={sectionName}
       className="w-full flex flex-col items-start gap-4 border-solid border-Borders border-y-[1px] py-7 mt-5"
     >
-      <h2 className="text-Secoundray text-[26px]">{title}</h2>
-      <p className="text-Secoundray text-SubTitle leading-6">{description}</p>
-      <div className="w-full flex items-start gap-4 py-6">
+      <h2 className="text-Secoundray sm:text-largTitle text-xl">{title}</h2>
+      <p className="text-Secoundray sm:text-SubTitle text-sm leading-6">
+        {description}
+      </p>
+      <div className="w-full flex sm:flex-row flex-col sm:items-start items-center gap-4 py-6">
         <div className="w-full flex flex-col items-start p-4 gap-4 border-solid border-Borders border-[1px] rounded-2xl">
           <div className="flex items-center justify-start gap-3">
             <span className="border-solid border-2 rounded-lg p-1.5 border-Primary text-Primary">
@@ -33,10 +35,12 @@ export default function TourRestrictions({ sectionName, title, description }) {
             {appropriateRestrictionsData.map((item, index) => (
               <div
                 key={index}
-                className="w-full flex items-center gap-1 border-solid border-b-[1px] border-Borders last:border-none py-2"
+                className="w-full flex items-center gap-1.5 border-solid border-b-[1px] border-Borders last:border-none py-2"
               >
                 <span className="w-1.5 h-[2px] bg-Disable"></span>
-                <span className="text-SubTitle text-Disable">{item}</span>
+                <span className="sm:text-SubTitle text-sm text-Disable">
+                  {item}
+                </span>
               </div>
             ))}
           </div>
@@ -52,10 +56,12 @@ export default function TourRestrictions({ sectionName, title, description }) {
             {improperRestrictionsData.map((item, index) => (
               <div
                 key={index}
-                className="w-full flex items-center gap-1 border-solid border-b-[1px] border-Borders last:border-none py-2"
+                className="w-full flex items-center gap-1.5 border-solid border-b-[1px] border-Borders last:border-none py-2"
               >
                 <span className="w-1.5 h-[2px] bg-Disable"></span>
-                <span className="text-SubTitle text-Disable">{item}</span>
+                <span className="sm:text-SubTitle text-sm text-Disable">
+                  {item}
+                </span>
               </div>
             ))}
           </div>

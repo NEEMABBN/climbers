@@ -58,17 +58,17 @@ export default function TourSchedule({ sectionName, title, description }) {
       name={sectionName}
       className="w-full flex flex-col items-start gap-4 py-5"
     >
-      <h2 className="text-Secoundray text-[26px]">{title}</h2>
+      <h2 className="text-Secoundray sm:text-largTitle text-xl">{title}</h2>
       <p className="text-SubTitle text-Secoundray leading-6">{description}</p>
-      <div className="w-full flex items-start gap-2">
-        <span className="w-1 h-[85%] mt-3 border-dashed border-Primary border-l-2"></span>
+      <div className="w-full flex items-start gap-2 py-3">
+        <span className="w-1 sm:h-[85%] h-[82%] mt-3 border-dashed border-Primary border-l-2 sm:mx-0 mx-3"></span>
         <div className="flex-1 flex flex-col items-center px-5 gap-4">
           {tourScheduleData.map((item, index) => (
             <div
               key={index}
               className="w-full flex flex-col items-start gap-1 border-solid pt-1.5 pb-5 border-Borders border-b-[1px] last:border-none relative"
             >
-              <span className="Circle-Icon absolute flex items-center justify-center h-11 w-11 bg-[#0E9A8A75] rounded-full top-0 right-[-3.2rem]">
+              <span className="Circle-Icon absolute flex items-center justify-center h-11 w-11 bg-[#0E9A8A75] rounded-full top-0 sm:right-[-3.2rem] right-[-3.9rem]">
                 <div className="relative w-1/2 h-1/2">
                   <span className="absolute z-[3] flex items-center justify-center h-full w-full rounded-full bg-Primary text-white">
                     {item.id}
@@ -76,7 +76,7 @@ export default function TourSchedule({ sectionName, title, description }) {
                 </div>
               </span>
               <span className="text-Secoundray text-lg">{item.day}</span>
-              <p className="text-Secoundray text-SubTitle leading-6">
+              <p className="text-Secoundray sm:text-SubTitle text-sm leading-6">
                 {item.description}
               </p>
             </div>

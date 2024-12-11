@@ -49,7 +49,7 @@ export default function ToursTools({ sectionName, title, description }) {
       category: "دلخواه",
     },
     {
-      toolName: "ضد آفتاب و داروهای ضروری",
+      toolName: "ضدآفتاب و داروهای ضروری",
       category: "دلخواه",
     },
   ];
@@ -64,16 +64,21 @@ export default function ToursTools({ sectionName, title, description }) {
       name={sectionName}
       className="w-full flex flex-col items-start gap-5 my-7"
     >
-      <h2 className="text-Secoundray text-[26px]">{title}</h2>
-      <p className="text-Secoundray text-SubTitle leading-6">{description}</p>
-      <div className="w-full grid grid-cols-4 gap-3">
+      <h2 className="text-Secoundray sm:text-largTitle text-xl">{title}</h2>
+      <p className="text-Secoundray sm:text-SubTitle text-sm leading-6">
+        {description}
+      </p>
+      <div className="w-full grid md:grid-cols-4 sm:grid-cols-3 grid-cols-2 gap-4">
         {requiredToolsData.map((item, index) => (
-          <div key={index} className="flex justify-start items-center gap-2">
+          <div
+            key={index}
+            className="flex justify-start items-center sm:gap-2 gap-1"
+          >
             <span className="w-1 h-1 border-solid border-b-[1px] border-black"></span>
-            <span className="text-Secoundray text-SubTitle">
+            <span className="text-Secoundray sm:text-SubTitle text-sm">
               {item.toolName}
             </span>
-            <span className="text-Error text-SubTitle">
+            <span className="text-Error sm:text-SubTitle text-sm">
               {toolsCategoryIcon[item.category]}
             </span>
           </div>

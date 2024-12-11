@@ -38,7 +38,7 @@ export default function GeneralTourInformation({
       name={sectionName}
       className="w-full flex flex-col items-start relative gap-2.5"
     >
-      <h2 className="text-Secoundray text-[27px]">{title}</h2>
+      <h2 className="text-Secoundray sm:text-largTitle text-xl">{title}</h2>
       <div className="flex items-center gap-5">
         <NavLink to={links} className="text-Primary text-SubTitle">
           {agency}
@@ -48,28 +48,30 @@ export default function GeneralTourInformation({
           <FaStar className="text-[#F2CB00] text-xl" />
         </span>
       </div>
-      <p className="text-SubTitle text-Secoundray leading-6">{description}</p>
-      <div className="absolute top-0 left-0 flex items-center gap-4">
-        <button className="bg-[#FAFAFA] border-solid border-Borders border-[1px] text-Secoundray rounded-lg p-1 text-2xl">
+      <p className="sm:text-SubTitle text-sm text-Secoundray leading-6">
+        {description}
+      </p>
+      <div className="absolute top-0 left-0 flex items-center sm:gap-4 gap-1.5">
+        <button className="bg-[#FAFAFA] border-solid border-Borders border-[1px] text-Secoundray rounded-lg p-1 sm:text-2xl text-lg">
           <IoShareSocialOutline />
         </button>
-        <button className="bg-[#FAFAFA] border-solid border-Borders border-[1px] text-Secoundray rounded-lg p-1 text-2xl">
+        <button className="bg-[#FAFAFA] border-solid border-Borders border-[1px] text-Secoundray rounded-lg p-1 sm:text-2xl text-lg">
           <IoMdHeartEmpty />
         </button>
       </div>
-      <div className="w-full grid grid-cols-3 gap-3 my-5">
+      <div className="w-full grid md:grid-cols-3 grid-cols-1 gap-3 my-5">
         {tourActivitiesData.map((item, index) => (
           <div
             key={index}
             className="w-full flex flex-col items-start gap-3 border-solid border-Borders border-[1px] rounded-2xl p-3"
           >
-            <div className="flex items-center gap-1">
-              <img src={item.icon} alt="" className="" />
-              <span className="text-lg YekanReg text-Secoundray">
+            <div className="flex items-center sm:gap-1 gap-2">
+              <img src={item.icon} alt="" className="sm:w-auto w-[28px]" />
+              <span className="sm:text-lg text-base YekanReg text-Secoundray">
                 {item.name}
               </span>
             </div>
-            <p className="text-Disable text-SubTitle leading-6">
+            <p className="text-Disable sm:text-SubTitle text-sm leading-6">
               {item.description}
             </p>
           </div>
