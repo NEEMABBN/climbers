@@ -87,7 +87,6 @@ export default function NewProducts() {
               },
             }}
             dir="rtl"
-            loop={true}
             pagination={{
               clickable: true,
             }}
