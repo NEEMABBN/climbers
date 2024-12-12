@@ -1,14 +1,9 @@
 import React, { useEffect, useState } from "react";
-import FilterBoxTemplate from "../../../Components/FilterBoxTemplate";
 import Images from "../../../Setting/Images";
-import EachToursPost from "../../../Components/EachToursPost";
-import { FaChevronLeft, FaChevronRight, FaTimes } from "react-icons/fa";
-import Masonry from "react-masonry-css";
 import { useNavigate } from "react-router-dom";
-import { IoClose } from "react-icons/io5";
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import DateRangePicker from "../../../Components/DateRangePicker";
+import ShowFilteredTours from "./ShowFilteredTours";
+import MobileAdvancedSearchBox from "./MobileAdvancedSearchBox";
+import DesktopAdvancedSearchBox from "./DesktopAdvancedSearchBox";
 
 export default function AdvancedSearch() {
   const toursData = [
@@ -434,6 +429,14 @@ export default function AdvancedSearch() {
   ];
 
   const navigate = useNavigate();
+  const postsPerPage = 20;
+  const [isOpen, setIsOpen] = useState(false);
+  const [showSelectedFilters, setShowSelectedFilters] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
+  const totalPages = Math.ceil(toursData.length / postsPerPage);
+  const startIndex = (currentPage - 1) * postsPerPage;
+  const endIndex = startIndex + postsPerPage;
+  const currentPosts = toursData.slice(startIndex, endIndex);
 
   const submitDetailsPage = (tours) => {
     //When you get the "API", check the "location" value!!!
@@ -444,15 +447,6 @@ export default function AdvancedSearch() {
     const slug = tours.location.replace(/\s+/g, "-");
     navigate(`/tours/${tours.id}-${slug}`, { state: tours });
   };
-  const postsPerPage = 20;
-  const [isOpen, setIsOpen] = useState(false);
-  const [showSelectedFilters, setShowSelectedFilters] = useState(false);
-  const [currentPage, setCurrentPage] = useState(1);
-  const totalPages = Math.ceil(toursData.length / postsPerPage);
-  const startIndex = (currentPage - 1) * postsPerPage;
-  const endIndex = startIndex + postsPerPage;
-  const currentPosts = toursData.slice(startIndex, endIndex);
-
   const handleNext = () => {
     if (currentPage < totalPages) {
       setCurrentPage((prev) => prev + 1);
@@ -466,14 +460,12 @@ export default function AdvancedSearch() {
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, [currentPage]);
-
   const breakpointColumnsObj = {
     default: 4,
     1280: 3,
     1023: 2,
     640: 1,
   };
-
   const [selectedFilters, setSelectedFilters] = useState({
     occasionalTours: [],
     Activities: [],
@@ -488,7 +480,6 @@ export default function AdvancedSearch() {
     rating: "",
     cost: 0,
   });
-
   const toggleFilter = (key, value) => {
     setSelectedFilters((prev) => {
       const currentValues = prev[key] || [];
@@ -500,7 +491,6 @@ export default function AdvancedSearch() {
       };
     });
   };
-
   const toggleRangeSelection = (key, value) => {
     setSelectedFilters((prev) => {
       const currentSelection = prev[key] || [];
@@ -511,309 +501,55 @@ export default function AdvancedSearch() {
       return { ...prev, [key]: newSelection };
     });
   };
+  const handleRemoveFilter = (filterKey, item) => {
+    setSelectedFilters((prevFilters) => {
+      const updatedFilters = { ...prevFilters };
+      updatedFilters[filterKey] = updatedFilters[filterKey]?.filter(
+        (option) => option !== item
+      );
+      if (updatedFilters[filterKey]?.length === 0) {
+        delete updatedFilters[filterKey];
+      }
+      return updatedFilters;
+    });
+  };
 
   return (
     <div className="container mx-auto flex md:flex-row flex-col gap-3 py-5 sm:px-0 px-3">
-      {/* Desktop Search Box */}
-      <div className="w-[300px] sticky top-0 right-0 h-fit bg-[#FAFAFA] px-2 pt-5 pb-1 gap-3.5 border-solid border-Borders border-[1px] rounded-2xl md:flex hidden flex-col items-center">
-        <span className="text-Secoundray YekanBold">جستجوی پیشرفته</span>
-        <div className="w-full flex flex-col items-start gap-1">
-          <label htmlFor="text" className="">
-            مبدا/ مقصد:
-          </label>
-          <div className="w-full flex items-center bg-white rounded-2xl py-2 px-2 border-solid border-Borders border-[1px]">
-            <input
-              type="text"
-              placeholder="انتخاب کنید"
-              className="w-full outline-none"
-            />
-            <img src={Images.LocationIcon} alt="" className="" />
-          </div>
-        </div>
-        <div className="w-full flex flex-col items-start gap-1">
-          <label htmlFor="text" className="">
-            روز:
-          </label>
-          <div className="w-full flex items-center bg-white rounded-2xl py-2 px-2 border-solid border-Borders border-[1px]">
-            <input
-              type="text"
-              placeholder="انتخاب کنید"
-              className="w-full outline-none"
-            />
-            <img src={Images.CalendarIcon} alt="" className="" />
-          </div>
-        </div>
-        <div className="w-full flex flex-col items-center border-solid border-Borders border-t-[1px]">
-          {filters.map(({ title, items, key, type, min, max, step }) => (
-            <FilterBoxTemplate title={title} key={key}>
-              {/* Checkbox */}
-              {type === "checkbox" && (
-                <div className="flex flex-col items-start gap-2">
-                  {items.map((item, index) => (
-                    <label
-                      key={index}
-                      className="flex items-center gap-1.5 w-full cursor-pointer"
-                    >
-                      <input
-                        type="checkbox"
-                        className="form-checkbox focus:ring-0 checked:!bg-Primary rounded-md border-Borders border-[1px] checked:!border-none"
-                        checked={selectedFilters[key]?.includes(item)}
-                        onChange={() => toggleFilter(key, item)}
-                      />
-                      <span className="text-sm text-Secoundray">{item}</span>
-                    </label>
-                  ))}
-                </div>
-              )}
-
-              {/* Radio */}
-              {type === "radio" && (
-                <div className="flex flex-row-reverse items-center w-full overflow-hidden rounded-2xl border border-solid border-Borders">
-                  {[1, 2, 3, 4, 5].map((star) => (
-                    <label
-                      key={star}
-                      className="cursor-pointer w-full flex items-center text-center"
-                    >
-                      <input
-                        type="checkbox"
-                        name={key}
-                        value={star}
-                        checked={selectedFilters[key]?.includes(star)}
-                        onChange={() => toggleRangeSelection(key, star)}
-                        className="hidden w-full"
-                      />
-                      <span
-                        className={`!w-full py-1 transition-all duration-200 ${
-                          selectedFilters[key]?.includes(star)
-                            ? "bg-Primary text-white"
-                            : "bg-white text-Secoundray"
-                        }`}
-                      >
-                        {star}
-                      </span>
-                    </label>
-                  ))}
-                </div>
-              )}
-
-              {/* Range */}
-              {type === "range" && <DateRangePicker />}
-            </FilterBoxTemplate>
-          ))}
-        </div>
-        <label className="w-full cursor-pointer flex items-center gap-1.5 py-2 border-Borders border-solid border-b-[1px]">
-          <input
-            type="checkbox"
-            className="form-checkbox focus:ring-0 checked:!bg-Primary rounded-md border-Borders border-[1px] checked:!border-none"
-          />
-          <span className="text-SubTitle text-Secoundray">
-            پرفروش‌ترین تورها
-          </span>
-        </label>
-        <label className="w-full cursor-pointer flex items-center gap-1.5 py-2">
-          <input
-            type="checkbox"
-            className="form-checkbox focus:ring-0 checked:!bg-Primary rounded-md border-Borders border-[1px] checked:!border-none"
-          />
-          <span className="text-SubTitle text-Secoundray">
-            تورهای لحظه آخری
-          </span>
-        </label>
-      </div>
-      {/* Mobile Search Box */}
-      <div
-        className={`w-full md:hidden flex flex-col gap-5 bg-white ${
-          isOpen
-            ? "absolute top-[76px] right-0 left-0 px-2 z-10 pb-[15rem]"
-            : "static"
-        }`}
-      >
-        <span
-          onClick={() => setIsOpen(!isOpen)}
-          className={`${
-            isOpen
-              ? "border-none text-start flex items-center justify-between"
-              : "border-solid border-Borders border-[1px] rounded-2xl text-center"
-          } w-full text-Secoundray py-4 YekanBold`}
-        >
-          جستجوی پیشرفته
-          <IoClose className={isOpen ? "block text-2xl" : "hidden"} />
-        </span>
-        {isOpen && (
-          <div className="w-full flex flex-col items-center gap-3">
-            <div className="w-full flex flex-col items-start gap-1">
-              <label htmlFor="text" className="">
-                مبدا/ مقصد:
-              </label>
-              <div className="w-full flex items-center bg-white rounded-2xl py-2 px-2 border-solid border-Borders border-[1px]">
-                <input
-                  type="text"
-                  placeholder="انتخاب کنید"
-                  className="w-full outline-none"
-                />
-                <img src={Images.LocationIcon} alt="" className="" />
-              </div>
-            </div>
-            <div className="w-full flex flex-col items-start gap-1">
-              <label htmlFor="text" className="">
-                روز:
-              </label>
-              <div className="w-full flex items-center bg-white rounded-2xl py-2 px-2 border-solid border-Borders border-[1px]">
-                <input
-                  type="text"
-                  placeholder="انتخاب کنید"
-                  className="w-full outline-none"
-                />
-                <img src={Images.CalendarIcon} alt="" className="" />
-              </div>
-            </div>
-            <div className="w-full flex flex-col items-center border-solid border-Borders border-t-[1px]">
-              {filters.map(({ title, items, key }) => (
-                <FilterBoxTemplate title={title} key={key}>
-                  {items.map((item, index) => (
-                    <label
-                      key={index}
-                      className="flex items-center gap-1.5 w-full cursor-pointer"
-                    >
-                      <input
-                        type="checkbox"
-                        className="form-checkbox focus:ring-0 checked:!bg-Primary rounded-md border-Borders border-[1px] checked:!border-none"
-                        checked={selectedFilters[key].includes(item)}
-                        onChange={() => toggleFilter(key, item)}
-                      />
-                      <span className="text-sm text-Secoundray">{item}</span>
-                    </label>
-                  ))}
-                </FilterBoxTemplate>
-              ))}
-            </div>
-            <label className="w-full flex items-center gap-1.5 py-2 border-Borders border-solid border-b-[1px]">
-              <input
-                type="checkbox"
-                className="form-checkbox focus:ring-0 checked:!bg-Primary rounded-md border-Borders border-[1px] checked:!border-none"
-              />
-              <span className="text-SubTitle text-Secoundray">
-                پرفروش‌ترین تورها
-              </span>
-            </label>
-            <label className="w-full flex items-center gap-1.5 py-2">
-              <input
-                type="checkbox"
-                className="form-checkbox focus:ring-0 checked:!bg-Primary rounded-md border-Borders border-[1px] checked:!border-none"
-              />
-              <span className="text-SubTitle text-Secoundray">
-                تورهای لحظه آخری
-              </span>
-            </label>
-            <div className="w-full bg-[#FAFAFA] flex items-center justify-center shadow-[0px_0px_45px_-5px_rgba(14,154,138,0.3)] p-3 fixed bottom-0 left-0 right-0">
-              <button
-                onClick={() => {
-                  setIsOpen(false);
-                  setShowSelectedFilters(true);
-                  window.scrollTo({ top: 0, behavior: "smooth" });
-                }}
-                className="bg-Primary text-white w-full py-3 rounded-2xl"
-              >
-                جستجو
-              </button>
-            </div>
-          </div>
-        )}
-      </div>
-      {/* All Tours List */}
-      <div
-        className={`${
-          isOpen ? "hidden" : "flex"
-        } flex-1 flex-col items-center gap-10`}
-      >
-        {showSelectedFilters && (
-          <Swiper
-            slidesPerView={1.4}
-            spaceBetween={5}
-            breakpoints={{
-              540: {
-                slidesPerView: 2.1,
-              },
-              635: {
-                slidesPerView: 2.5,
-              },
-              768: {
-                slidesPerView: 3.1,
-                spaceBetween: 5,
-              },
-            }}
-            className="mySwiper w-full"
-          >
-            {Object.entries(selectedFilters).map(([filterKey, options]) =>
-              options.map((item) => (
-                <SwiperSlide
-                  key={`${filterKey}-${item}`}
-                  className="flex items-center"
-                >
-                  <div className="bg-[#00000080] text-white text-sm py-3 px-3 rounded-2xl flex items-center justify-between gap-2">
-                    <span>{item}</span>
-                    <button
-                      onClick={() => handleRemoveFilter(filterKey, item)}
-                      className=""
-                    >
-                      <FaTimes />
-                    </button>
-                  </div>
-                </SwiperSlide>
-              ))
-            )}
-          </Swiper>
-        )}
-        <div className="w-full h-full bg-[#FAFAFA] rounded-2xl">
-          <Masonry
-            breakpointCols={breakpointColumnsObj}
-            className="flex gap-2 w-full"
-          >
-            {currentPosts.map((item, index) => (
-              <EachToursPost
-                key={index}
-                image={item.image}
-                imageAlt={item.location}
-                categoryIcon={item.categoryIcon}
-                categoryIconAlt={item.categoryName}
-                categoryName={item.categoryName}
-                location={item.location}
-                agency={item.agency}
-                rate={item.rate}
-                startDate={item.StartDate}
-                endDate={item.EndDate}
-                month={item.Month}
-                price={item.price}
-                mb="mb-2"
-                onClick={() => submitDetailsPage(item)}
-              />
-            ))}
-          </Masonry>
-        </div>
-        <div className="flex items-center gap-5">
-          <button
-            onClick={handleNext}
-            disabled={currentPage === totalPages}
-            className={`${
-              currentPage === totalPages ? "text-Disable" : "text-Secoundray"
-            } bg-[#FAFAFA] p-3 rounded-2xl border-solid border-[1px] border-Borders`}
-          >
-            <FaChevronRight />
-          </button>
-          <span className="bg-[#FAFAFA] border-solid border-[1px] border-Borders rounded-2xl py-2 px-4">
-            {totalPages} / {currentPage}
-          </span>
-          <button
-            onClick={handlePrev}
-            disabled={currentPage === 1}
-            className={`${
-              currentPage === 1 ? "text-Disable" : "text-Secoundray"
-            } bg-[#FAFAFA] p-3 rounded-2xl border-solid border-[1px] border-Borders`}
-          >
-            <FaChevronLeft />
-          </button>
-        </div>
-      </div>
+      <DesktopAdvancedSearchBox
+        setIsOpen={setIsOpen}
+        handleRemoveFilter={handleRemoveFilter}
+        setShowSelectedFilters={setShowSelectedFilters}
+        toggleFilter={toggleFilter}
+        toggleRangeSelection={toggleRangeSelection}
+        filters={filters}
+        selectedFilters={selectedFilters}
+        showSelectedFilters={showSelectedFilters}
+      />
+      <MobileAdvancedSearchBox
+        isOpen={isOpen}
+        setIsOpen={setIsOpen}
+        filters={filters}
+        showSelectedFilters={showSelectedFilters}
+        handleRemoveFilter={handleRemoveFilter}
+        setShowSelectedFilters={setShowSelectedFilters}
+        toggleRangeSelection={toggleRangeSelection}
+        selectedFilters={selectedFilters}
+        toggleFilter={toggleFilter}
+      />
+      <ShowFilteredTours
+        isOpen={isOpen}
+        showSelectedFilters={showSelectedFilters}
+        selectedFilters={selectedFilters}
+        handleRemoveFilter={handleRemoveFilter}
+        breakpointColumnsObj={breakpointColumnsObj}
+        currentPage={currentPage}
+        submitDetailsPage={submitDetailsPage}
+        currentPosts={currentPosts}
+        totalPages={totalPages}
+        handleNext={handleNext}
+        handlePrev={handlePrev}
+      />
     </div>
   );
 }
