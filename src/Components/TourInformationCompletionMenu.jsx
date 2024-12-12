@@ -6,9 +6,10 @@ export default function TourInformationCompletionMenu({ isOpen, toggleMenu }) {
   const location = useLocation(); //Get Current Address
   const navigate = useNavigate();
 
-  const handleClick = () => {
+  const handleSubmitPassengers = () => {
     const newPath = `${location.pathname}/submit-passengers`;
     navigate(newPath, { state: { additionalData: "value" } });
+    toggleMenu();
   };
 
   return (
@@ -122,7 +123,7 @@ export default function TourInformationCompletionMenu({ isOpen, toggleMenu }) {
             </div>
           </div>
           <button
-            onClick={handleClick}
+            onClick={handleSubmitPassengers}
             className="w-full bg-Primary text-white py-2.5 text-center rounded-2xl"
           >
             تکمیل اطلاعات
