@@ -33,7 +33,7 @@ export default function NavbarItem() {
         </li>
         <li>
           <NavLink
-            to="/Tours"
+            to="/tours"
             className={({ isActive }) =>
               `${
                 isActive ? "text-Primary nav-link active" : "nav-link nav-link"
@@ -45,7 +45,7 @@ export default function NavbarItem() {
         </li>
         <li>
           <NavLink
-            to="/TouristAttractions"
+            to="/tourist-attractions"
             className={({ isActive }) =>
               `${
                 isActive ? "text-Primary nav-link active" : "nav-link nav-link"
@@ -57,7 +57,7 @@ export default function NavbarItem() {
         </li>
         <li>
           <NavLink
-            to="/Agencies"
+            to="/agencies"
             className={({ isActive }) =>
               `${
                 isActive ? "text-Primary nav-link active" : "nav-link nav-link"
@@ -69,7 +69,7 @@ export default function NavbarItem() {
         </li>
         <li>
           <NavLink
-            to="/Reports"
+            to="/reports"
             className={({ isActive }) =>
               `${
                 isActive ? "text-Primary nav-link active" : "nav-link nav-link"
@@ -81,7 +81,7 @@ export default function NavbarItem() {
         </li>
         <li>
           <NavLink
-            to="/Contact"
+            to="/contact"
             className={({ isActive }) =>
               `${
                 isActive ? "text-Primary nav-link active" : "nav-link nav-link"
@@ -105,7 +105,7 @@ export default function NavbarItem() {
         </li>
         <li>
           <NavLink
-            to="/Blogs"
+            to="/blogs"
             className={({ isActive }) =>
               `${
                 isActive ? "text-Primary nav-link active" : "nav-link nav-link"

@@ -5,6 +5,7 @@ import Home from "./Pages/HomePage/Home";
 import Reports from "./Pages/ReportsPage/Reports";
 import TouristAttractions from "./Pages/TouristAttractionsPage/TouristAttractions";
 import AdvancedSearch from "./Pages/ToursPage/_components/AdvancedSearch";
+import InformationPassengers from "./Pages/ToursPage/_components/InformationPassengers";
 import TourDetails from "./Pages/ToursPage/_components/TourDetails";
 import Tours from "./Pages/ToursPage/Tours";
 
@@ -14,36 +15,40 @@ const router = [
     element: <Home />,
   },
   {
-    path: "/Tours/*",
-    element: <Tours />,
-  },
-  {
-    path: "/TouristAttractions",
+    path: "/tourist-attractions",
     element: <TouristAttractions />,
   },
   {
-    path: "/Reports",
+    path: "/reports",
     element: <Reports />,
   },
   {
-    path: "/Agencies",
+    path: "/agencies",
     element: <Agencies />,
   },
   {
-    path: "/Blogs",
+    path: "/blogs",
     element: <Blogs />,
   },
   {
-    path: "/Contact",
+    path: "/contact",
     element: <Contact />,
   },
   {
-    path: "/Tours/Search",
+    path: "/tours/:id/submit-passengers",
+    element: <InformationPassengers />,
+  },
+  {
+    path: "/tours/search",
     element: <AdvancedSearch />,
   },
   {
-    path: "/Tours/:id",
+    path: "/tours/:id",
     element: <TourDetails />,
+  },
+  {
+    path: "/tours/*",
+    element: <Tours />,
   },
 ];
 

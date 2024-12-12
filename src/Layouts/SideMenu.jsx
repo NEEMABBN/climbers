@@ -28,7 +28,7 @@ export default function SideMenu({ isOpen, toggleMenu }) {
         </li>
         <li className="w-full border-solid border-b-[1px] border-Borders py-3">
           <NavLink
-            to="/Tours"
+            to="/tours"
             className={({ isActive }) =>
               `${isActive ? "text-Primary" : "text-Secoundray"} w-full`
             }
@@ -38,7 +38,7 @@ export default function SideMenu({ isOpen, toggleMenu }) {
         </li>
         <li className="w-full border-solid border-b-[1px] border-Borders py-3">
           <NavLink
-            to="/TouristAttractions"
+            to="/tourist-attractions"
             className={({ isActive }) =>
               `${isActive ? "text-Primary" : "text-Secoundray"} w-full`
             }
@@ -48,7 +48,7 @@ export default function SideMenu({ isOpen, toggleMenu }) {
         </li>
         <li className="w-full border-solid border-b-[1px] border-Borders py-3">
           <NavLink
-            to="/Agencies"
+            to="/agencies"
             className={({ isActive }) =>
               `${isActive ? "text-Primary" : "text-Secoundray"} w-full`
             }
@@ -58,7 +58,7 @@ export default function SideMenu({ isOpen, toggleMenu }) {
         </li>
         <li className="w-full border-solid border-b-[1px] border-Borders py-3">
           <NavLink
-            to="/Reports"
+            to="/reports"
             className={({ isActive }) =>
               `${isActive ? "text-Primary" : "text-Secoundray"} w-full`
             }
@@ -68,7 +68,7 @@ export default function SideMenu({ isOpen, toggleMenu }) {
         </li>
         <li className="w-full border-solid border-b-[1px] border-Borders py-3">
           <NavLink
-            to="/Contact"
+            to="/contact"
             className={({ isActive }) =>
               `${isActive ? "text-Primary" : "text-Secoundray"} w-full`
             }
@@ -88,7 +88,7 @@ export default function SideMenu({ isOpen, toggleMenu }) {
         </li>
         <li className="w-full border-solid border-b-[1px] border-Borders py-3">
           <NavLink
-            to="/Blogs"
+            to="/blogs"
             className={({ isActive }) =>
               `${isActive ? "text-Primary" : "text-Secoundray"} w-full`
             }
