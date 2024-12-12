@@ -17,7 +17,7 @@ export default function FooterNavItem() {
         </li>
         <li>
           <NavLink
-            to="/Tours"
+            to="/tours"
             className={({ isActive }) =>
               `${isActive ? "text-Primary" : "text-Secoundray"} text-nowrap`
             }
@@ -27,7 +27,7 @@ export default function FooterNavItem() {
         </li>
         <li>
           <NavLink
-            to="/TouristAttractions"
+            to="/tourist-attractions"
             className={({ isActive }) =>
               `${isActive ? "text-Primary" : "text-Secoundray"} text-nowrap`
             }
@@ -37,7 +37,7 @@ export default function FooterNavItem() {
         </li>
         <li>
           <NavLink
-            to="/Agencies"
+            to="/agencies"
             className={({ isActive }) =>
               `${isActive ? "text-Primary" : "text-Secoundray"} text-nowrap`
             }
@@ -49,7 +49,7 @@ export default function FooterNavItem() {
       <ul className="flex sm:flex-row flex-col items-start gap-7">
         <li>
           <NavLink
-            to="/Reports"
+            to="/reports"
             className={({ isActive }) =>
               `${isActive ? "text-Primary" : "text-Secoundray"} text-nowrap`
             }
@@ -59,7 +59,7 @@ export default function FooterNavItem() {
         </li>
         <li>
           <NavLink
-            to="/Contact"
+            to="/contact"
             className={({ isActive }) =>
               `${isActive ? "text-Primary" : "text-Secoundray"} text-nowrap`
             }
@@ -79,7 +79,7 @@ export default function FooterNavItem() {
         </li>
         <li>
           <NavLink
-            to="/Blogs"
+            to="/blogs"
             className={({ isActive }) =>
               `${isActive ? "text-Primary" : "text-Secoundray"} text-nowrap`
             }

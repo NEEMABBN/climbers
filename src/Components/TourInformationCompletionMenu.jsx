@@ -1,7 +1,16 @@
 import React from "react";
 import "ldrs/ping";
+import { useLocation, useNavigate } from "react-router-dom";
 
 export default function TourInformationCompletionMenu({ isOpen, toggleMenu }) {
+  const location = useLocation(); //Get Current Address
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    const newPath = `${location.pathname}/submit-passengers`;
+    navigate(newPath, { state: { additionalData: "value" } });
+  };
+
   return (
     <div
       className={`${
@@ -112,7 +121,10 @@ export default function TourInformationCompletionMenu({ isOpen, toggleMenu }) {
               </div>
             </div>
           </div>
-          <button className="w-full bg-Primary text-white py-2.5 text-center rounded-2xl">
+          <button
+            onClick={handleClick}
+            className="w-full bg-Primary text-white py-2.5 text-center rounded-2xl"
+          >
             تکمیل اطلاعات
           </button>
           <button

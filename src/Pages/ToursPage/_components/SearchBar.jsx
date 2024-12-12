@@ -71,7 +71,7 @@ export default function SearchBar() {
         </div>
 
         <Link
-          to="/Tours/Search"
+          to="/tours/search"
           className="text-white bg-Primary px-9 py-2.5 rounded-2xl"
         >
           جستجو

@@ -19,8 +19,11 @@ export default function Navbar() {
 
   const getPageName = () => {
     const matchTours = matchPath("/tours/:id", location.pathname);
-
-    if (matchTours) {
+    const matchSubmit = matchPath(
+      "/tours/:id/submit-passengers",
+      location.pathname
+    );
+    if (matchTours || matchSubmit) {
       return "تورها";
     }
     switch (location.pathname) {
@@ -32,20 +35,21 @@ export default function Navbar() {
             className="w-[117px] md:hidden block"
           />
         );
-      case "/Tours":
-      case "/Tours/Search":
+      case "/tours":
+      case "/tours/search":
+        // case "":
         return "تورها";
-      case "/TouristAttractions":
+      case "/tourist-attractions":
         return "نقشه";
-      case "/Reports":
+      case "/reports":
         return "گزارش برنامه";
-      case "/Agencies":
+      case "/agencies":
         return "اماکن";
-      case "/Blogs":
+      case "/blogs":
         return "بلاگ";
-      case "/Contact":
+      case "/contact":
         return "تیم‌ها";
-      case "/SomePage":
+      case "/somePage":
         return "فروشگاه";
       default:
         return (
