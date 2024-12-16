@@ -11,7 +11,7 @@ export default function PassengerInfoTemplate({ title, children }) {
         onClick={() => setIsOpen(!isOpen)}
         className="w-full flex items-center gap-3 cursor-pointer"
       >
-        <div className="w-full h-[1px] bg-Disable"></div>
+        <div className="w-full h-[1px] bg-gradient-to-r from-Disable to-white rounded-full"></div>
         <div className="flex items-center gap-3">
           <span className="text-nowrap">{title}</span>
           <FaChevronLeft
@@ -20,7 +20,7 @@ export default function PassengerInfoTemplate({ title, children }) {
             }`}
           />
         </div>
-        <div className="w-full h-[1px] bg-Disable"></div>
+        <div className="w-full h-[1px] bg-gradient-to-l from-Disable to-white rounded-full"></div>
       </div>
       <div
         ref={contentRef}

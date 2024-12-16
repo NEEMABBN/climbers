@@ -9,7 +9,7 @@ export default function TourInformationCompletionMenu({ isOpen, toggleMenu }) {
   const handleSubmitPassengers = () => {
     const newPath = `${location.pathname}/submit-passengers`;
     navigate(newPath, { state: { additionalData: "value" } });
-    toggleMenu();
+    toggleMenu;
   };
 
   return (
