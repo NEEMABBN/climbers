@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import PassengerInfoTemplate from "../../../Components/PassengerInfoTemplate";
 import InformationCustomInput from "../../../Components/InformationCustomInput";
 import InformationCustomSelect from "../../../Components/InformationCustomSelect";
-import ConfirmPaymentModal from "../../../Components/ConfirmPaymentModal";
+import CustomModal from "../../../Components/CustomModal";
+import { IoCheckmarkOutline, IoCloseOutline } from "react-icons/io5";
 
 export default function InformationPassengers() {
   const optionsData = ["انتخاب کنید", "گزینه یک", "گزینه دو", "گزینه سه"];
@@ -16,6 +17,8 @@ export default function InformationPassengers() {
     setIsModalOpen(false);
     document.body.style.overflow = "auto";
   };
+
+  const isSuccess = true; //Manual Control...!!
 
   return (
     <div className="container mx-auto flex items-center py-12">
@@ -255,7 +258,6 @@ export default function InformationPassengers() {
                 </span>
               </div>
             </div>
-
             <div className="w-full min-h-full flex flex-col items-center gap-4 border-solid border-b-[1px] border-Borders lg:border-none pb-3 lg:pb-0">
               <div className="w-full flex items-center justify-between">
                 <span className="text-Disable sm:text-SubTitle text-sm">
@@ -275,7 +277,6 @@ export default function InformationPassengers() {
               </div>
             </div>
           </div>
-
           <div className="w-full flex lg:flex-row flex-col items-start gap-3">
             <div className="w-full flex flex-col items-center gap-4 border-solid border-Borders xl:border-r-[1px] lg:border-l-[1px] lg:border-b-0 border-b-[1px] 2xl:border-l-0 2xl:pr-3 2xl:pl-0 lg:pl-3 lg:pb-0 pb-3">
               <div className="w-full flex items-center justify-between">
@@ -316,7 +317,6 @@ export default function InformationPassengers() {
                 </div>
               </div>
             </div>
-
             <div className="2xl:w-auto w-full flex flex-col items-center gap-2 2xl:mx-5 xl:mx-2">
               <button
                 onClick={openModal}
@@ -331,11 +331,48 @@ export default function InformationPassengers() {
           </div>
         </div>
       </div>
-      <ConfirmPaymentModal
-        isOpen={isModalOpen}
-        onClose={closeModal}
-        isSuccess={true} //Manual Control...!!!
-      />
+      <CustomModal motion={isModalOpen}>
+        <button
+          onClick={closeModal}
+          className="absolute top-4 left-4 bg-white border-solid border-Borders border-[1px] rounded-2xl p-1.5 text-2xl text-Secoundray"
+        >
+          <IoCloseOutline />
+        </button>
+        <div
+          className={`p-3 text-2xl rounded-2xl text-white text-center ${
+            isSuccess ? "bg-Primary" : "bg-Error"
+          }`}
+        >
+          {isSuccess ? <IoCheckmarkOutline /> : <IoCloseOutline />}
+        </div>
+        <span className="text-Secoundray text-base">
+          {isSuccess ? "پرداخت با موفقیت انجام شد :)" : "پرداخت انجام نشد :("}
+        </span>
+        <p className="text-Disable text-center text-SubTitle leading-6">
+          {isSuccess
+            ? "برای پیگیری مراحل سفارش خود، و اطلاعات بیشتر از داشبورد پیگیری کنید."
+            : "برای پیگیری مراحل سفارش خود، و اطلاعات بیشتر از داشبورد پیگیری کنید."}
+        </p>
+        {isSuccess && (
+          <div className="flex items-center gap-2">
+            <span className="text-SubTitle text-Secoundray">
+              کد پیگیری سفارش:
+            </span>
+            <span className="text-SubTitle text-Secoundray">374693</span>
+          </div>
+        )}
+        <div className="w-full flex items-center justify-between gap-2">
+          <button className="w-full bg-Primary text-white border-solid border-Primary border-[1px] py-3 rounded-2xl">
+            {isSuccess ? "داشبورد" : "تلاش دوباره"}
+          </button>
+          <button
+            onClick={closeModal}
+            className="w-full bg-white border-solid py-3 border-Primary border-[1px] text-Primary rounded-2xl"
+          >
+            بازگشت
+          </button>
+        </div>
+      </CustomModal>
     </div>
   );
 }
