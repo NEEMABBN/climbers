@@ -5,6 +5,7 @@ import EachToursPost from "../../../Components/EachToursPost";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
+import { useNavigate } from "react-router-dom";
 
 export default function BestTours() {
   const toursData = [
@@ -82,6 +83,17 @@ export default function BestTours() {
     },
   ];
   const swiperRef = useRef(null);
+  const navigate = useNavigate();
+
+  const submitDetailsPage = (tours) => {
+    //When you get the "API", check the "location" value!!!
+    if (!tours || !tours.location) {
+      console.error("Post object or location is missing:", tours);
+      return;
+    }
+    const slug = tours.location.replace(/\s+/g, "-");
+    navigate(`/tours/${tours.id}-${slug}`, { state: tours });
+  };
 
   return (
     <div className="w-full py-12">
@@ -130,6 +142,7 @@ export default function BestTours() {
                     endDate={item.EndDate}
                     month={item.Month}
                     price={item.price}
+                    onClick={() => submitDetailsPage(item)}
                   />
                 </SwiperSlide>
               ))}

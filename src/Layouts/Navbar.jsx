@@ -5,18 +5,27 @@ import NavbarItem from "../Components/NavbarItem";
 import { IoMenu } from "react-icons/io5";
 import SideMenu from "./SideMenu";
 import { matchPath, useLocation } from "react-router-dom";
+import CustomModal from "../Components/CustomModal";
 
 export default function Navbar() {
   const location = useLocation();
   const isHomePage = location.pathname === "/";
   const [isOpen, setIsOpen] = useState(false);
+  const [isLogin, setIsLogin] = useState(false);
+  const [isFirstStage, setIsFirstStage] = useState(true);
+
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
-  useEffect(() => {
-    setIsOpen(false);
-  }, [location.pathname]);
-
+  const openModal = () => {
+    setIsLogin(true);
+    document.body.style.overflow = "hidden";
+  };
+  const closeModal = () => {
+    setIsLogin(false);
+    setIsFirstStage(true);
+    document.body.style.overflow = "auto";
+  };
   const getPageName = () => {
     const matchTours = matchPath("/tours/:id", location.pathname);
     const matchSubmit = matchPath(
@@ -37,7 +46,6 @@ export default function Navbar() {
         );
       case "/tours":
       case "/tours/search":
-        // case "":
         return "تورها";
       case "/tourist-attractions":
         return "نقشه";
@@ -61,6 +69,10 @@ export default function Navbar() {
         );
     }
   };
+
+  useEffect(() => {
+    setIsOpen(false);
+  }, [location.pathname]);
 
   return (
     <div className="w-full flex flex-col items-center fixed top-0 right-0 left-0 z-[10000] bg-white shadow-md">
@@ -86,7 +98,10 @@ export default function Navbar() {
             />
           </div>
         </div>
-        <button className="text-white bg-Primary px-5 md:py-2 py-3 rounded-2xl md:text-base text-sm">
+        <button
+          onClick={openModal}
+          className="text-white bg-Primary px-5 md:py-2 py-3 rounded-2xl md:text-base text-sm"
+        >
           ورود / ثبت‌نام
         </button>
       </div>
@@ -104,6 +119,95 @@ export default function Navbar() {
         </div>
       )}
       <SideMenu isOpen={isOpen} toggleMenu={toggleMenu} />
+      <CustomModal motion={isLogin} closeModal={closeModal}>
+        <span className="bg-Disable rounded-2xl p-6"></span>
+        <span className="text-base text-Secoundray">
+          {isFirstStage ? "ورود یا ثبت‌نام در کلایمبر" : "تایید شماره همراه"}
+        </span>
+        <p className="text-Disable text-SubTitle text-center">
+          {isFirstStage
+            ? "برای ورود شماره همراه خود را وارد کنید."
+            : "کد ۴ رقمی ارسال‌شده به شماره ”۰۹۳۹۷۱۱۱۳۱۳” را واردکنید."}
+        </p>
+        {isFirstStage ? (
+          ""
+        ) : (
+          <span
+            onClick={() => setIsFirstStage(!isFirstStage)}
+            className="text-Primary text-SubTitle cursor-pointer"
+          >
+            اصلاح شماره
+          </span>
+        )}
+        {isFirstStage ? (
+          <div className="w-full flex flex-col items-start gap-2">
+            <label htmlFor="userNumber" className="text-Secoundray">
+              شماره همراه :
+            </label>
+            <input
+              type="number"
+              name="userNumber"
+              id="userNumber"
+              className="w-full border-solid border-Borders focus:ring-0 focus:border-Borders border-[1px] rounded-2xl py-2.5"
+            />
+          </div>
+        ) : (
+          <div className="w-full flex flex-col items-center">
+            <label
+              htmlFor="verificationCode"
+              className="w-full flex items-center justify-between"
+            >
+              <span className="">کد تایید :</span>
+              <span className="">01:12</span>
+            </label>
+            <div className="w-full grid grid-cols-4 gap-2.5">
+              <input
+                type="number"
+                name="verificationCode"
+                id="verificationCode"
+                maxLength={1}
+                className="border-solid border-Borders border-[1px] rounded-2xl"
+              />
+              <input
+                type="number"
+                name="verificationCode"
+                id="verificationCode"
+                maxLength={1}
+                className="border-solid border-Borders border-[1px] rounded-2xl"
+              />
+              <input
+                type="number"
+                name="verificationCode"
+                id="verificationCode"
+                maxLength={1}
+                className="border-solid border-Borders border-[1px] rounded-2xl"
+              />
+              <input
+                type="number"
+                name="verificationCode"
+                id="verificationCode"
+                maxLength={1}
+                className="border-solid border-Borders border-[1px] rounded-2xl"
+              />
+            </div>
+          </div>
+        )}
+        {isFirstStage ? (
+          <button
+            onClick={() => setIsFirstStage(!isFirstStage)}
+            className="bg-Primary text-white py-3 px-20 rounded-2xl"
+          >
+            ادامه
+          </button>
+        ) : (
+          <button
+            onClick={closeModal}
+            className="bg-Primary text-white py-3 px-20 rounded-2xl"
+          >
+            تایید
+          </button>
+        )}
+      </CustomModal>
     </div>
   );
 }

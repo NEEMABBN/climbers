@@ -331,13 +331,7 @@ export default function InformationPassengers() {
           </div>
         </div>
       </div>
-      <CustomModal motion={isModalOpen}>
-        <button
-          onClick={closeModal}
-          className="absolute top-4 left-4 bg-white border-solid border-Borders border-[1px] rounded-2xl p-1.5 text-2xl text-Secoundray"
-        >
-          <IoCloseOutline />
-        </button>
+      <CustomModal motion={isModalOpen} closeModal={closeModal}>
         <div
           className={`p-3 text-2xl rounded-2xl text-white text-center ${
             isSuccess ? "bg-Primary" : "bg-Error"
