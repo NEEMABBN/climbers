@@ -48,11 +48,11 @@ export default function Navbar() {
       case "/tours/search":
         return "تورها";
       case "/tourist-attractions":
-        return "نقشه";
+        return "اماکن";
       case "/reports":
         return "گزارش برنامه";
       case "/agencies":
-        return "اماکن";
+        return "نقشه";
       case "/blogs":
         return "بلاگ";
       case "/contact":

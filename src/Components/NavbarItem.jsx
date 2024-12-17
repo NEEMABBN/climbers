@@ -45,7 +45,7 @@ export default function NavbarItem() {
         </li>
         <li>
           <NavLink
-            to="/tourist-attractions"
+            to="/agencies"
             className={({ isActive }) =>
               `${
                 isActive ? "text-Primary nav-link active" : "nav-link nav-link"
@@ -57,7 +57,7 @@ export default function NavbarItem() {
         </li>
         <li>
           <NavLink
-            to="/agencies"
+            to="/tourist-attractions"
             className={({ isActive }) =>
               `${
                 isActive ? "text-Primary nav-link active" : "nav-link nav-link"

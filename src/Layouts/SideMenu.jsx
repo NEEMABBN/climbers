@@ -38,7 +38,7 @@ export default function SideMenu({ isOpen, toggleMenu }) {
         </li>
         <li className="w-full border-solid border-b-[1px] border-Borders py-3">
           <NavLink
-            to="/tourist-attractions"
+            to="/agencies"
             className={({ isActive }) =>
               `${isActive ? "text-Primary" : "text-Secoundray"} w-full`
             }
@@ -48,7 +48,7 @@ export default function SideMenu({ isOpen, toggleMenu }) {
         </li>
         <li className="w-full border-solid border-b-[1px] border-Borders py-3">
           <NavLink
-            to="/agencies"
+            to="/tourist-attractions"
             className={({ isActive }) =>
               `${isActive ? "text-Primary" : "text-Secoundray"} w-full`
             }
