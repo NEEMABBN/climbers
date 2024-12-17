@@ -5,6 +5,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import TemplateV1 from "../../../Components/TemplateV1";
 import EachToursPost from "../../../Components/EachToursPost";
+import { useNavigate } from "react-router-dom";
 
 export default function OccasionalTours() {
   const categoryData = [
@@ -217,6 +218,7 @@ export default function OccasionalTours() {
   const [filteredPosts, setFilteredPosts] = useState(toursData);
   const [activeCategory, setActiveCategory] = useState("همه");
   const swiperRef = useRef(null);
+  const navigate = useNavigate();
 
   const filterPosts = (category) => {
     setActiveCategory(category);
@@ -231,6 +233,15 @@ export default function OccasionalTours() {
         swiperRef.current.slideTo(0);
       }
     }
+  };
+  const submitDetailsPage = (tours) => {
+    //When you get the "API", check the "location" value!!!
+    if (!tours || !tours.location) {
+      console.error("Post object or location is missing:", tours);
+      return;
+    }
+    const slug = tours.location.replace(/\s+/g, "-");
+    navigate(`/tours/${tours.id}-${slug}`, { state: tours });
   };
 
   return (
@@ -331,6 +342,7 @@ export default function OccasionalTours() {
                       endDate={item.EndDate}
                       month={item.Month}
                       price={item.price}
+                      onClick={() => submitDetailsPage(item)}
                     />
                   </SwiperSlide>
                 ))}
