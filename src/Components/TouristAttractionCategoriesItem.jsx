@@ -9,11 +9,11 @@ export default function TouristAttractionCategoriesItem({
 
   return (
     <div
-      className="w-full flex flex-col items-center cursor-pointer py-3 gap-2 bg-white border-solid border-Borders hover:border-Primary border-[1px] hover:shadow-[0px_0px_30px_-15px_rgba(14,154,138,0.5)] transition-all duration-200 rounded-3xl"
+      className="w-full flex md:flex-col flex-row items-center md:justify-normal justify-center cursor-pointer py-3 gap-2 bg-white border-solid border-Borders hover:border-Primary border-[1px] hover:shadow-[0px_0px_30px_-15px_rgba(14,154,138,0.5)] transition-all duration-200 rounded-3xl"
       onMouseOver={() => setCurrentIcon(activeIcon)}
       onMouseOut={() => setCurrentIcon(icon)}
     >
-      <img src={currentIcon} alt={title} className="w-[23px]" />
+      <img src={currentIcon} alt={title} className="w-[23px]" />                                                                                                                                                                                                                                   
       <span className="text-base text-Secoundray">{title}</span>
     </div>
   );

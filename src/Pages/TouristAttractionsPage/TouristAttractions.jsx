@@ -76,7 +76,7 @@ export default function TouristAttractions() {
             </option>
           </select>
         </div>
-        <Link to="" className="text-white bg-Primary px-9 py-2.5 rounded-2xl">
+        <Link to="" className="text-white lg:w-auto text-center sm:w-full bg-Primary px-9 py-2.5 rounded-2xl">
           جستجو
         </Link>
       </SearchBar>

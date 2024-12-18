@@ -48,9 +48,9 @@ export default function TouristAttractionCategories() {
 
   return (
     <div className="w-full flex bg-[#F4F4F4] py-14">
-      <div className="container mx-auto flex flex-col items-center gap-10">
-        <h2 className="text-Titles text-3xl">دسته‌بندی‌ها</h2>
-        <div className="w-full grid grid-cols-8 gap-4">
+      <div className="container sm:mx-auto mx-5 flex flex-col items-center gap-10">
+        <h2 className="text-Titles sm:text-3xl text-2xl">دسته‌بندی‌ها</h2>
+        <div className="w-full grid lg:grid-cols-8 md:grid-cols-4 sm:grid-cols-3 grid-cols-2 gap-4">
           {categoryData.map((item, index) => (
             <TouristAttractionCategoriesItem
               key={index}
