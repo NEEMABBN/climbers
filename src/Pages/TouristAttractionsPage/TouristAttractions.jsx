@@ -3,6 +3,7 @@ import SearchBar from "../../Components/SearchBar";
 import Images from "../../Setting/Images";
 import { Link } from "react-router-dom";
 import MostVisitedPlace from "./_components/MostVisitedPlace";
+import TouristAttractionCategories from "./_components/TouristAttractionCategories";
 
 export default function TouristAttractions() {
   return (
@@ -77,6 +78,7 @@ export default function TouristAttractions() {
         </Link>
       </SearchBar>
       <MostVisitedPlace />
+      <TouristAttractionCategories />
     </div>
   );
 }
