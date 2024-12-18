@@ -6,6 +6,7 @@ export default function EachSelectedDestinations({
   imageAlt,
   locationName,
   activeTour,
+  isButton = true,
 }) {
   return (
     <div className="w-full flex flex-col items-center hover:shadow-lg gap-2 transition-all duration-300 bg-white rounded-2xl border-solid border-[1px] border-Borders p-1">
@@ -16,8 +17,8 @@ export default function EachSelectedDestinations({
           <span className="text-Disable text-sm">{activeTour}</span>
         </div>
         <button className="text-Primary text-sm flex items-center gap-1">
-          نمایش تورها
-          <FaAngleLeft />
+          {isButton && <span>نمایش تورها</span>}
+          <FaAngleLeft className="text-xl" />
         </button>
       </div>
     </div>

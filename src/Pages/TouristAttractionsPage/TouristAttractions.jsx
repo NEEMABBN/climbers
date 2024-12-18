@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import MostVisitedPlace from "./_components/MostVisitedPlace";
 import TouristAttractionCategories from "./_components/TouristAttractionCategories";
 import MostPopularMountains from "./_components/MostPopularMountains";
+import SelectedCities from "./_components/SelectedCities";
 
 export default function TouristAttractions() {
   return (
@@ -81,6 +82,7 @@ export default function TouristAttractions() {
       <MostVisitedPlace />
       <TouristAttractionCategories />
       <MostPopularMountains />
+      <SelectedCities />
     </div>
   );
 }
