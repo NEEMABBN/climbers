@@ -6,6 +6,7 @@ import MostVisitedPlace from "./_components/MostVisitedPlace";
 import TouristAttractionCategories from "./_components/TouristAttractionCategories";
 import MostPopularMountains from "./_components/MostPopularMountains";
 import SelectedCities from "./_components/SelectedCities";
+import MostPopularForests from "./_components/MostPopularForests";
 
 export default function TouristAttractions() {
   return (
@@ -83,6 +84,7 @@ export default function TouristAttractions() {
       <TouristAttractionCategories />
       <MostPopularMountains />
       <SelectedCities />
+      <MostPopularForests />
     </div>
   );
 }
