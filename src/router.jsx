@@ -3,6 +3,7 @@ import Blogs from "./Pages/BlogsPage/Blogs";
 import Contact from "./Pages/ContactPage/Contact";
 import Home from "./Pages/HomePage/Home";
 import Reports from "./Pages/ReportsPage/Reports";
+import AdvancedSearchPlaces from "./Pages/TouristAttractionsPage/_components/AdvancedSearchPlaces";
 import TouristAttractions from "./Pages/TouristAttractionsPage/TouristAttractions";
 import AdvancedSearch from "./Pages/ToursPage/_components/AdvancedSearch";
 import InformationPassengers from "./Pages/ToursPage/_components/InformationPassengers";
@@ -17,6 +18,10 @@ const router = [
   {
     path: "/tourist-attractions",
     element: <TouristAttractions />,
+  },
+  {
+    path: "/tourist-attractions/search",
+    element: <AdvancedSearchPlaces />,
   },
   {
     path: "/reports",

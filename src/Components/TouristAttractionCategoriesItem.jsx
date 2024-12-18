@@ -13,7 +13,7 @@ export default function TouristAttractionCategoriesItem({
       onMouseOver={() => setCurrentIcon(activeIcon)}
       onMouseOut={() => setCurrentIcon(icon)}
     >
-      <img src={currentIcon} alt={title} className="w-[23px]" />                                                                                                                                                                                                                                   
+      <img src={currentIcon} alt={title} className="w-[23px]" />
       <span className="text-base text-Secoundray">{title}</span>
     </div>
   );
