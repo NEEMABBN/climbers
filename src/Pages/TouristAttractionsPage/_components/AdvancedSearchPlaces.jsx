@@ -221,7 +221,7 @@ export default function AdvancedSearchPlaces() {
       return;
     }
     const slug = place.city.replace(/\s+/g, "-");
-    navigate(`/tours/${place.id}-${slug}`, { state: place });
+    navigate(`/tourist-attractions/${place.id}-${slug}`, { state: place });
   };
   const handleNext = () => {
     if (currentPage < totalPages) {
