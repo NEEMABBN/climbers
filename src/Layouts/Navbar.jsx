@@ -48,6 +48,7 @@ export default function Navbar() {
       case "/tours/search":
         return "تورها";
       case "/tourist-attractions":
+      case "/tourist-attractions/search":
         return "اماکن";
       case "/reports":
         return "گزارش برنامه";

@@ -15,11 +15,12 @@ export default function EachPopularPlaceSlide({
   user,
   rate,
   onClick,
+  mb,
 }) {
   return (
     <div
       onClick={onClick}
-      className="w-full flex relative z-[2] rounded-2xl overflow-hidden group"
+      className={`${mb} w-full flex relative z-[2] rounded-2xl overflow-hidden group cursor-pointer`}
     >
       <div
         className={`${

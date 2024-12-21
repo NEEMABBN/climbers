@@ -2,10 +2,11 @@ import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import Masonry from "react-masonry-css";
 import "swiper/css";
-import { FaTimes, FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import { FaChevronLeft, FaChevronRight, FaTimes } from "react-icons/fa";
 import EachToursPost from "../../../Components/EachToursPost";
+import EachPopularPlaceSlide from "../../../Components/EachPopularPlaceSlide";
 
-const ShowFilteredTours = ({
+const ShowFilteredPlaces = ({
   selectedFilters = {},
   currentPosts = [],
   handleRemoveFilter,
@@ -65,21 +66,15 @@ const ShowFilteredTours = ({
           className="flex gap-2 w-full"
         >
           {currentPosts.map((item, index) => (
-            <EachToursPost
-              key={`tour-post-${index}`}
+            <EachPopularPlaceSlide
+              key={`place-post-${index}`}
               image={item.image}
-              imageAlt={item.location}
-              categoryIcon={item.categoryIcon}
-              categoryIconAlt={item.categoryName}
-              categoryName={item.categoryName}
-              location={item.location}
-              agency={item.agency}
-              rate={item.rate}
-              startDate={item.StartDate}
-              endDate={item.EndDate}
-              month={item.Month}
-              price={item.price}
+              imageAlt={item.province}
+              location={item.city}
+              province={item.province}
               mb="mb-2"
+              version1={true}
+              version2={false}
               onClick={() => submitDetailsPage(item)}
             />
           ))}
@@ -113,4 +108,4 @@ const ShowFilteredTours = ({
   );
 };
 
-export default ShowFilteredTours;
+export default ShowFilteredPlaces;

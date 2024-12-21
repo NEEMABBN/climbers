@@ -1,12 +1,19 @@
 import React, { useRef, useState } from "react";
 import { FaChevronLeft } from "react-icons/fa";
 
-export default function FilterBoxTemplate({ title, children, subTitle }) {
+export default function FilterBoxTemplate({
+  title,
+  children,
+  subTitle,
+  customClass,
+}) {
   const [isOpen, setIsOpen] = useState(false);
   const contentRef = useRef(null);
 
   return (
-    <div className="bg-white w-full border-solid border-Borders border-b-[1px] py-2">
+    <div
+      className={`bg-white w-full border-solid border-Borders border-b-[1px] py-2 ${customClass}`}
+    >
       <div
         onClick={() => setIsOpen(!isOpen)}
         className="w-full flex items-center justify-between cursor-pointer py-4"
