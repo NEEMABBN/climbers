@@ -68,7 +68,7 @@ const MobileAdvancedSearchBox = ({
               <FilterBoxTemplate title={title} key={key}>
                 {/* Checkbox Filter */}
                 {type === "checkbox" && (
-                  <div className="flex flex-col items-start gap-2">
+                  <div className="w-full flex flex-col items-start gap-2">
                     {items.map((item, index) => (
                       <label
                         key={index}
@@ -80,7 +80,9 @@ const MobileAdvancedSearchBox = ({
                           checked={selectedFilters[key]?.includes(item)}
                           onChange={() => toggleFilter(key, item)}
                         />
-                        <span className="text-sm text-Secoundray">{item}</span>
+                        <span className="text-sm text-Secoundray w-full">
+                          {item}
+                        </span>
                       </label>
                     ))}
                   </div>
@@ -125,7 +127,7 @@ const MobileAdvancedSearchBox = ({
               type="checkbox"
               className="form-checkbox focus:ring-0 checked:!bg-Primary rounded-md border-Borders border-[1px] checked:!border-none"
             />
-            <span className="text-SubTitle text-Secoundray">
+            <span className="text-SubTitle text-Secoundray w-full">
               پرفروش‌ترین تورها
             </span>
           </label>
@@ -134,7 +136,7 @@ const MobileAdvancedSearchBox = ({
               type="checkbox"
               className="form-checkbox focus:ring-0 checked:!bg-Primary rounded-md border-Borders border-[1px] checked:!border-none"
             />
-            <span className="text-SubTitle text-Secoundray">
+            <span className="text-SubTitle text-Secoundray w-full">
               تورهای لحظه آخری
             </span>
           </label>

@@ -55,7 +55,7 @@ const MobileAdvancedSearch = ({
               <FilterBoxTemplate title={title} key={key}>
                 {/* Checkbox Filter */}
                 {type === "checkbox" && (
-                  <div className="flex flex-col items-start gap-2">
+                  <div className="flex w-full flex-col items-start gap-2">
                     {items.map((item, index) => (
                       <label
                         key={index}
@@ -67,7 +67,9 @@ const MobileAdvancedSearch = ({
                           checked={selectedFilters[key]?.includes(item)}
                           onChange={() => toggleFilter(key, item)}
                         />
-                        <span className="text-sm text-Secoundray">{item}</span>
+                        <span className="w-full text-sm text-Secoundray">
+                          {item}
+                        </span>
                       </label>
                     ))}
                   </div>

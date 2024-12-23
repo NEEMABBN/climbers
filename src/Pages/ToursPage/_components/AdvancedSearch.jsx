@@ -437,6 +437,7 @@ export default function AdvancedSearch() {
   const startIndex = (currentPage - 1) * postsPerPage;
   const endIndex = startIndex + postsPerPage;
   const currentPosts = toursData.slice(startIndex, endIndex);
+  const [fadeOutItems, setFadeOutItems] = useState({});
 
   const submitDetailsPage = (tours) => {
     //When you get the "API", check the "location" value!!!
@@ -502,16 +503,27 @@ export default function AdvancedSearch() {
     });
   };
   const handleRemoveFilter = (filterKey, item) => {
-    setSelectedFilters((prevFilters) => {
-      const updatedFilters = { ...prevFilters };
-      updatedFilters[filterKey] = updatedFilters[filterKey]?.filter(
-        (option) => option !== item
-      );
-      if (updatedFilters[filterKey]?.length === 0) {
-        delete updatedFilters[filterKey];
-      }
-      return updatedFilters;
-    });
+    setFadeOutItems((prevFadeOutItems) => ({
+      ...prevFadeOutItems,
+      [`${filterKey}-${item}`]: true,
+    }));
+    setTimeout(() => {
+      setSelectedFilters((prevFilters) => {
+        const updatedFilters = { ...prevFilters };
+        updatedFilters[filterKey] = updatedFilters[filterKey]?.filter(
+          (option) => option !== item
+        );
+        if (updatedFilters[filterKey]?.length === 0) {
+          delete updatedFilters[filterKey];
+        }
+        return updatedFilters;
+      });
+      setFadeOutItems((prevFadeOutItems) => {
+        const updatedFadeOutItems = { ...prevFadeOutItems };
+        delete updatedFadeOutItems[`${filterKey}-${item}`];
+        return updatedFadeOutItems;
+      });
+    }, 300);
   };
 
   return (
@@ -549,6 +561,7 @@ export default function AdvancedSearch() {
         totalPages={totalPages}
         handleNext={handleNext}
         handlePrev={handlePrev}
+        fadeOutItems={fadeOutItems}
       />
     </div>
   );

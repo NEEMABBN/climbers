@@ -17,6 +17,7 @@ const ShowFilteredTours = ({
   showSelectedFilters,
   breakpointColumnsObj,
   submitDetailsPage,
+  fadeOutItems,
 }) => {
   return (
     <div
@@ -26,23 +27,18 @@ const ShowFilteredTours = ({
     >
       {/* Show Selected Filter */}
       {showSelectedFilters && Object.keys(selectedFilters).length > 0 && (
-        <Swiper
-          slidesPerView={1.4}
-          spaceBetween={5}
-          breakpoints={{
-            540: { slidesPerView: 2.1 },
-            635: { slidesPerView: 2.5 },
-            768: { slidesPerView: 3.1, spaceBetween: 5 },
-          }}
-          className="mySwiper w-full"
-        >
+        <Swiper slidesPerView={3} spaceBetween={5} className="mySwiper !w-full">
           {Object.entries(selectedFilters).map(
             ([filterKey, options]) =>
               Array.isArray(options) &&
               options.map((item) => (
                 <SwiperSlide
                   key={`${filterKey}-${item}`}
-                  className="flex items-center"
+                  className={`!flex !items-center !w-fit !transition-all !duration-300 ${
+                    fadeOutItems[`${filterKey}-${item}`]
+                      ? "!scale-0"
+                      : "!scale-100"
+                  }`}
                 >
                   <div className="bg-[#00000080] text-white text-sm py-3 px-3 rounded-2xl flex items-center justify-between gap-2">
                     <span>{item}</span>

@@ -32,9 +32,16 @@ export default function Navbar() {
       "/tours/:id/submit-passengers",
       location.pathname
     );
-    if (matchTours || matchSubmit) {
-      return "تورها";
-    }
+    const matchTouristAttractions = matchPath(
+      "/tourist-attractions/:id",
+      location.pathname
+    );
+    const pageName = matchTouristAttractions
+      ? "اماکن"
+      : matchTours || matchSubmit
+      ? "تورها"
+      : null;
+    if (pageName) return pageName;
     switch (location.pathname) {
       case "/":
         return (

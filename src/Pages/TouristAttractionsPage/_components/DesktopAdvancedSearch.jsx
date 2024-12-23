@@ -39,7 +39,7 @@ export default function DesktopAdvancedSearch({
           >
             {/* Checkbox Filter */}
             {type === "checkbox" && (
-              <div className="flex flex-col items-start gap-2">
+              <div className="w-full flex flex-col items-start gap-2">
                 {items.map((item, index) => (
                   <label
                     key={`${key}-${index}`}
@@ -51,7 +51,9 @@ export default function DesktopAdvancedSearch({
                       checked={selectedFilters[key]?.includes(item)}
                       onChange={() => toggleFilter(key, item)}
                     />
-                    <span className="text-sm text-Secoundray">{item}</span>
+                    <span className="text-sm text-Secoundray w-full">
+                      {item}
+                    </span>
                   </label>
                 ))}
               </div>

@@ -28,7 +28,7 @@ export default function InformationPassengers() {
           <select
             name=""
             id=""
-            className="sm:w-fit w-full md:pl-12 pl-0 bg-white sm:text-base text-SubTitle border-solid border-Borders border-[1px] rounded-2xl"
+            className="sm:w-fit w-full sm:pl-12 pl-0 bg-white sm:text-base text-SubTitle border-solid border-Borders border-[1px] rounded-2xl"
           >
             <option value="" className="">
               لیست مسافران قبلی

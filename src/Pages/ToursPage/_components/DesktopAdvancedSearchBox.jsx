@@ -49,7 +49,7 @@ const DesktopAdvancedSearchBox = ({
           <FilterBoxTemplate title={title} key={key}>
             {/* Checkbox Filter */}
             {type === "checkbox" && (
-              <div className="flex flex-col items-start gap-2">
+              <div className="w-full flex flex-col items-start gap-2">
                 {items.map((item, index) => (
                   <label
                     key={`${key}-${index}`}
@@ -61,7 +61,9 @@ const DesktopAdvancedSearchBox = ({
                       checked={selectedFilters[key]?.includes(item)}
                       onChange={() => toggleFilter(key, item)}
                     />
-                    <span className="text-sm text-Secoundray">{item}</span>
+                    <span className="text-sm text-Secoundray w-full">
+                      {item}
+                    </span>
                   </label>
                 ))}
               </div>
@@ -106,14 +108,18 @@ const DesktopAdvancedSearchBox = ({
           type="checkbox"
           className="form-checkbox focus:ring-0 checked:!bg-Primary rounded-md border-Borders border-[1px] checked:!border-none"
         />
-        <span className="text-SubTitle text-Secoundray">پرفروش‌ترین تورها</span>
+        <span className="text-SubTitle text-Secoundray w-full">
+          پرفروش‌ترین تورها
+        </span>
       </label>
       <label className="w-full cursor-pointer flex items-center gap-1.5 py-2">
         <input
           type="checkbox"
           className="form-checkbox focus:ring-0 checked:!bg-Primary rounded-md border-Borders border-[1px] checked:!border-none"
         />
-        <span className="text-SubTitle text-Secoundray">تورهای لحظه آخری</span>
+        <span className="text-SubTitle text-Secoundray w-full">
+          تورهای لحظه آخری
+        </span>
       </label>
     </div>
   );
