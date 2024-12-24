@@ -80,14 +80,14 @@ const DetailsToursGallery = ({}) => {
       </div>
       <div className="w-1/2 md:flex hidden flex-col items-center lg:gap-3 gap-1.5">
         <div className="flex items-center lg:gap-3 gap-1.5">
-          <div onClick={openModal} className="">
+          <div onClick={openModal} className="cursor-pointer">
             <img
               src={Images.EmiratesCruiseShipWithFriends}
               alt=""
               className="rounded-2xl"
             />
           </div>
-          <div onClick={openModal} className="">
+          <div onClick={openModal} className="cursor-pointer">
             <img
               src={Images.EmiratesCruiseShipAtNight}
               alt=""
@@ -96,14 +96,14 @@ const DetailsToursGallery = ({}) => {
           </div>
         </div>
         <div className="flex items-center lg:gap-3 gap-1.5">
-          <div onClick={openModal} className="">
+          <div onClick={openModal} className="cursor-pointer">
             <img
               src={Images.EmiratesCruiseShipRestaurant}
               alt=""
               className="rounded-2xl"
             />
           </div>
-          <div onClick={openModal} className="">
+          <div onClick={openModal} className="cursor-pointer">
             <img
               src={Images.EmiratesCruiseShipPool}
               alt=""
