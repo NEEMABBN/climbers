@@ -36,7 +36,7 @@ export default function GeneralPlaceInformation({
   return (
     <Element
       name={sectionName}
-      className="flex flex-col items-start gap-2.5 relative"
+      className="w-full flex flex-col items-start gap-2.5 relative"
     >
       <h2 className="text-Titles text-largTitle">{title}</h2>
       <div className="absolute top-0 left-0 flex items-center gap-3">
