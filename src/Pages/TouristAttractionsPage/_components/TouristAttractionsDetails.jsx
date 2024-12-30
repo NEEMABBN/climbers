@@ -5,6 +5,7 @@ import GeneralPlaceInformation from "./TouristAttractionDetailPageComponent/Gene
 import Geography from "./TouristAttractionDetailPageComponent/Geography";
 import RoutesMap from "./TouristAttractionDetailPageComponent/RoutesMap";
 import TravelInformation from "./TouristAttractionDetailPageComponent/TravelInformation";
+import TourSimilarTouristPlaces from "./TouristAttractionDetailPageComponent/TourSimilarTouristPlaces";
 
 export default function TouristAttractionsDetails() {
   const helpSideMenu = [
@@ -51,6 +52,10 @@ export default function TouristAttractionsDetails() {
         <Geography sectionName="جغرافیا" title="جغرافیا" />
         <RoutesMap />
         <TravelInformation sectionName="اطلاعات مسیر" title="اطلاعات مسیر" />
+        <TourSimilarTouristPlaces
+          sectionName="تورهای مشابه"
+          title="تورهای مشابه"
+        />
       </div>
     </div>
   );
