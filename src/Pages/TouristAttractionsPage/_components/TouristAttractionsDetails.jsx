@@ -4,6 +4,7 @@ import DetailsToursGallery from "../../../Components/DetailsToursGallery";
 import GeneralPlaceInformation from "./TouristAttractionDetailPageComponent/GeneralPlaceInformation";
 import Geography from "./TouristAttractionDetailPageComponent/Geography";
 import RoutesMap from "./TouristAttractionDetailPageComponent/RoutesMap";
+import TravelInformation from "./TouristAttractionDetailPageComponent/TravelInformation";
 
 export default function TouristAttractionsDetails() {
   const helpSideMenu = [
@@ -49,6 +50,7 @@ export default function TouristAttractionsDetails() {
         />
         <Geography sectionName="جغرافیا" title="جغرافیا" />
         <RoutesMap />
+        <TravelInformation sectionName="اطلاعات مسیر" title="اطلاعات مسیر" />
       </div>
     </div>
   );
