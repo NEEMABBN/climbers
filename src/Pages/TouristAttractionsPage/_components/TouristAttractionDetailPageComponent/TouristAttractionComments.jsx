@@ -55,7 +55,7 @@ export default function TouristAttractionComments({ sectionName, title }) {
   return (
     <Element
       name={sectionName}
-      className="w-full flex flex-col items-center mt-9 mb-24 gap-6"
+      className="w-full flex flex-col items-center mt-9 mb-24 gap-6 sm:px-0 px-3"
     >
       <div className="w-full flex sm:items-center items-start justify-between">
         <div className="flex sm:flex-row flex-col sm:items-end items-start sm:gap-4 gap-1">

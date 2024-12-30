@@ -19,18 +19,9 @@ export default function TouristAttractionsDetails() {
   ];
 
   const [activeSection, setActiveSection] = useState(null);
-  const [openInfoCompletionMenu, setOpenInfoCompletionMenu] = useState(false);
 
   const handleSetActive = (section) => {
     setActiveSection(section);
-  };
-  const handleOpenInfoCompletionMenu = () => {
-    setOpenInfoCompletionMenu(!openInfoCompletionMenu);
-    {
-      openInfoCompletionMenu
-        ? (document.body.style.overflow = "auto")
-        : (document.body.style.overflow = "hidden");
-    }
   };
 
   return (

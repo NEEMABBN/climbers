@@ -30,17 +30,19 @@ export default function TravelInformation({ sectionName, title }) {
   return (
     <Element
       name={sectionName}
-      className="w-full flex flex-col items-start gap-4 border-solid border-Borders border-y-[1px] py-7"
+      className="w-full flex flex-col items-start gap-4 border-solid border-Borders border-t-[1px] pt-7 sm:px-0 px-3"
     >
       <h2 className="text-largTitle text-Titles">{title}</h2>
       <ul className="w-full flex flex-col items-center border-solid border-Borders border-[1px] rounded-2xl px-4">
         {InformationData.map((item, index) => (
           <li
             key={index}
-            className="w-full flex items-center border-solid border-Borders border-b-[1px] py-4 gap-1.5 last:border-none"
+            className="w-full flex items-start border-solid border-Borders border-b-[1px] py-4 gap-1.5 last:border-none"
           >
-            <span className="text-SubTitle text-Disable">{item.title}</span>
-            <span className="text-SubTitle text-Secoundray">
+            <span className="text-SubTitle text-Disable text-nowrap">
+              {item.title}
+            </span>
+            <span className="text-SubTitle text-Secoundray text-start leading-6">
               {item.description}
             </span>
           </li>

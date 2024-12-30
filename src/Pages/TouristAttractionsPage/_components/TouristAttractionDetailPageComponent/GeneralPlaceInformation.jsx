@@ -36,10 +36,10 @@ export default function GeneralPlaceInformation({
   return (
     <Element
       name={sectionName}
-      className="w-full flex flex-col items-start gap-2.5 relative"
+      className="w-full flex flex-col items-start gap-2.5 relative sm:px-0 px-3"
     >
       <h2 className="text-Titles text-largTitle">{title}</h2>
-      <div className="absolute top-0 left-0 flex items-center gap-3">
+      <div className="md:absolute top-0 left-0 flex items-center gap-3">
         <button className="bg-[#FAFAFA] border-solid border-Borders border-[1px] rounded-lg hover:shadow-lg transition-all flex items-start p-1.5 gap-1">
           <MdOutlineReport className="text-2xl" />
           <span className="text-SubTitle text-Secoundray">
