@@ -59,7 +59,7 @@ export default function Navbar() {
         return "اماکن";
       case "/reports":
         return "گزارش برنامه";
-      case "/agencies":
+      case "/map":
         return "نقشه";
       case "/blogs":
         return "بلاگ";

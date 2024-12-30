@@ -1,7 +1,7 @@
-import Agencies from "./Pages/AgenciesPage/Agencies";
 import Blogs from "./Pages/BlogsPage/Blogs";
 import Contact from "./Pages/ContactPage/Contact";
 import Home from "./Pages/HomePage/Home";
+import Map from "./Pages/MapPage/Map";
 import Reports from "./Pages/ReportsPage/Reports";
 import AdvancedSearchPlaces from "./Pages/TouristAttractionsPage/_components/AdvancedSearchPlaces";
 import TouristAttractionsDetails from "./Pages/TouristAttractionsPage/_components/TouristAttractionsDetails";
@@ -33,8 +33,8 @@ const router = [
     element: <Reports />,
   },
   {
-    path: "/agencies",
-    element: <Agencies />,
+    path: "/map",
+    element: <Map />,
   },
   {
     path: "/blogs",

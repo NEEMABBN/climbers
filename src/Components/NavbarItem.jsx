@@ -45,7 +45,7 @@ export default function NavbarItem() {
         </li>
         <li>
           <NavLink
-            to="/agencies"
+            to="/map"
             className={({ isActive }) =>
               `${
                 isActive ? "text-Primary nav-link active" : "nav-link nav-link"
