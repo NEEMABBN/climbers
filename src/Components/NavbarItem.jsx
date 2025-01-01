@@ -81,7 +81,7 @@ export default function NavbarItem() {
         </li>
         <li>
           <NavLink
-            to="/contact"
+            to="/team"
             className={({ isActive }) =>
               `${
                 isActive ? "text-Primary nav-link active" : "nav-link nav-link"
@@ -93,7 +93,7 @@ export default function NavbarItem() {
         </li>
         <li>
           <NavLink
-            to="/somepage"
+            to="/store"
             className={({ isActive }) =>
               `${
                 isActive ? "text-Primary nav-link active" : "nav-link nav-link"

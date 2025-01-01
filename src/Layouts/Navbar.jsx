@@ -63,9 +63,9 @@ export default function Navbar() {
         return "نقشه";
       case "/blogs":
         return "بلاگ";
-      case "/contact":
+      case "/team":
         return "تیم‌ها";
-      case "/somePage":
+      case "/store":
         return "فروشگاه";
       default:
         return (

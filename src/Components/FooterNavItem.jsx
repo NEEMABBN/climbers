@@ -59,7 +59,7 @@ export default function FooterNavItem() {
         </li>
         <li>
           <NavLink
-            to="/contact"
+            to="/team"
             className={({ isActive }) =>
               `${isActive ? "text-Primary" : "text-Secoundray"} text-nowrap`
             }
@@ -69,7 +69,7 @@ export default function FooterNavItem() {
         </li>
         <li>
           <NavLink
-            to="/somepage"
+            to="/store"
             className={({ isActive }) =>
               `${isActive ? "text-Primary" : "text-Secoundray"} text-nowrap`
             }

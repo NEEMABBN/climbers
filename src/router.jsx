@@ -1,8 +1,9 @@
 import Blogs from "./Pages/BlogsPage/Blogs";
-import Contact from "./Pages/ContactPage/Contact";
 import Home from "./Pages/HomePage/Home";
 import Map from "./Pages/MapPage/Map";
 import Reports from "./Pages/ReportsPage/Reports";
+import StorePage from "./Pages/StorePage/StorePage";
+import Teams from "./Pages/TeamsPage/Teams";
 import AdvancedSearchPlaces from "./Pages/TouristAttractionsPage/_components/AdvancedSearchPlaces";
 import TouristAttractionsDetails from "./Pages/TouristAttractionsPage/_components/TouristAttractionsDetails";
 import TouristAttractions from "./Pages/TouristAttractionsPage/TouristAttractions";
@@ -41,8 +42,8 @@ const router = [
     element: <Blogs />,
   },
   {
-    path: "/contact",
-    element: <Contact />,
+    path: "/team",
+    element: <Teams />,
   },
   {
     path: "/tours/:id/submit-passengers",
@@ -59,6 +60,10 @@ const router = [
   {
     path: "/tours/*",
     element: <Tours />,
+  },
+  {
+    path: "/store",
+    element: <StorePage />,
   },
 ];
 
