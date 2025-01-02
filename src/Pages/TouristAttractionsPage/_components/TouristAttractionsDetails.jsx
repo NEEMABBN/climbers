@@ -7,6 +7,7 @@ import RoutesMap from "./TouristAttractionDetailPageComponent/RoutesMap";
 import TravelInformation from "./TouristAttractionDetailPageComponent/TravelInformation";
 import TourSimilarTouristPlaces from "./TouristAttractionDetailPageComponent/TourSimilarTouristPlaces";
 import TouristAttractionComments from "./TouristAttractionDetailPageComponent/TouristAttractionComments";
+import GpxSlider from "./TouristAttractionDetailPageComponent/GpxSlider";
 
 export default function TouristAttractionsDetails() {
   const helpSideMenu = [
@@ -43,6 +44,7 @@ export default function TouristAttractionsDetails() {
         />
         <Geography sectionName="جغرافیا" title="جغرافیا" />
         <RoutesMap />
+        <GpxSlider />
         <TravelInformation sectionName="اطلاعات مسیر" title="اطلاعات مسیر" />
         <TourSimilarTouristPlaces
           sectionName="تورهای مشابه"

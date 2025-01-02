@@ -113,3 +113,18 @@ select {
   background-repeat: no-repeat;
   background-size: 1.5em;
 }
+
+.swiper-pagination-progressbar {
+  bottom: 0px !important;
+  width: 100%;
+  top: 17.5rem !important;
+  height: 9px !important;
+  background-color: #e2e2e2 !important;
+  border-radius: 20px !important;
+  overflow: hidden;
+}
+
+.swiper-pagination-progressbar-fill {
+  background-color: #0e9a8a !important;
+  border-radius: 50rem !important;
+}

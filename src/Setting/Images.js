@@ -81,6 +81,7 @@ import ClimberShopIcon from "/src/assets/Images/ClimberShopIcon.svg"
 import CheckMarkIcon from "/src/assets/Images/checkMarkIcon.svg"
 import IslandImage from "/src/assets/Images/IslandImage.png"
 import MarkerIcon from "/src/assets/Images/MarkerIcon.svg"
+import NoteIcon from "/src/assets/Images/noteIcon(reports).svg"
 
 const Images = {
     Logo: Logo,
@@ -166,6 +167,7 @@ const Images = {
     CheckMarkIcon: CheckMarkIcon,
     IslandImage: IslandImage,
     MarkerIcon: MarkerIcon,
+    NoteIcon: NoteIcon,
 }
 
 export default Images;
